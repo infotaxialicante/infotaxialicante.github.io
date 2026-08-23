@@ -1,1 +1,21 @@
-title: InfoTaxi Alicante
+# Información general del sitio (conserva tus valores si ya los tenías)
+title: Infotaxialicante
+description: Guía de movilidad, tarifas, paradas y normativa del taxi en Alicante y provincia.
+url: "https://infotaxialicante.es"
+baseurl: ""
+
+# Paginación (8 artículos por página para la vista tipo Google)
+paginate: 8
+paginate_path: "/blog/pagina:num/"
+
+# Plugins oficiales para GitHub Pages
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Archivos a ignorar durante la compilación
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore

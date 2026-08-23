@@ -1,0 +1,6 @@
+{
+  "name": "Infotaxi Alicante",
+  "short_name": "Infotaxi",
+  "start_url": "/",
+  "display": "standalone"
+}
