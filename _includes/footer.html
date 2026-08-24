@@ -1,0 +1,19 @@
+<!-- Pie de página simplificado y ordenado -->
+<footer class="container">
+  <div class="footer-container">
+    <nav class="footer-nav">
+      {% if include.lang == 'en' %}
+        <a href="/en/legal-notice/">Legal Notice</a>
+        <a href="/en/about/">About Us</a>
+        <a href="/en/contact/">Contact</a>
+      {% else %}
+        <a href="/aviso-legal/">Aviso Legal</a>
+        <a href="/sobre-nosotros/">Sobre nosotros</a>
+        <a href="/contacto/">Contacto</a>
+      {% endif %}
+    </nav>
+    <div class="footer-copy">
+      <small>&copy; {{ "now" | date: "%Y" }} Infotaxi Alicante. Portal de información del sector del taxi.</small>
+    </div>
+  </div>
+</footer>

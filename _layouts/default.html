@@ -1,1 +1,103 @@
-<!-- Plantilla Base Default -->
+---
+---
+{% comment %}
+  Detección de idioma por ruta o Front Matter
+{% endcomment %}
+{% assign url_parts = page.url | split: '/' %}
+{% assign path_lang = url_parts[1] %}
+
+{% if path_lang.size == 2 %}
+  {% assign current_lang = path_lang %}
+{% else %}
+  {% assign current_lang = page.lang | default: site.lang | default: 'es' %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - Información Oficial del Taxi{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  {% comment %} SEO HREFLANG {% endcomment %}
+  {% if page.ref %}
+    {% assign translations = site.html_pages | where: "ref", page.ref %}
+    {% for item in translations %}
+      <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item.url | absolute_url }}">
+    {% endfor %}
+  {% endif %}
+
+  <!-- Hojas de estilo CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/pico.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicons/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicons/favicon-16x16.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicons/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+</head>
+<body>
+
+  <!-- Navegación Superior -->
+  <header class="container">
+    <nav>
+      <ul>
+        <li>
+          <a href="{% if current_lang == 'es' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: current_lang | append: '/' | relative_url }}{% endif %}" class="brand-logo">
+            <strong>infotaxialicante.es</strong>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Menú principal filtrado por idioma -->
+      <ul>
+        {% assign lang_pages = site.html_pages | where: "lang", current_lang %}
+        {% for nav_page in lang_pages %}
+          {% if nav_page.title and nav_page.show_in_nav != false %}
+            <li>
+              <a href="{{ nav_page.url | relative_url }}" class="{% if nav_page.url == page.url %}active{% endif %}">
+                {{ nav_page.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        <!-- Selector de idioma -->
+        {% if page.ref %}
+          {% assign page_translations = site.html_pages | where: "ref", page.ref %}
+          {% if page_translations.size > 1 %}
+            <li>
+              <details class="dropdown" style="margin-bottom: 0;">
+                <summary role="button" class="outline secondary" style="padding: 0.2rem 0.6rem; font-size: 0.85rem;">
+                  {{ current_lang | upcase }}
+                </summary>
+                <ul dir="rtl">
+                  {% for trans in page_translations %}
+                    <li>
+                      <a href="{{ trans.url | relative_url }}" class="{% if trans.lang == current_lang %}active{% endif %}" hreflang="{{ trans.lang }}">
+                        {{ trans.lang | upcase }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </details>
+            </li>
+          {% endif %}
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <!-- Pie de página modular -->
+  {% include footer.html lang=current_lang %}
+
+</body>
+</html>

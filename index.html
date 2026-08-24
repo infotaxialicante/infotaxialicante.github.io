@@ -1,40 +1,77 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoTaxi Alicante | Información sobre el servicio de taxi</title>
-  <meta name="description" content="Portal informativo e independiente sobre el servicio de taxi en Alicante. Consulta tarifas, paradas y normativa vigente.">
-  <link rel="stylesheet" href="/css/pico.min.css">
-</head>
-<body>
-  <header class="container" style="padding-top: 2rem; padding-bottom: 1rem;">
-    <nav>
-      <ul>
-        <li><strong>InfoTaxi Alicante</strong></li>
-      </ul>
-    </nav>
-  </header>
+---
+layout: default
+title: Inicio
+lang: es
+ref: home
+---
 
-  <main class="container">
-    <section style="text-align: center; padding: 3rem 0;">
-      <h1>Portal Informativo del Taxi en Alicante</h1>
-      <p>Estamos preparando un espacio independiente centrado en ofrecer información clara sobre el servicio de taxi en el municipio de Alicante: tarifas oficiales, localización de paradas, normativa y guías de interés para los usuarios.</p>
-      
-      <div style="margin-top: 2rem;">
-        <article>
-          <h3>Proyecto en desarrollo</h3>
-          <p>La web completa con la calculadora de tarifas interurbanas, el mapa interactivo de paradas y la guía de servicios estará disponible próximamente.</p>
-          <footer>
-            <small>Si necesitas contactar con la administración del portal, puedes escribir a: <strong>contacto@infotaxialicante.es</strong></small>
-          </footer>
-        </article>
+<!-- Banner Principal con Texto SUPERPUESTO -->
+<section class="hero-container">
+  <img src="/assets/img/ui/portada-alicante.webp" alt="Taxi Alicante" class="hero-image">
+  <div class="hero-overlay">
+    <h1>El Taxi en Alicante</h1>
+    <p>Tarifa oficial, calculadora de recorridos y paradas cercanas.</p>
+  </div>
+</section>
+
+<!-- Tarjetas de Acceso Rápido -->
+<section class="quick-access">
+  <div class="grid">
+    <article class="card-action">
+      <h3>Calculadora de Tarifas</h3>
+      <p>Estime el coste orientativo de su trayecto interurbano.</p>
+      <a href="/calculadora/" role="button" class="contrast">Calcular precio del taxi</a>
+    </article>
+
+    <article class="card-action">
+      <h3>Paradas de Taxi</h3>
+      <p>Consulte la ubicación y distribución de las paradas de taxi.</p>
+      <a href="/paradas/" role="button">Localizar parada cercana</a>
+    </article>
+  </div>
+</section>
+
+<!-- Sección Principal: Novedades + Sidebar -->
+<section class="main-content">
+  <div class="content-grid">
+    
+    <!-- Columna Izquierda: Últimas Novedades -->
+    <div class="articles-container">
+      <h2>Novedades y Noticias del Taxi</h2>
+      <div class="articles-grid">
+        {% for post in site.posts limit:4 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+            <div class="post-info">
+              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <small>{{ post.date | date: "%d/%m/%Y" }}</small>
+            </div>
+          </article>
+        {% else %}
+          <p>Próximamente publicaremos las primeras guías y novedades sobre el sector del taxi.</p>
+        {% endfor %}
       </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="container" style="text-align: center; padding: 2rem 0; border-top: 1px solid var(--pico-muted-border-color);">
-    <p><small>&copy; InfoTaxi Alicante. Portal web informativo e independiente.</small></p>
-  </footer>
-</body>
-</html>
+    <!-- Columna Derecha: Sidebar de Categorías -->
+    <aside class="sidebar">
+      <h3>Categorías</h3>
+      <ul class="categories-list">
+        {% for category in site.categories %}
+          {% capture category_name %}{{ category | first }}{% endcapture %}
+          <li>
+            <a href="/categorias/{{ category_name | slugify }}/">
+              {{ category_name }} <span class="category-count">({{ category[1].size }})</span>
+            </a>
+          </li>
+        {% else %}
+          <li><small>No hay categorías registradas.</small></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+  </div>
+</section>
