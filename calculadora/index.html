@@ -5,4 +5,65 @@ lang: es
 ref: calculator
 ---
 
-<h1>Calculadora</h1>
+<main class="container">
+    <h1>🚖 Estimador de precio – Servicio interurbano</h1>
+    <p>Selecciona los datos del trayecto y obtén una estimación orientativa.</p>
+
+    <form id="calculatorForm">
+
+        <!-- Momento del trayecto -->
+        <fieldset>
+            <legend>📅 Momento del trayecto</legend>
+            <label>
+                <input type="radio" name="timeMode" value="now" checked>
+                Ahora mismo
+            </label>
+            <label>
+                <input type="radio" name="timeMode" value="custom">
+                Personalizar fecha y hora
+            </label>
+            <div id="customTimeContainer" class="campo-oculto" style="margin-top: 0.5rem;">
+                <label for="customDateTime">Selecciona fecha y hora:</label>
+                <input type="datetime-local" id="customDateTime" step="60">
+            </div>
+        </fieldset>
+
+        <!-- Forma de solicitud -->
+        <fieldset>
+            <legend>📞 Forma de solicitud</legend>
+            <label>
+                <input type="checkbox" id="isRemoteRequest">
+                Solicitado por teléfono, WhatsApp o App (se aplica una <strong>bajada de bandera + recogida</strong> de 7,35 €)
+            </label>
+        </fieldset>
+
+        <!-- Destino / Distancia -->
+        <fieldset>
+            <legend>📍 Destino</legend>
+            <label for="destinoInput">Escribe el nombre del destino (mínimo 2 caracteres para sugerencias):</label>
+            <input type="text" id="destinoInput" list="destinosList" placeholder="Ej: Benidorm, Elche, Valencia..." autocomplete="off">
+            <div id="mensajeDestino" class="mensaje-ayuda"></div>
+
+            <div id="customKmContainer" class="campo-oculto" style="margin-top: 0.5rem;">
+                <label for="distanceManual">Distancia (km):</label>
+                <input type="number" id="distanceManual" step="0.1" min="0" value="0">
+                <small>Introduce la distancia en kilómetros</small>
+            </div>
+            <input type="hidden" id="distanciaSeleccionada" value="0">
+        </fieldset>
+
+        <button type="button" id="calcularBtn" class="primary">Calcular estimación</button>
+    </form>
+
+    <!-- Resultados -->
+    <div id="resultado"></div>
+    <div id="statusBox"></div>
+
+    <div class="disclaimer">
+        El precio es orientativo, el importe a cobrar será el que muestre el taxímetro por imperativo legal.
+    </div>
+</main>
+
+<!-- Enlazar CSS y JS desde assets -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>

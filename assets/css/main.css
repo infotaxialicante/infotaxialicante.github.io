@@ -199,3 +199,74 @@ header.container nav ul li a.active {
   border-bottom: 2px solid var(--pico-primary);
   padding-bottom: 0.25rem;
 }
+
+/* ============================================================
+   ESTILOS PARA LA CALCULADORA INTERURBANA
+   (Se asume que Pico.css ya está cargado en el layout global)
+   ============================================================ */
+
+.status-suplemento {
+    color: #d4351c;
+    font-weight: bold;
+}
+
+#resultado {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0a5b2e;
+    margin: 1rem 0;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 2rem;
+    border-top: 1px solid #dee2e6;
+    padding-top: 1rem;
+}
+
+#statusBox {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.campo-oculto {
+    display: none;
+}
+
+.etiqueta-tarifa {
+    font-weight: bold;
+}
+
+.mensaje-ayuda {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.mensaje-error {
+    color: #d4351c;
+}
+
+.mensaje-ok {
+    color: #0a5b2e;
+}
+
+.mensaje-info {
+    color: #6c757d;
+}
+
+/* Mejoras para móvil en el autocompletado */
+@media (max-width: 768px) {
+    .sugerencia-item {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        min-height: 48px !important; /* Mayor área de toque */
+    }
+    
+    #sugerenciasContainer {
+        max-height: 200px !important;
+        border-radius: 0 0 0.5rem 0.5rem !important;
+    }
+}
