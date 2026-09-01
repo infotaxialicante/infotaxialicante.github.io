@@ -54,7 +54,7 @@
 
 #statusBox {
   background: var(--mi-card-bg);
-  border: 1px solid var(--mi-border-color);
+  border: 1px solid var(--mi-muted-border);
   padding: 1rem;
   border-radius: var(--mi-border-radius);
   margin: 1rem 0;
@@ -96,37 +96,43 @@
   color: var(--mi-muted-color);
 }
 
-/* Autocompletado y Sugerencias */
+/* Autocompletado y Sugerencias desplegables */
 #sugerenciasContainer {
   background: var(--mi-card-bg);
-  border: 1px solid var(--mi-border-color);
+  border: 1px solid var(--mi-muted-border);
+  border-top: none;
   border-radius: 0 0 var(--mi-border-radius) var(--mi-border-radius);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 10;
 }
 
 .sugerencia-item {
   padding: 0.75rem 1rem;
   cursor: pointer;
   border-bottom: 1px solid var(--mi-muted-border);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .sugerencia-item:last-child {
   border-bottom: none;
 }
 
-.sugerencia-item:hover {
-  background: rgba(var(--mi-primary-rgb), 0.1);
+.sugerencia-item:hover,
+.sugerencia-item.sugerencia-activa {
+  background: rgba(var(--mi-primary-rgb, 16, 185, 129), 0.1);
   color: var(--mi-primary);
 }
 
-/* Ajustes Responsive para Móvil */
+/* Adaptación Responsive para Móvil */
 @media (max-width: 768px) {
   #sugerenciasContainer {
     max-height: 200px;
-    overflow-y: auto;
   }
 
   #sugerenciasContainer .sugerencia-item {
-    padding: 1rem;
+    padding: 0.85rem 1rem;
     font-size: 1rem;
     min-height: 48px;
     display: flex;
