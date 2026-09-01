@@ -1040,7 +1040,7 @@ main.container aside.sidebar span.category-count {
 footer {
   margin-top: 3rem;
   padding: 1.5rem 0;
-  border-top: 1px solid var(--mi-muted-border);
+  border-top: 1px solid var(--mi-border-color);
   width: 100%;
 }
 
@@ -1070,6 +1070,7 @@ footer .footer-nav a {
   text-decoration: none;
   font-size: 0.9rem;
   padding: 0.2rem 0.5rem;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 footer .footer-nav a:hover {
@@ -1080,7 +1081,7 @@ footer .footer-nav a:hover {
 footer .footer-copy {
   text-align: center;
   padding-top: 0.5rem;
-  border-top: 1px solid var(--mi-muted-border);
+  border-top: 1px solid var(--mi-border-color);
   width: 100%;
   max-width: 400px;
 }
@@ -1091,9 +1092,10 @@ footer .footer-copy small {
   white-space: normal;
 }
 
+/* Adaptación táctil para móviles */
 @media (max-width: 600px) {
   footer .footer-nav {
-    gap: 1rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -1102,15 +1104,14 @@ footer .footer-copy small {
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
     border: 1px solid var(--mi-border-color);
-    border-radius: 6px;
+    border-radius: var(--mi-border-radius, 6px);
     background: var(--mi-card-bg);
     text-align: center;
-    min-width: 80px;
   }
   
   footer .footer-nav a:hover {
-    background: rgba(var(--mi-primary-rgb), 0.05);
     border-color: var(--mi-primary);
+    color: var(--mi-primary);
     text-decoration: none;
   }
   
@@ -1125,13 +1126,12 @@ footer .footer-copy small {
 
 @media (max-width: 400px) {
   footer .footer-nav {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   footer .footer-nav a {
     font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-    min-width: 70px;
+    padding: 0.35rem 0.6rem;
   }
 }
 
