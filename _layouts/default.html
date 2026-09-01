@@ -19,12 +19,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - Información Oficial del Taxi{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-  {% comment %} SEO HREFLANG {% endcomment %}
+  {% comment %} SEO HREFLANG Y TRADUCCIONES {% endcomment %}
+  {% assign target_lang = 'en' %}
+  {% if current_lang == 'en' %}{% assign target_lang = 'es' %}{% endif %}
+  {% assign target_url = '/' %}
+  {% if target_lang == 'en' %}{% assign target_url = '/en/' %}{% endif %}
+
   {% if page.ref %}
     {% assign translations = site.html_pages | where: "ref", page.ref %}
     {% for item in translations %}
       <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item.url | absolute_url }}">
+      {% if item.lang == target_lang %}
+        {% assign target_url = item.url %}
+      {% endif %}
     {% endfor %}
   {% endif %}
 
@@ -41,28 +50,25 @@
 <body>
 
   <!-- ============================================================
-       HEADER CON HAMBURGUESA - VERSIÓN CORREGIDA
+       CABECERA Y NAVEGACIÓN
        ============================================================ -->
   <header class="container">
     <nav>
       <!-- Fila superior: logo + hamburguesa -->
       <div class="nav-header">
-        <!-- Logo a la IZQUIERDA -->
-        <a href="{% if current_lang == 'es' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: current_lang | append: '/' | relative_url }}{% endif %}" class="logo">
+        <a href="{% if current_lang == 'es' %}{{ '/' | relative_url }}{% else %}{{ '/en/' | relative_url }}{% endif %}" class="logo">
           <strong>infotaxialicante.es</strong>
         </a>
         
-        <!-- Hamburguesa a la DERECHA (solo visible en móvil) -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
       
-      <!-- Menú principal (se oculta en móvil, se muestra con JS) -->
+      <!-- Menú principal -->
       <ul class="nav-menu" id="navMenu">
-        <!-- Enlaces generados automáticamente por Jekyll -->
         {% assign lang_pages = site.html_pages | where: "lang", current_lang %}
         {% for nav_page in lang_pages %}
           {% if nav_page.title and nav_page.show_in_nav != false %}
@@ -74,19 +80,13 @@
           {% endif %}
         {% endfor %}
 
-        <!-- ============================================================
-             SELECTOR DE IDIOMA - SOLO BANDERA DEL OTRO IDIOMA
-             ============================================================ -->
+        <!-- Selector de idioma (redirige a la página equivalente si existe) -->
         <li class="lang-selector">
-          <a href="{% if current_lang == 'es' %}/en/{% else %}/{% endif %}" 
-             hreflang="{% if current_lang == 'es' %}en{% else %}es{% endif %}"
+          <a href="{{ target_url | relative_url }}" 
+             hreflang="{{ target_lang }}"
              class="lang-switch"
              title="{% if current_lang == 'es' %}Switch to English{% else %}Cambiar a Español{% endif %}">
-            {% if current_lang == 'es' %}
-              🇬🇧
-            {% else %}
-              🇪🇸
-            {% endif %}
+            {% if current_lang == 'es' %}🇬🇧{% else %}🇪🇸{% endif %}
           </a>
         </li>
       </ul>
@@ -101,7 +101,7 @@
   <!-- Pie de página modular -->
   {% include footer.html lang=current_lang %}
 
-  <!-- JavaScript para la hamburguesa -->
+  <!-- JavaScript principal -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
