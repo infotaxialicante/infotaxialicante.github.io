@@ -1,98 +1,135 @@
 /* ============================================================
    ESTILOS PARA LA CALCULADORA INTERURBANA
-   (Se asume que Pico.css ya está cargado en el layout global)
    ============================================================ */
 
+/* Colores Semánticos locales para mensajes y estados */
+:root {
+  --calc-danger: #d4351c;
+  --calc-success: #10b981;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --calc-danger: #ef4444;
+    --calc-success: #34d399;
+  }
+}
+
 .status-suplemento {
-    color: #d4351c;
-    font-weight: bold;
+  color: var(--calc-danger);
+  font-weight: bold;
 }
 
 #resultado {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0a5b2e;
-    margin: 1rem 0;
-    display: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--calc-success);
+  margin: 1rem 0;
+  display: none;
 }
 
 #resultado.resultado-visible {
-    display: block;
-    animation: fadeInResult 0.4s ease-in-out;
+  display: block;
+  animation: fadeInResult 0.4s ease-in-out;
 }
 
 @keyframes fadeInResult {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .disclaimer {
-    font-size: 0.85rem;
-    color: #6c757d;
-    margin-top: 2rem;
-    border-top: 1px solid #dee2e6;
-    padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--mi-muted-color);
+  margin-top: 2rem;
+  border-top: 1px solid var(--mi-muted-border);
+  padding-top: 1rem;
 }
 
 #statusBox {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin: 1rem 0;
-    visibility: hidden;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s ease;
+  background: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  padding: 1rem;
+  border-radius: var(--mi-border-radius);
+  margin: 1rem 0;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s ease;
 }
 
 #statusBox.status-visible {
-    visibility: visible;
-    opacity: 1;
-    max-height: 500px; /* Suficiente para todo el contenido */
+  visibility: visible;
+  opacity: 1;
+  max-height: 500px;
 }
 
 .campo-oculto {
-    display: none;
+  display: none;
 }
 
 .etiqueta-tarifa {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .mensaje-ayuda {
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
 }
 
 .mensaje-error {
-    color: #d4351c;
+  color: var(--calc-danger);
 }
 
 .mensaje-ok {
-    color: #0a5b2e;
+  color: var(--calc-success);
 }
 
 .mensaje-info {
-    color: #6c757d;
+  color: var(--mi-muted-color);
 }
 
-/* Mejoras para móvil en el autocompletado */
+/* Autocompletado y Sugerencias */
+#sugerenciasContainer {
+  background: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  border-radius: 0 0 var(--mi-border-radius) var(--mi-border-radius);
+}
+
+.sugerencia-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--mi-muted-border);
+}
+
+.sugerencia-item:last-child {
+  border-bottom: none;
+}
+
+.sugerencia-item:hover {
+  background: rgba(var(--mi-primary-rgb), 0.1);
+  color: var(--mi-primary);
+}
+
+/* Ajustes Responsive para Móvil */
 @media (max-width: 768px) {
-    .sugerencia-item {
-        padding: 1rem !important;
-        font-size: 1rem !important;
-        min-height: 48px !important; /* Mayor área de toque */
-    }
-    
-    #sugerenciasContainer {
-        max-height: 200px !important;
-        border-radius: 0 0 0.5rem 0.5rem !important;
-    }
+  #sugerenciasContainer {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  #sugerenciasContainer .sugerencia-item {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
 }
