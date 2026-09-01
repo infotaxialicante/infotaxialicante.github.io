@@ -595,8 +595,8 @@ main.container aside.sidebar span.category-count {
   background: var(--mi-card-bg);
   border-radius: var(--mi-border-radius);
   overflow: hidden;
-  border: 1px solid var(--mi-border-color);
-  transition: all 0.3s ease;
+  border: 1px solid var(--mi-muted-border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
@@ -613,6 +613,7 @@ main.container aside.sidebar span.category-count {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  display: block;
 }
 
 .blog-card-content {
@@ -669,15 +670,16 @@ main.container aside.sidebar span.category-count {
   color: var(--mi-primary);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   align-self: flex-start;
 }
 
 .blog-card-link:hover {
-  color: var(--mi-primary-hover);
+  color: var(--mi-primary-hover, var(--mi-primary));
   transform: translateX(4px);
 }
 
+/* Adaptación móvil */
 @media (max-width: 768px) {
   .blog-grid,
   .articles-grid {
