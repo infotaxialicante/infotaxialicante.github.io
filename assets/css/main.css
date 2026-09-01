@@ -1,4 +1,6 @@
-/* Hero Banner: Imagen completa con texto limpio flotando */
+/* ============================================================
+   1. HERO BANNER: Imagen completa con texto limpio flotando
+   ============================================================ */
 .hero-container {
   position: relative !important;
   border-radius: var(--pico-border-radius);
@@ -20,7 +22,7 @@
   bottom: 2rem !important;
   left: 2rem !important;
   right: 2rem !important;
-  background: transparent !important; /* Cero rectángulo */
+  background: transparent !important;
   padding: 0 !important;
   border: none !important;
   box-shadow: none !important;
@@ -29,7 +31,6 @@
   z-index: 10;
 }
 
-/* Texto blanco puro con sombra de alta contraste */
 .hero-overlay h1 {
   color: #ffffff !important;
   margin: 0 0 0.3rem 0 !important;
@@ -47,97 +48,487 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 3px 12px rgba(0, 0, 0, 0.9);
 }
 
-/* Ajustes para pantallas pequeñas */
+/* ============================================================
+   🔵 MEJORADO: Ajustes para pantallas pequeñas
+   ============================================================ */
 @media (max-width: 768px) {
   .hero-image {
-    height: 240px;
+    height: 240px; /* Altura fija en móvil */
+    object-fit: cover; /* ✅ Recorta pero SIN bordes negros */
+    background-color: transparent;
   }
+  
   .hero-overlay {
     bottom: 1rem !important;
     left: 1rem !important;
     right: 1rem !important;
   }
+  
   .hero-overlay h1 {
     font-size: 1.4rem !important;
   }
+  
   .hero-overlay p {
     font-size: 0.95rem !important;
   }
 }
 
-/* Estilos para el Footer */
-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--pico-muted-border-color);
+/* ============================================================
+   HEADER CON HAMBURGUESA - CON TRANSICIÓN SUAVE
+   ============================================================ */
+
+/* Contenedor principal del nav */
+header nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 0;
+  background: var(--pico-background-color);
+  border-bottom: 1px solid var(--pico-muted-border-color);
+  position: relative;
 }
 
-.footer-container {
+/* Fila superior: logo + hamburguesa */
+header .nav-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  width: 100%;
 }
 
-/* Enlaces del pie de página a la izquierda */
-.footer-nav {
+/* Logo a la izquierda */
+header .logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--pico-color);
+  text-decoration: none;
+  padding: 0;
+  line-height: 1.5;
+}
+
+header .logo:hover {
+  color: var(--pico-primary);
+}
+
+/* Hamburguesa a la derecha - VISIBLE */
+header .menu-toggle {
   display: flex;
-  gap: 1.5rem; /* Separación generosa entre enlaces */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: 2px solid var(--pico-color);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 6px;
+  z-index: 10;
+  margin-left: auto;
+  transition: border-color 0.3s ease;
+}
+
+header .menu-toggle:hover {
+  border-color: var(--pico-primary);
+}
+
+header .menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--pico-color);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Animación: hamburguesa → X con transición suave */
+header .menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  background: var(--pico-primary);
+}
+
+header .menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+header .menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background: var(--pico-primary);
+}
+
+header .menu-toggle.active {
+  border-color: var(--pico-primary);
+}
+
+/* Menú desplegable - Móvil (CON TRANSICIÓN SUAVE) */
+header .nav-menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  width: 100%;
+  gap: 0;
+  background: var(--pico-card-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--pico-border-color);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              transform 0.3s ease,
+              padding 0.3s ease,
+              gap 0.3s ease;
+  visibility: hidden;
+}
+
+header .nav-menu.open {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 0.5rem 0;
+  gap: 0.2rem;
+  visibility: visible;
+}
+
+header .nav-menu li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease 0.05s,
+              transform 0.3s ease 0.05s;
+  /* ✅ Separador entre enlaces */
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+header .nav-menu li:last-child {
+  border-bottom: none;
+}
+
+header .nav-menu.open li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Efecto escalonado para cada enlace */
+header .nav-menu li:nth-child(1) { transition-delay: 0.05s; }
+header .nav-menu li:nth-child(2) { transition-delay: 0.10s; }
+header .nav-menu li:nth-child(3) { transition-delay: 0.15s; }
+header .nav-menu li:nth-child(4) { transition-delay: 0.20s; }
+header .nav-menu li:nth-child(5) { transition-delay: 0.25s; }
+header .nav-menu li:nth-child(6) { transition-delay: 0.30s; }
+
+/* Cuando se cierra, los enlaces desaparecen más rápido */
+header .nav-menu:not(.open) li {
+  transition-delay: 0s !important;
+}
+
+/* ============================================================
+   ✅ ENLACES DEL MENÚ - SIN BORDE INFERIOR
+   ============================================================ */
+header .nav-menu a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: var(--pico-color);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  /* ❌ SIN border-bottom */
+  position: relative;
+}
+
+header .nav-menu a:hover {
+  background: rgba(var(--pico-primary-rgb), 0.08);
+  color: var(--pico-primary);
+}
+
+/* ============================================================
+   ✅ PÁGINA ACTIVA - UNA SOLA LÍNEA (SUBRAYADO)
+   ============================================================ */
+header .nav-menu a.active {
+  font-weight: 600;
+  color: var(--pico-primary);
+  background: rgba(var(--pico-primary-rgb), 0.05);
+}
+
+/* Subrayado inferior para la página activa - UNA SOLA LÍNEA */
+header .nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: var(--pico-primary);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+
+/* En móvil, el subrayado ocupa casi todo el ancho */
+@media (max-width: 768px) {
+  header .nav-menu a.active::after {
+    left: 5%;
+    width: 90%;
+  }
+}
+
+/* Selector de idioma en móvil */
+header .nav-menu .lang-selector {
+  margin-top: 0.3rem;
+  padding: 0 1rem;
+}
+
+header .nav-menu .lang-selector details {
+  width: 100%;
+}
+
+header .nav-menu .lang-selector summary {
+  justify-content: center;
+  width: 100%;
+}
+
+/* ============================================================
+   💻 DESKTOP: Menú horizontal a la derecha
+   ============================================================ */
+@media (min-width: 769px) {
+  /* Ocultar hamburguesa en desktop */
+  header .menu-toggle {
+    display: none !important;
+  }
+  
+  header nav {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.8rem 0 !important;
+  }
+  
+  header .nav-header {
+    width: auto !important;
+    flex-shrink: 0;
+  }
+  
+  header .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    width: auto !important;
+  }
+  
+  header .nav-menu li {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    border-bottom: none !important; /* ✅ Sin separador en desktop */
+  }
+  
+  header .nav-menu a {
+    display: inline-block !important;
+    padding: 0.3rem 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border-bottom: none !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    position: relative !important;
+  }
+  
+  header .nav-menu a:hover {
+    background: none !important;
+    color: var(--pico-primary) !important;
+  }
+  
+  /* Hover con subrayado */
+  header .nav-menu a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--pico-primary);
+    border-radius: 2px;
+  }
+  
+  /* ============================================================
+     ✅ PÁGINA ACTIVA EN DESKTOP - UNA SOLA LÍNEA
+     ============================================================ */
+  header .nav-menu a.active {
+    background: none !important;
+    border-left: none !important;
+    color: var(--pico-primary) !important;
+    font-weight: 600 !important;
+  }
+  
+  header .nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--pico-primary);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  /* Selector de idioma en desktop */
+  header .nav-menu .lang-selector {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  
+  header .nav-menu .lang-selector details {
+    width: auto !important;
+  }
+  
+  header .nav-menu .lang-selector summary {
+    width: auto !important;
+    padding: 0.2rem 0.6rem !important;
+  }
+}
+
+/* ============================================================
+   ESTILOS PARA EL FOOTER - VERSIÓN CORREGIDA
+   ============================================================ */
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--pico-muted-border-color);
+  width: 100%;
+}
+
+footer .footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+footer .footer-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
   margin: 0;
   padding: 0;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.footer-nav a {
+footer .footer-nav a {
   color: var(--pico-secondary);
   text-decoration: none;
   font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
 }
 
-.footer-nav a:hover {
+footer .footer-nav a:hover {
   color: var(--pico-primary);
   text-decoration: underline;
 }
 
-/* Copyright a la derecha */
-.footer-copy small {
+footer .footer-copy {
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+  width: 100%;
+  max-width: 400px;
+}
+
+footer .footer-copy small {
   color: var(--pico-muted-color);
   font-size: 0.85rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
-/* Ajuste responsive para móviles */
+/* ============================================================
+   📱 FOOTER EN MÓVIL - 3 enlaces en UNA LÍNEA
+   ============================================================ */
 @media (max-width: 600px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  footer .footer-nav {
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
-  .footer-nav {
-    justify-content: center;
-    gap: 1rem;
+  footer .footer-nav a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--pico-border-color);
+    border-radius: 6px;
+    background: var(--pico-card-background-color);
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  footer .footer-nav a:hover {
+    background: rgba(var(--pico-primary-rgb), 0.05);
+    border-color: var(--pico-primary);
+    text-decoration: none;
+  }
+  
+  footer .footer-copy {
+    max-width: 100%;
+  }
+  
+  footer .footer-copy small {
+    font-size: 0.8rem;
   }
 }
 
-/* --------------------------------------------------------------------------
-   3. DISTRIBUCIÓN DE CONTENIDO PRINCIPAL Y SIDEBAR (Grid de 2 Columnas)
-   -------------------------------------------------------------------------- */
+/* Para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  footer .footer-nav {
+    gap: 0.5rem;
+  }
+  
+  footer .footer-nav a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    min-width: 70px;
+  }
+}
+
+/* ============================================================
+   DISTRIBUCIÓN DE CONTENIDO PRINCIPAL Y SIDEBAR
+   ============================================================ */
 main.container div.content-grid {
   display: grid;
-  grid-template-columns: 1fr 300px; /* Novedades ocupa el espacio restante, Sidebar fija a 300px */
+  grid-template-columns: 1fr 300px;
   gap: 2.5rem;
   align-items: start;
   margin-top: 2rem;
 }
 
-/* Columna Izquierda: Novedades */
 main.container div.articles-container {
-  min-width: 0; /* Previene desbordamientos de texto en CSS Grid */
+  min-width: 0;
 }
 
-/* Columna Derecha: Sidebar de Categorías */
 main.container aside.sidebar {
   background-color: var(--pico-card-background-color);
   padding: 1.5rem;
@@ -182,91 +573,680 @@ main.container aside.sidebar span.category-count {
   color: var(--pico-muted-color);
 }
 
-/* Adaptación para pantallas móviles y tablets */
+/* ============================================================
+   🔵 MEJORADO: Adaptación para pantallas móviles y tablets
+   ============================================================ */
 @media (max-width: 850px) {
   main.container div.content-grid {
-    grid-template-columns: 1fr; /* Pasa a 1 sola columna en dispositivos móviles */
+    grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  main.container aside.sidebar {
+    padding: 1.5rem;
+  }
+  
+  main.container aside.sidebar h3 {
+    text-align: center;
+  }
+  
+  main.container aside.sidebar ul.categories-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  
+  main.container aside.sidebar ul.categories-list li {
+    border-bottom: none !important;
+    padding: 0 !important;
+  }
+  
+  main.container aside.sidebar ul.categories-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+    background: var(--pico-background-color);
+    border-radius: 8px;
+    border: 1px solid var(--pico-border-color);
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  main.container aside.sidebar ul.categories-list a:hover {
+    border-color: var(--pico-primary);
+    background: rgba(var(--pico-primary-rgb), 0.05);
+  }
+  
+  main.container aside.sidebar .category-count {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-top: 0.2rem;
   }
 }
 
-/* --------------------------------------------------------------------------
-   4. NAVEGACIÓN Y PESTAÑA ACTIVA
-   -------------------------------------------------------------------------- */
-header.container nav ul li a.active {
-  font-weight: 700;
-  color: var(--pico-primary);
-  border-bottom: 2px solid var(--pico-primary);
-  padding-bottom: 0.25rem;
+/* ============================================================
+   🟢 NUEVO: Tarjetas de acceso rápido apiladas en móvil
+   ============================================================ */
+@media (max-width: 768px) {
+  .quick-access .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .card-action {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .card-action h3 {
+    font-size: 1.2rem;
+  }
 }
 
 /* ============================================================
-   ESTILOS PARA LA CALCULADORA INTERURBANA
-   (Se asume que Pico.css ya está cargado en el layout global)
+   🟢 NUEVO: Artículos apilados en móvil
+   ============================================================ */
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .post-card {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--pico-border-color);
+  }
+  
+  .post-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+/* ============================================================
+   🍔 HAMBURGUESA - FUERZA BRUTA PARA QUE SEA VISIBLE
+   ============================================================ */
+header .menu-toggle {
+  border: 2px solid var(--pico-color) !important;
+  border-radius: 4px !important;
+  padding: 6px 8px !important;
+  background: transparent !important;
+}
+
+header .menu-toggle span {
+  background: var(--pico-color) !important;
+  height: 3px !important;
+}
+
+/* En móvil, asegurar que se ve */
+@media (max-width: 768px) {
+  header .menu-toggle {
+    display: flex !important;
+    border-color: var(--pico-primary) !important;
+  }
+  
+  header .menu-toggle span {
+    background: var(--pico-primary) !important;
+  }
+}
+
+/* ============================================================
+   SELECTOR DE IDIOMA - SOLO BANDERA DEL OTRO IDIOMA
    ============================================================ */
 
-.status-suplemento {
-    color: #d4351c;
-    font-weight: bold;
+/* Móvil: el selector de idioma en el menú */
+header .nav-menu .lang-selector {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem 0.3rem 1rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+  list-style: none;
 }
 
-#resultado {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0a5b2e;
-    margin: 1rem 0;
+/* Enlace de la bandera */
+header .nav-menu .lang-switch {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem !important;
+  padding: 0.3rem 0.8rem !important;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: rgba(var(--pico-primary-rgb), 0.05);
+  border: 1px solid var(--pico-border-color);
+  line-height: 1;
 }
 
-.disclaimer {
-    font-size: 0.85rem;
-    color: #6c757d;
-    margin-top: 2rem;
-    border-top: 1px solid #dee2e6;
-    padding-top: 1rem;
+header .nav-menu .lang-switch:hover {
+  background: rgba(var(--pico-primary-rgb), 0.12);
+  border-color: var(--pico-primary);
+  transform: scale(1.05);
 }
 
-#statusBox {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin: 1rem 0;
+header .nav-menu .lang-switch:active {
+  transform: scale(0.95);
 }
 
-.campo-oculto {
-    display: none;
+/* ============================================================
+   DESKTOP - Selector de idioma solo bandera
+   ============================================================ */
+@media (min-width: 769px) {
+  /* Ocultar la línea superior en desktop */
+  header .nav-menu .lang-selector {
+    margin-top: 0 !important;
+    padding: 0 !important;
+    border-top: none !important;
+  }
+  
+  /* Bandera en desktop - más pequeña y sin fondo */
+  header .nav-menu .lang-switch {
+    font-size: 1.4rem !important;
+    padding: 0.2rem 0.3rem !important;
+    background: transparent !important;
+    border: none !important;
+    transition: transform 0.3s ease !important;
+  }
+  
+  header .nav-menu .lang-switch:hover {
+    background: none !important;
+    border: none !important;
+    transform: scale(1.15) !important;
+  }
 }
 
-.etiqueta-tarifa {
-    font-weight: bold;
+/* ============================================================
+   ESTILOS PARA EL BLOG (LISTADO Y POST INDIVIDUAL)
+   ============================================================ */
+
+/* ============================================================
+   PÁGINA DEL BLOG (LISTADO)
+   ============================================================ */
+.blog-description {
+  font-size: 1.1rem;
+  color: var(--pico-muted-color);
+  margin-bottom: 2rem;
 }
 
-.mensaje-ayuda {
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
+/* Grid de posts */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
 }
 
-.mensaje-error {
-    color: #d4351c;
+/* Tarjeta de post */
+.blog-card {
+  background: var(--pico-card-background-color);
+  border-radius: var(--pico-border-radius);
+  overflow: hidden;
+  border: 1px solid var(--pico-border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.mensaje-ok {
-    color: #0a5b2e;
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--pico-primary);
 }
 
-.mensaje-info {
-    color: #6c757d;
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-/* Mejoras para móvil en el autocompletado */
+.blog-card-content {
+    padding: 1.5rem 1.5rem 1.2rem;  /* ← Aumenta el padding superior */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card-content h2 {
+  font-size: 1.2rem;
+    margin: 1rem 0 0.5rem 0;  /* ← Añade margen superior */
+  line-height: 1.3;
+}
+
+.blog-card-content h2 a {
+  color: var(--pico-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-card-content h2 a:hover {
+  color: var(--pico-primary);
+}
+
+.blog-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: var(--pico-muted-color);
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-meta a {
+  color: var(--pico-primary);
+  text-decoration: none;
+}
+
+.blog-card-meta a:hover {
+  text-decoration: underline;
+}
+
+.blog-card-content p {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--pico-muted-color);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.blog-card-link {
+  display: inline-block;
+  color: var(--pico-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.blog-card-link:hover {
+  color: var(--pico-primary-hover);
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   POST INDIVIDUAL
+   ============================================================ */
+.post-article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--pico-muted-border-color);
+  padding-bottom: 1rem;
+}
+
+.post-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--pico-muted-color);
+}
+
+.post-meta a {
+  color: var(--pico-primary);
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+/* Imagen destacada */
+.post-image {
+  margin: 1.5rem 0 2rem 0;
+  border-radius: var(--pico-border-radius);
+  overflow: hidden;
+}
+
+.post-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.post-image figcaption {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  background: var(--pico-card-background-color);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Contenido del post */
+.post-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.post-content h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.4rem;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--pico-primary);
+  padding: 0.8rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(var(--pico-primary-rgb), 0.05);
+  border-radius: 0 var(--pico-border-radius) var(--pico-border-radius) 0;
+  font-style: italic;
+}
+
+.post-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--pico-border-radius);
+  margin: 1.5rem 0;
+}
+
+.post-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+}
+
+.post-content table th,
+.post-content table td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--pico-muted-border-color);
+}
+
+.post-content table th {
+  background: var(--pico-card-background-color);
+  font-weight: 600;
+}
+
+/* ============================================================
+   COMPARTIR - DEFINITIVO (UNA LÍNEA EN TODOS LOS DISPOSITIVOS)
+   ============================================================ */
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--pico-muted-border-color);
+}
+
+.post-share {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.share-label {
+  font-weight: 600;
+  color: var(--pico-muted-color);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  background: var(--pico-card-background-color);
+  border: 1px solid var(--pico-border-color);
+  color: var(--pico-color);
+  opacity: 0.8;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.share-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.share-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  border-color: var(--pico-primary);
+}
+
+.share-btn.share-twitter:hover {
+  background: #000;
+  border-color: #000;
+  color: white;
+}
+
+.share-btn.share-facebook:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+  color: white;
+}
+
+.share-btn.share-whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: white;
+}
+
+.share-btn.share-email:hover {
+  background: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+/* ============================================================
+   MÓVIL
+   ============================================================ */
 @media (max-width: 768px) {
-    .sugerencia-item {
-        padding: 1rem !important;
-        font-size: 1rem !important;
-        min-height: 48px !important; /* Mayor área de toque */
-    }
-    
-    #sugerenciasContainer {
-        max-height: 200px !important;
-        border-radius: 0 0 0.5rem 0.5rem !important;
-    }
+  .post-share {
+    gap: 0.4rem;
+  }
+  
+  .share-label {
+    font-size: 0.8rem;
+  }
+  
+  .share-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+  
+  .share-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .share-label {
+    font-size: 0.7rem;
+  }
+  
+  .share-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+  
+  .share-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ============================================================
+   NAVEGACIÓN ENTRE POSTS
+   ============================================================ */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.post-navigation a {
+  color: var(--pico-color);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--pico-border-radius);
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  border: 1px solid var(--pico-border-color);
+}
+
+.post-navigation a:hover {
+  background: rgba(var(--pico-primary-rgb), 0.08);
+  border-color: var(--pico-primary);
+  color: var(--pico-primary);
+}
+
+.post-navigation .post-all {
+  background: var(--pico-primary);
+  color: white;
+  border-color: var(--pico-primary);
+}
+
+.post-navigation .post-all:hover {
+  background: var(--pico-primary-hover);
+  border-color: var(--pico-primary-hover);
+  color: white;
+}
+
+.post-navigation .post-prev,
+.post-navigation .post-next {
+  max-width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-card-image {
+    height: 160px;
+  }
+  
+  .post-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .post-meta {
+    font-size: 0.8rem;
+    gap: 0.5rem 1rem;
+  }
+  
+  .post-image img {
+    height: 200px;
+  }
+  
+  .post-content {
+    font-size: 0.95rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .share-buttons {
+    gap: 0.5rem;
+  }
+  
+  .share-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+  
+  .post-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .post-navigation a {
+    text-align: center;
+  }
+  
+  .post-navigation .post-prev,
+  .post-navigation .post-next {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 400px) {
+  .post-share {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .share-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
 }

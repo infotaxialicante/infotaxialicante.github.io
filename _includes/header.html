@@ -1,0 +1,21 @@
+<header>
+  <nav class="container">
+    <div class="nav-header">
+      <a href="/" class="logo">
+        <strong>infotaxialicante.es</strong>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Inicio</a></li>
+      <li><a href="/calculadora/" {% if page.url contains "/calculadora/" %}class="active"{% endif %}>Calculadora</a></li>
+      <li><a href="/paradas/" {% if page.url contains "/paradas/" %}class="active"{% endif %}>Paradas</a></li>
+      <li><a href="/blog/" {% if page.url contains "/blog/" %}class="active"{% endif %}>Blog</a></li>
+      <li><a href="/contacto/" {% if page.url contains "/contacto/" %}class="active"{% endif %}>Contacto</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,484 @@
+# ==============================================================================
+# PARADAS DEL ÁREA METROPOLITANA DE ALICANTE (infotaxialicante.es)
+# Municipios: Alicante, El Campello, Sant Vicent, Sant Joan, Mutxamel
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# MUNICIPIO: ALICANTE
+# ------------------------------------------------------------------------------
+- id: "ali-renfe"
+  municipio: "alicante"
+  nombre: "Estación RENFE / AVE"
+  direccion: "Avenida Salamanca, s/n"
+  zona: "centro"
+  lat: 38.345392
+  lng: -0.495378
+  pmr: true
+  telefono: "965252511"
+  keywords: ["tren"]
+
+- id: "ali-nuevo-san-blas"
+  municipio: "alicante"
+  nombre: "Centro Comercial Isla de Corfú"
+  direccion: "Avenida del Dr. Jiménez Díaz, 17"
+  zona: "san-blas"
+  lat: 38.354541
+  lng: -0.502440
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Nuevo San Blas", "Pau 2"]
+
+- id: "ali-san-blas"
+  municipio: "alicante"
+  nombre: "San Juan Bautista"
+  direccion: "Calle San Juan Bautista, 2"
+  zona: "san-blas"
+  lat: 38.348328
+  lng: -0.496178
+  pmr: true
+  telefono: "965252511"
+  keywords: ["San Blas"]
+
+- id: "ali-plaza-toros"
+  municipio: "alicante"
+  nombre: "Plaza de España / Plaza de Toros"
+  direccion: "Plaza de España, 1"
+  zona: "centro"
+  lat: 38.351278
+  lng: -0.484895
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-mercado"
+  municipio: "alicante"
+  nombre: "Mercado"
+  direccion: "Avenida de Alfonso X El Sabio, 9"
+  zona: "centro"
+  lat: 38.347919
+  lng: -0.485751
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Mercado Central"]
+
+- id: "ali-alfonso-el-sabio"
+  municipio: "alicante"
+  nombre: "Alfonso el Sabio"
+  direccion: "Avenida de Alfonso el Sabio, 27"
+  zona: "centro"
+  lat: 38.347147
+  lng: -0.487997
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Simago", "Esfera"]
+
+- id: "ali-calvo-sotelo"
+  municipio: "alicante"
+  nombre: "Plaza de Calvo Sotelo"
+  direccion: "Plaza de Calvo Sotelo, 2"
+  zona: "centro"
+  lat: 38.343705
+  lng: -0.487756
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Montañeta", "Hacienda", "Palomas"]
+
+- id: "ali-portugal"
+  municipio: "alicante"
+  nombre: "Portugal"
+  direccion: "Calle Portugal, 22"
+  zona: "centro"
+  lat: 38.341464
+  lng: -0.489818
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Antigua Estación de Autobuses", "Séneca"]
+
+- id: "ali-autobuses"
+  municipio: "alicante"
+  nombre: "Estación Autobuses"
+  direccion: "Muelle de Poniente, s/n"
+  zona: "puerto"
+  lat: 38.337818
+  lng: -0.491773
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-portal-de-elche"
+  municipio: "alicante"
+  nombre: "Portal de Elche"
+  direccion: "Rambla de Méndez Núñez, 7"
+  zona: "centro"
+  lat: 38.344953
+  lng: -0.483232
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-plaza-del-mar"
+  municipio: "alicante"
+  nombre: "Plaza del Mar"
+  direccion: "Plaza Puerta del Mar, 1"
+  zona: "puerto"
+  lat: 38.345222
+  lng: -0.480443
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Puerto"]
+
+- id: "ali-melia"
+  municipio: "alicante"
+  nombre: "Melia"
+  direccion: "Plaza Puerta del Mar, 3"
+  zona: "puerto"
+  lat: 38.343708
+  lng: -0.478941
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Plaza del Mar"]
+
+- id: "ali-marva"
+  municipio: "alicante"
+  nombre: "Marvá"
+  direccion: "Avenida General Marvá, 7"
+  zona: "centro"
+  lat: 38.347410
+  lng: -0.491386
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Luceros"]
+
+- id: "ali-corte-ingles"
+  municipio: "alicante"
+  nombre: "Corte Inglés"
+  direccion: "Calle Churruca, 41"
+  zona: "centro"
+  lat: 38.343338
+  lng: -0.493833
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-gomez-ulla"
+  municipio: "alicante"
+  nombre: "Plaza de Gómez Ulla"
+  direccion: "Plaza de Gómez Ulla, 1"
+  zona: "carolinas"
+  lat: 38.353569
+  lng: -0.476881
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Vithas Perpetuo Socorro"]
+
+- id: "ali-juzgados"
+  municipio: "alicante"
+  nombre: "Juzgados"
+  direccion: "Calle Pardo Gimeno, 53"
+  zona: "benalua"
+  lat: 38.342316
+  lng: -0.501764
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-puerta-de-alicante"
+  municipio: "alicante"
+  nombre: "Centro Comercial Puerta de Alicante"
+  direccion: "Calle de Rio Muni, 10"
+  zona: "babel"
+  lat: 38.342441
+  lng: -0.517068
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-san-mateo"
+  municipio: "alicante"
+  nombre: "San Mateo"
+  direccion: "Calle de San Mateo, 2"
+  zona: "carolinas"
+  lat: 38.356318
+  lng: -0.479804
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Mercado de Carolinas"]
+
+- id: "ali-pardo-bazan"
+  municipio: "alicante"
+  nombre: "Pardo Bazán"
+  direccion: "Calle de Pardo Bazán, 1"
+  zona: "los-angeles"
+  lat: 38.366899
+  lng: -0.495781
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Los Ángeles"]
+
+- id: "ali-padre-espla"
+  municipio: "alicante"
+  nombre: "Padre Esplá"
+  direccion: "Avenida del Padre Esplá, 58"
+  zona: "carolinas"
+  lat: 38.359076
+  lng: -0.473555
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-cruceros"
+  municipio: "alicante"
+  nombre: "Terminal de Cruceros"
+  direccion: "Muelle de Levante"
+  zona: "puerto"
+  nota: "⚠️ Servicio activo únicamente durante la atracada de cruceros"
+  lat: 38.333505
+  lng: -0.484203
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-manila"
+  municipio: "alicante"
+  nombre: "Manila"
+  direccion: "Calle de Góngora, 4"
+  zona: "carolinas"
+  lat: 38.359531
+  lng: -0.478250
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-hospital"
+  municipio: "alicante"
+  nombre: "Hospital Dr. Balmis (Puerta Principal)"
+  direccion: "Avenida Pintor Baeza, 12"
+  zona: "hospital"
+  lat: 38.364141
+  lng: -0.486704
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-consultas-externas"
+  municipio: "alicante"
+  nombre: "Hospital Dr. Balmis (Puerta Consultas Externas)"
+  direccion: "Avenida Maestro Alonso, s/n"
+  zona: "hospital"
+  lat: 38.364814
+  lng: -0.485331
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-gran-via"
+  municipio: "alicante"
+  nombre: "Centro Comercial Gran Vía"
+  direccion: "Calle José García Sellés, 1"
+  zona: "gran-via"
+  lat: 38.367943
+  lng: -0.470268
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-ambulatorio"
+  municipio: "alicante"
+  nombre: "Ambulatorio de Babel"
+  direccion: "Calle Vicente Chávarri, 17"
+  zona: "babel"
+  lat: 38.341796
+  lng: -0.509708
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-alcalde-carbonell"
+  municipio: "alicante"
+  nombre: "Alcalde Carbonell"
+  direccion: "Avenida Alcalde Carbonell, 55"
+  zona: "babel"
+  lat: 38.339406
+  lng: -0.513570
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-pino-santo"
+  municipio: "alicante"
+  nombre: "Pino Santo"
+  direccion: "Avenida del Pino Santo, 2"
+  zona: "virgen-del-remedio"
+  lat: 38.371824
+  lng: -0.486824
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-plaza-mar-2"
+  municipio: "alicante"
+  nombre: "Plaza Mar 2"
+  direccion: "Avenida de Dénia, s/n"
+  zona: "goteta"
+  lat: 38.355226
+  lng: -0.473061
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Alcampo", "Goteta"]
+
+- id: "ali-medimar"
+  municipio: "alicante"
+  nombre: "Clínica Medimar"
+  direccion: "Avenida del Padre Arrupe, 17"
+  zona: "goteta"
+  lat: 38.359137
+  lng: -0.467042
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Vithas Medimar", "San Carlos"]
+
+- id: "ali-aguamarga"
+  municipio: "alicante"
+  nombre: "Aguamarga"
+  direccion: "Calle Bélgica, 3"
+  zona: "aguamarga"
+  lat: 38.318778
+  lng: -0.517992
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Hotel Ibis"]
+
+- id: "ali-torregolf"
+  municipio: "alicante"
+  nombre: "Centro Comercial Torregolf"
+  direccion: "Avenida Historiador Vicente Ramos, 3"
+  zona: "albufera"
+  lat: 38.367405
+  lng: -0.430083
+  pmr: true
+  telefono: "965252511"
+  keywords: ["TorreMauro"]
+
+- id: "ali-fontana"
+  municipio: "alicante"
+  nombre: "Centro Comercial Fontana"
+  direccion: "Avenida de Holanda, 13"
+  zona: "san-juan-playa"
+  lat: 38.369625
+  lng: -0.414805
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-alicante-golf"
+  municipio: "alicante"
+  nombre: "Alicante Golf"
+  direccion: "Calle Escultor José Gutierrez, 21"
+  zona: "san-juan-playa"
+  lat: 38.376893
+  lng: -0.421071
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-costa-blanca"
+  municipio: "alicante"
+  nombre: "Costa Blanca"
+  direccion: "Avenida de Costa Blanca esq. Plaza de la Coruña"
+  zona: "san-juan-playa"
+  lat: 38.374665
+  lng: -0.412037
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Costablanca"]
+
+- id: "ali-cabo-huertas"
+  municipio: "alicante"
+  nombre: "Cabo de las Huertas"
+  direccion: "Calle del Palangre, 10"
+  zona: "cabo-huertas"
+  lat: 38.360738
+  lng: -0.424933
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-pau5"
+  municipio: "alicante"
+  nombre: "Pau 5"
+  direccion: "Avenida José Garberí Serrano, 16"
+  zona: "san-juan-playa"
+  lat: 38.387934
+  lng: -0.418168
+  pmr: true
+  telefono: "965252511"
+
+# ------------------------------------------------------------------------------
+# MUNICIPIO: EL CAMPELLO
+# ------------------------------------------------------------------------------
+- id: "cam-tranvia"
+  municipio: "el-campello"
+  nombre: "Estación TRAM"
+  direccion: "Avenida de la Estación, 2"
+  zona: "centro"
+  lat: 38.427729
+  lng: -0.395572
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Tranvía"]
+
+- id: "cam-muchavista"
+  municipio: "el-campello"
+  nombre: "Muchavista"
+  direccion: "Calle de Juan de la Cierva, 43"
+  zona: "playa"
+  lat: 38.387960
+  lng: -0.411289
+  pmr: true
+  telefono: "965252511"
+
+# ------------------------------------------------------------------------------
+# MUNICIPIO: SAN VICENTE DEL RASPEIG
+# ------------------------------------------------------------------------------
+- id: "svc-universidad"
+  municipio: "san-vicente"
+  nombre: "Universidad de Alicante (UA)"
+  direccion: "Avenida de Alicante esq. Calle Cottolengo"
+  zona: "universidad"
+  lat: 38.386957
+  lng: -0.509508
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Mad Pilots", "Tanatorio"]
+
+- id: "svc-centro"
+  municipio: "san-vicente"
+  nombre: "San Vicente"
+  direccion: "Avenida de la Libertad, 2"
+  zona: "centro"
+  lat: 38.397943
+  lng: -0.522276
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Correos", "Druni"]
+
+# ------------------------------------------------------------------------------
+# MUNICIPIO: SAN JUAN DE ALICANTE
+# ------------------------------------------------------------------------------
+- id: "sj-hospital"
+  municipio: "san-juan"
+  nombre: "Hospital Universitario San Juan"
+  direccion: "N-332, s/n (Junto a Puerta Principal)"
+  zona: "hospital-clinico"
+  lat: 38.389206
+  lng: -0.435577
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Clínico de San Juan"]
+
+- id: "sj-centro"
+  municipio: "san-juan"
+  nombre: "Jaime I / Plaza de Los Hierros"
+  direccion: "Calle de Jaime I, 12"
+  zona: "centro"
+  lat: 38.398027
+  lng: -0.434436
+  pmr: true
+  telefono: "965252511"
+
+
+# ------------------------------------------------------------------------------
+# MUNICIPIO: MUCHAMIEL
+# ------------------------------------------------------------------------------
+- id: "muc-ayuntamiento"
+  municipio: "muchamiel"
+  nombre: "Muchamiel"
+  direccion: "Calle Pío XII, 1C"
+  zona: "centro"
+  lat: 38.414734
+  lng: -0.444396
+  pmr: false
+  telefono: "965252511"
+  keywords: ["Ayuntamiento"]

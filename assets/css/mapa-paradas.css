@@ -1,0 +1,425 @@
+/* ==========================================================================
+   ESTILOS MAPA Y PARADAS DE TAXI (Pico.css Compatible)
+   ========================================================================== */
+
+/* ============================================================
+   1. PANEL DE CONTROLES
+   ============================================================ */
+
+.panel-controles-mapa {
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--pico-card-background-color, #f8f9fa);
+  border-radius: var(--pico-border-radius, 8px);
+}
+
+.panel-controles-mapa .grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.panel-controles-mapa label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.panel-controles-mapa select,
+.panel-controles-mapa input[type="search"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--pico-border-color, #ddd);
+  border-radius: var(--pico-border-radius, 6px);
+  font-size: 0.95rem;
+  background: var(--pico-background-color, #fff);
+  color: var(--pico-color, #222);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.panel-controles-mapa select:focus,
+.panel-controles-mapa input[type="search"]:focus {
+  border-color: var(--pico-primary, #007bff);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Switch PMR */
+.switch-pmr {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+}
+
+.switch-pmr input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+/* Contenedor de acciones */
+.contenedor-acciones-mapa {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pico-muted-border-color, #eee);
+}
+
+.contenedor-acciones-mapa button {
+  width: auto;
+  margin-bottom: 0;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--pico-border-color, #ddd);
+  border-radius: var(--pico-border-radius, 6px);
+  background: var(--pico-background-color, #fff);
+  color: var(--pico-color, #222);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.contenedor-acciones-mapa button:hover {
+  background: var(--pico-primary, #007bff);
+  color: #fff;
+  border-color: var(--pico-primary, #007bff);
+}
+
+.contenedor-acciones-mapa button.outline {
+  background: transparent;
+  border: 1px solid var(--pico-primary, #007bff);
+  color: var(--pico-primary, #007bff);
+}
+
+.contenedor-acciones-mapa button.outline:hover {
+  background: var(--pico-primary, #007bff);
+  color: #fff;
+}
+
+.contenedor-acciones-mapa button.secondary {
+  background: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+.contenedor-acciones-mapa button.secondary:hover {
+  background: #218838;
+  border-color: #218838;
+}
+
+/* ============================================================
+   2. CONTENEDOR DEL MAPA (LEAFLET)
+   ============================================================ */
+
+.mapa-paradas-container {
+  height: 520px;
+  width: 100%;
+  border-radius: var(--pico-border-radius, 8px);
+  border: 1px solid var(--pico-border-color, #ccc);
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ============================================================
+   3. POPUPS DE LEAFLET
+   ============================================================ */
+
+.popup-parada {
+  min-width: 200px;
+  font-family: inherit;
+}
+
+.popup-parada h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pico-color, #222);
+}
+
+.popup-parada .direccion {
+  margin: 0 0 0.25rem 0;
+  color: var(--pico-muted-color, #555);
+  font-size: 0.85rem;
+}
+
+.popup-parada .distancia {
+  margin: 0.15rem 0;
+  font-weight: bold;
+  color: var(--pico-primary, #007bff);
+  font-size: 0.85rem;
+}
+
+.popup-parada .badge-pmr {
+  margin: 0.15rem 0 0.4rem 0;
+  font-size: 0.8rem;
+}
+
+.popup-parada .badge-pmr.adaptada {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.popup-parada .badge-pmr.estandar {
+  color: var(--pico-muted-color, #666);
+}
+
+.popup-parada .badge-exacta {
+  display: inline-block;
+  background: #ff6b35;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.popup-parada .nota {
+  margin: 0.25rem 0;
+  color: var(--pico-del-color, #d9534f);
+  font-size: 0.85rem;
+}
+
+.popup-parada .acciones-popup {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.popup-parada .acciones-popup a {
+  padding: 0.35rem 0.5rem;
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: var(--pico-border-radius, 4px);
+  font-size: 0.8rem;
+  text-align: center;
+  flex: 1;
+  font-weight: 500;
+}
+
+.popup-parada .btn-pedir {
+  background-color: #2e7d32;
+}
+
+.popup-parada .btn-pedir:hover {
+  background-color: #1b5e20;
+}
+
+.popup-parada .btn-ir {
+  background-color: #007bff;
+}
+
+.popup-parada .btn-ir:hover {
+  background-color: #0069d9;
+}
+
+/* ============================================================
+   4. BUSCADOR CON SUGERENCIAS
+   ============================================================ */
+
+.buscador-con-sugerencias {
+  position: relative;
+}
+
+/* Lista de sugerencias */
+.sugerencias-lista {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--pico-card-background-color, #fff);
+  border: 1px solid var(--pico-border-color, #ddd);
+  border-radius: var(--pico-border-radius, 6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  margin-top: 4px;
+}
+
+/* Cada ítem de sugerencia */
+.sugerencia-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--pico-muted-border-color, #f0f0f0);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.sugerencia-item:hover {
+  background: var(--pico-muted-background-color, #f5f5f5);
+}
+
+.sugerencia-item:last-child {
+  border-bottom: none;
+}
+
+.sugerencia-nombre {
+  font-weight: 600;
+  flex: 1;
+  color: var(--pico-color, #222);
+}
+
+.sugerencia-direccion {
+  font-size: 0.85em;
+  color: var(--pico-muted-color, #666);
+  flex: 1;
+}
+
+.sugerencia-pmr {
+  color: #2e7d32;
+  font-size: 1.1em;
+}
+
+/* Scroll personalizado para sugerencias */
+.sugerencias-lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sugerencias-lista::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.sugerencias-lista::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Mensaje de sin resultados */
+.mensaje-sin-resultados {
+  margin-top: 0.5rem;
+  color: #d9534f;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   5. INDICADORES FLOTANTES (JS)
+   ============================================================ */
+
+#indicador-seleccion,
+#indicador-exacta-automatico {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: system-ui, sans-serif;
+  max-width: 90%;
+}
+
+#indicador-seleccion {
+  background: #2e7d32;
+  color: white;
+}
+
+#indicador-exacta-automatico {
+  background: #ff6b35;
+  color: white;
+  bottom: 80px;
+}
+
+#indicador-seleccion button,
+#indicador-exacta-automatico button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+#indicador-seleccion button:hover,
+#indicador-exacta-automatico button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   6. ANIMACIONES
+   ============================================================ */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sugerencias-lista,
+#indicador-seleccion,
+#indicador-exacta-automatico {
+  animation: slideUp 0.3s ease;
+}
+
+/* ============================================================
+   7. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 850px) {
+  .panel-controles-mapa .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .mapa-paradas-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mapa-paradas-container {
+    height: 350px;
+  }
+  
+  .panel-controles-mapa {
+    padding: 1rem;
+  }
+  
+  .contenedor-acciones-mapa {
+    flex-direction: column;
+  }
+  
+  .contenedor-acciones-mapa button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #indicador-seleccion,
+  #indicador-exacta-automatico {
+    font-size: 0.85em;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 10px;
+  }
+  
+  #indicador-exacta-automatico {
+    bottom: 70px;
+  }
+  
+  .sugerencia-item {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+}

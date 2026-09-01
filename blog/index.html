@@ -5,4 +5,32 @@ lang: es
 ref: blog
 ---
 
-<h1>Blog</h1>
+<h1>📰 Blog de InfoTaxi Alicante</h1>
+<p class="blog-description">Todas las noticias y novedades sobre el taxi en Alicante.</p>
+
+<div class="blog-grid">
+  {% for post in site.posts %}
+    <article class="blog-card">
+      {% if post.image %}
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-card-image" loading="lazy">
+      {% endif %}
+      <div class="blog-card-content">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="blog-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">📅 {{ post.date | date: "%d/%m/%Y" }}</time>
+          {% if post.categories.size > 0 %}
+            <span class="blog-card-categories">
+              📂 {% for category in post.categories %}
+                <a href="/categorias/{{ category | slugify }}/">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
+        <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        <a href="{{ post.url }}" class="blog-card-link">Leer más →</a>
+      </div>
+    </article>
+  {% else %}
+    <p>No hay artículos publicados aún. ¡Vuelve pronto!</p>
+  {% endfor %}
+</div>

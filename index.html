@@ -18,13 +18,13 @@ ref: home
 <section class="quick-access">
   <div class="grid">
     <article class="card-action">
-      <h3>Calculadora de Tarifas</h3>
+      <h3>🧮 Calculadora de Tarifas</h3>
       <p>Estime el coste orientativo de su trayecto interurbano.</p>
       <a href="/calculadora/" role="button" class="contrast">Calcular precio del taxi</a>
     </article>
 
     <article class="card-action">
-      <h3>Paradas de Taxi</h3>
+      <h3>📍 Paradas de Taxi</h3>
       <p>Consulte la ubicación y distribución de las paradas de taxi.</p>
       <a href="/paradas/" role="button">Localizar parada cercana</a>
     </article>
@@ -37,7 +37,7 @@ ref: home
     
     <!-- Columna Izquierda: Últimas Novedades -->
     <div class="articles-container">
-      <h2>Novedades y Noticias del Taxi</h2>
+      <h2>📰 Novedades y Noticias del Taxi</h2>
       <div class="articles-grid">
         {% for post in site.posts limit:4 %}
           <article class="post-card">
@@ -58,7 +58,7 @@ ref: home
 
     <!-- Columna Derecha: Sidebar de Categorías -->
     <aside class="sidebar">
-      <h3>Categorías</h3>
+      <h3>📂 Categorías</h3>
       <ul class="categories-list">
         {% for category in site.categories %}
           {% capture category_name %}{{ category | first }}{% endcapture %}

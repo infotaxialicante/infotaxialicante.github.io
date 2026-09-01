@@ -41,19 +41,29 @@
 </head>
 <body>
 
-  <!-- Navegación Superior -->
+  <!-- ============================================================
+       HEADER CON HAMBURGUESA - VERSIÓN CORREGIDA
+       ============================================================ -->
   <header class="container">
     <nav>
-      <ul>
-        <li>
-          <a href="{% if current_lang == 'es' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: current_lang | append: '/' | relative_url }}{% endif %}" class="brand-logo">
-            <strong>infotaxialicante.es</strong>
-          </a>
-        </li>
-      </ul>
-
-      <!-- Menú principal filtrado por idioma -->
-      <ul>
+      <!-- Fila superior: logo + hamburguesa -->
+      <div class="nav-header">
+        <!-- Logo a la IZQUIERDA -->
+        <a href="{% if current_lang == 'es' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: current_lang | append: '/' | relative_url }}{% endif %}" class="logo">
+          <strong>infotaxialicante.es</strong>
+        </a>
+        
+        <!-- Hamburguesa a la DERECHA (solo visible en móvil) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      <!-- Menú principal (se oculta en móvil, se muestra con JS) -->
+      <ul class="nav-menu" id="navMenu">
+        <!-- Enlaces generados automáticamente por Jekyll -->
         {% assign lang_pages = site.html_pages | where: "lang", current_lang %}
         {% for nav_page in lang_pages %}
           {% if nav_page.title and nav_page.show_in_nav != false %}
@@ -65,28 +75,21 @@
           {% endif %}
         {% endfor %}
 
-        <!-- Selector de idioma -->
-        {% if page.ref %}
-          {% assign page_translations = site.html_pages | where: "ref", page.ref %}
-          {% if page_translations.size > 1 %}
-            <li>
-              <details class="dropdown" style="margin-bottom: 0;">
-                <summary role="button" class="outline secondary" style="padding: 0.2rem 0.6rem; font-size: 0.85rem;">
-                  {{ current_lang | upcase }}
-                </summary>
-                <ul dir="rtl">
-                  {% for trans in page_translations %}
-                    <li>
-                      <a href="{{ trans.url | relative_url }}" class="{% if trans.lang == current_lang %}active{% endif %}" hreflang="{{ trans.lang }}">
-                        {{ trans.lang | upcase }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </details>
-            </li>
-          {% endif %}
-        {% endif %}
+        <!-- ============================================================
+             SELECTOR DE IDIOMA - SOLO BANDERA DEL OTRO IDIOMA
+             ============================================================ -->
+        <li class="lang-selector">
+          <a href="{% if current_lang == 'es' %}/en/{% else %}/{% endif %}" 
+             hreflang="{% if current_lang == 'es' %}en{% else %}es{% endif %}"
+             class="lang-switch"
+             title="{% if current_lang == 'es' %}Switch to English{% else %}Cambiar a Español{% endif %}">
+            {% if current_lang == 'es' %}
+              🇬🇧
+            {% else %}
+              🇪🇸
+            {% endif %}
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -99,5 +102,7 @@
   <!-- Pie de página modular -->
   {% include footer.html lang=current_lang %}
 
+  <!-- JavaScript para la hamburguesa -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
