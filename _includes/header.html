@@ -1,21 +1,30 @@
-<header>
-  <nav class="container">
+<header class="site-header">
+  <nav class="container nav-container">
     <div class="nav-header">
-      <a href="/" class="logo">
+      <a href="{% if include.lang == 'en' %}/en/{% else %}/{% endif %}" class="logo">
         <strong>infotaxialicante.es</strong>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
+
     <ul class="nav-menu" id="navMenu">
-      <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Inicio</a></li>
-      <li><a href="/calculadora/" {% if page.url contains "/calculadora/" %}class="active"{% endif %}>Calculadora</a></li>
-      <li><a href="/paradas/" {% if page.url contains "/paradas/" %}class="active"{% endif %}>Paradas</a></li>
-      <li><a href="/blog/" {% if page.url contains "/blog/" %}class="active"{% endif %}>Blog</a></li>
-      <li><a href="/contacto/" {% if page.url contains "/contacto/" %}class="active"{% endif %}>Contacto</a></li>
+      {% if include.lang == 'en' %}
+        <li><a href="/en/" {% if page.ref == 'home' or page.url == '/en/' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/en/calculator/" {% if page.ref == 'calculator' %}class="active"{% endif %}>Calculator</a></li>
+        <li><a href="/en/ranks/" {% if page.ref == 'ranks' %}class="active"{% endif %}>Ranks</a></li>
+        <li><a href="/en/blog/" {% if page.ref == 'blog' %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="/en/contact/" {% if page.ref == 'contact' %}class="active"{% endif %}>Contact</a></li>
+      {% else %}
+        <li><a href="/" {% if page.ref == 'home' or page.url == '/' %}class="active"{% endif %}>Inicio</a></li>
+        <li><a href="/calculadora/" {% if page.ref == 'calculator' %}class="active"{% endif %}>Calculadora</a></li>
+        <li><a href="/paradas/" {% if page.ref == 'ranks' or page.url contains '/paradas/' %}class="active"{% endif %}>Paradas</a></li>
+        <li><a href="/blog/" {% if page.ref == 'blog' or page.url contains '/blog/' %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="/contacto/" {% if page.ref == 'contact' or page.url contains '/contacto/' %}class="active"{% endif %}>Contacto</a></li>
+      {% endif %}
     </ul>
   </nav>
 </header>

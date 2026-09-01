@@ -144,7 +144,7 @@ header nav {
   flex-direction: column;
   padding: 0.8rem 0;
   background: var(--mi-bg-color);
-  border-bottom: 1px solid var(--mi-muted-border);
+  border-bottom: 1px solid var(--mi-border-color);
   position: relative;
 }
 
@@ -219,7 +219,7 @@ header .nav-menu {
   width: 100%;
   gap: 0;
   background: var(--mi-card-bg);
-  border-radius: var(--mi-border-radius);
+  border-radius: var(--mi-border-radius, 6px);
   border: 1px solid var(--mi-border-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   
@@ -251,7 +251,7 @@ header .nav-menu li {
   opacity: 0;
   transform: translateX(-10px);
   transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
-  border-bottom: 1px solid var(--mi-muted-border);
+  border-bottom: 1px solid var(--mi-border-color);
 }
 
 header .nav-menu li:last-child {
@@ -287,14 +287,14 @@ header .nav-menu a {
 }
 
 header .nav-menu a:hover {
-  background: rgba(var(--mi-primary-rgb), 0.08);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--mi-primary);
 }
 
 header .nav-menu a.active {
   font-weight: 600;
   color: var(--mi-primary);
-  background: rgba(var(--mi-primary-rgb), 0.05);
+  background: rgba(0, 0, 0, 0.03);
 }
 
 header .nav-menu a.active::after {
@@ -313,7 +313,7 @@ header .nav-menu a.active::after {
 header .nav-menu .lang-selector {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem 0.3rem 1rem;
-  border-top: 1px solid var(--mi-muted-border);
+  border-top: 1px solid var(--mi-border-color);
   list-style: none;
 }
 
@@ -326,13 +326,12 @@ header .nav-menu .lang-switch {
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease;
-  background: rgba(var(--mi-primary-rgb), 0.05);
+  background: var(--mi-card-bg);
   border: 1px solid var(--mi-border-color);
   line-height: 1;
 }
 
 header .nav-menu .lang-switch:hover {
-  background: rgba(var(--mi-primary-rgb), 0.12);
   border-color: var(--mi-primary);
   transform: scale(1.05);
 }
