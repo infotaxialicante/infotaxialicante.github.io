@@ -700,6 +700,7 @@ main.container aside.sidebar span.category-count {
   padding: 2rem 1rem;
 }
 
+/* Cabecera y Meta */
 .post-header {
   margin-bottom: 2rem;
   border-bottom: 2px solid var(--mi-muted-border);
@@ -730,6 +731,7 @@ main.container aside.sidebar span.category-count {
   text-decoration: underline;
 }
 
+/* Imagen destacada */
 .post-image {
   margin: 1.5rem 0 2rem 0;
   border-radius: var(--mi-border-radius);
@@ -752,6 +754,7 @@ main.container aside.sidebar span.category-count {
   font-style: italic;
 }
 
+/* Cuerpo del artículo (Markdown) */
 .post-content {
   font-size: 1.05rem;
   line-height: 1.8;
@@ -788,7 +791,7 @@ main.container aside.sidebar span.category-count {
   border-left: 4px solid var(--mi-primary);
   padding: 0.8rem 1.5rem;
   margin: 1.5rem 0;
-  background: rgba(var(--mi-primary-rgb), 0.05);
+  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.08);
   border-radius: 0 var(--mi-border-radius) var(--mi-border-radius) 0;
   font-style: italic;
 }
@@ -819,6 +822,75 @@ main.container aside.sidebar span.category-count {
 .post-content table th {
   background: var(--mi-card-bg);
   font-weight: 600;
+}
+
+/* Pie del artículo: Compartir y Navegación entre entradas */
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--mi-muted-border);
+}
+
+.post-share {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.share-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--mi-card-bg);
+  border: 1px solid var(--mi-muted-border);
+  color: var(--mi-color);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  color: var(--mi-primary);
+  border-color: var(--mi-primary);
+}
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.post-navigation a {
+  color: var(--mi-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-navigation a:hover {
+  text-decoration: underline;
+}
+
+/* Adaptación responsive para pantallas pequeñas */
+@media (max-width: 576px) {
+  .post-image img {
+    height: 240px;
+  }
+  
+  .post-header h1 {
+    font-size: 1.75rem;
+  }
 }
 
 /* ============================================================
