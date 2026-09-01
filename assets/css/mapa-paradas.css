@@ -1,6 +1,27 @@
 /* ==========================================================================
-   ESTILOS MAPA Y PARADAS DE TAXI (Pico.css Compatible)
+   ESTILOS MAPA Y PARADAS DE TAXI
    ========================================================================== */
+
+/* Colores Semánticos locales para estados y avisos */
+:root {
+  --map-success: #2e7d32;
+  --map-success-hover: #1b5e20;
+  --map-primary-btn: #10b981;
+  --map-primary-btn-hover: #059669;
+  --map-warning: #ff6b35;
+  --map-danger: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --map-success: #34d399;
+    --map-success-hover: #10b981;
+    --map-primary-btn: #34d399;
+    --map-primary-btn-hover: #10b981;
+    --map-warning: #f97316;
+    --map-danger: #f87171;
+  }
+}
 
 /* ============================================================
    1. PANEL DE CONTROLES
@@ -9,8 +30,9 @@
 .panel-controles-mapa {
   padding: 1.25rem;
   margin-bottom: 1.5rem;
-  background-color: var(--pico-card-background-color, #f8f9fa);
-  border-radius: var(--pico-border-radius, 8px);
+  background-color: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius);
 }
 
 .panel-controles-mapa .grid {
@@ -24,25 +46,26 @@
   display: block;
   margin-bottom: 0.3rem;
   font-weight: 500;
+  color: var(--mi-color);
 }
 
 .panel-controles-mapa select,
 .panel-controles-mapa input[type="search"] {
   width: 100%;
   padding: 0.6rem 0.8rem;
-  border: 1px solid var(--pico-border-color, #ddd);
-  border-radius: var(--pico-border-radius, 6px);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius);
   font-size: 0.95rem;
-  background: var(--pico-background-color, #fff);
-  color: var(--pico-color, #222);
+  background: var(--mi-bg-color);
+  color: var(--mi-color);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .panel-controles-mapa select:focus,
 .panel-controles-mapa input[type="search"]:focus {
-  border-color: var(--pico-primary, #007bff);
+  border-color: var(--mi-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--mi-primary-rgb), 0.15);
 }
 
 /* Switch PMR */
@@ -53,12 +76,14 @@
   cursor: pointer;
   padding: 0.5rem 0;
   margin-bottom: 0;
+  color: var(--mi-color);
 }
 
 .switch-pmr input[type="checkbox"] {
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
+  accent-color: var(--mi-primary);
 }
 
 /* Contenedor de acciones */
@@ -68,48 +93,49 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   padding-top: 1rem;
-  border-top: 1px solid var(--pico-muted-border-color, #eee);
+  border-top: 1px solid var(--mi-muted-border);
 }
 
 .contenedor-acciones-mapa button {
   width: auto;
   margin-bottom: 0;
   padding: 0.5rem 1.2rem;
-  border: 1px solid var(--pico-border-color, #ddd);
-  border-radius: var(--pico-border-radius, 6px);
-  background: var(--pico-background-color, #fff);
-  color: var(--pico-color, #222);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius);
+  background: var(--mi-bg-color);
+  color: var(--mi-color);
   cursor: pointer;
   font-size: 0.9rem;
-  transition: all 0.2s;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .contenedor-acciones-mapa button:hover {
-  background: var(--pico-primary, #007bff);
-  color: #fff;
-  border-color: var(--pico-primary, #007bff);
+  background: var(--mi-primary);
+  color: #ffffff;
+  border-color: var(--mi-primary);
 }
 
 .contenedor-acciones-mapa button.outline {
   background: transparent;
-  border: 1px solid var(--pico-primary, #007bff);
-  color: var(--pico-primary, #007bff);
+  border: 1px solid var(--mi-primary);
+  color: var(--mi-primary);
 }
 
 .contenedor-acciones-mapa button.outline:hover {
-  background: var(--pico-primary, #007bff);
-  color: #fff;
+  background: var(--mi-primary);
+  color: #ffffff;
 }
 
 .contenedor-acciones-mapa button.secondary {
-  background: #28a745;
-  color: #fff;
-  border-color: #28a745;
+  background: var(--map-success);
+  color: #ffffff;
+  border-color: var(--map-success);
 }
 
 .contenedor-acciones-mapa button.secondary:hover {
-  background: #218838;
-  border-color: #218838;
+  background: var(--map-success-hover);
+  border-color: var(--map-success-hover);
 }
 
 /* ============================================================
@@ -119,10 +145,18 @@
 .mapa-paradas-container {
   height: 520px;
   width: 100%;
-  border-radius: var(--pico-border-radius, 8px);
-  border: 1px solid var(--pico-border-color, #ccc);
+  border-radius: var(--mi-border-radius);
+  border: 1px solid var(--mi-border-color);
   z-index: 1;
   overflow: hidden;
+}
+
+/* Fix para Leaflet en modo oscuro */
+.leaflet-popup-content-wrapper, 
+.leaflet-popup-tip {
+  background: var(--mi-card-bg) !important;
+  color: var(--mi-color) !important;
+  border: 1px solid var(--mi-border-color);
 }
 
 /* ============================================================
@@ -138,19 +172,19 @@
   margin: 0 0 0.25rem 0;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--pico-color, #222);
+  color: var(--mi-color);
 }
 
 .popup-parada .direccion {
   margin: 0 0 0.25rem 0;
-  color: var(--pico-muted-color, #555);
+  color: var(--mi-muted-color);
   font-size: 0.85rem;
 }
 
 .popup-parada .distancia {
   margin: 0.15rem 0;
   font-weight: bold;
-  color: var(--pico-primary, #007bff);
+  color: var(--mi-primary);
   font-size: 0.85rem;
 }
 
@@ -160,18 +194,18 @@
 }
 
 .popup-parada .badge-pmr.adaptada {
-  color: #2e7d32;
+  color: var(--map-success);
   font-weight: 600;
 }
 
 .popup-parada .badge-pmr.estandar {
-  color: var(--pico-muted-color, #666);
+  color: var(--mi-muted-color);
 }
 
 .popup-parada .badge-exacta {
   display: inline-block;
-  background: #ff6b35;
-  color: white;
+  background: var(--map-warning);
+  color: #ffffff;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 0.75em;
@@ -181,7 +215,7 @@
 
 .popup-parada .nota {
   margin: 0.25rem 0;
-  color: var(--pico-del-color, #d9534f);
+  color: var(--map-danger);
   font-size: 0.85rem;
 }
 
@@ -195,27 +229,28 @@
   padding: 0.35rem 0.5rem;
   color: #ffffff !important;
   text-decoration: none;
-  border-radius: var(--pico-border-radius, 4px);
+  border-radius: var(--mi-border-radius);
   font-size: 0.8rem;
   text-align: center;
   flex: 1;
   font-weight: 500;
+  transition: background 0.2s ease;
 }
 
 .popup-parada .btn-pedir {
-  background-color: #2e7d32;
+  background-color: var(--map-success);
 }
 
 .popup-parada .btn-pedir:hover {
-  background-color: #1b5e20;
+  background-color: var(--map-success-hover);
 }
 
 .popup-parada .btn-ir {
-  background-color: #007bff;
+  background-color: var(--mi-primary);
 }
 
 .popup-parada .btn-ir:hover {
-  background-color: #0069d9;
+  background-color: var(--mi-primary-hover);
 }
 
 /* ============================================================
@@ -232,10 +267,10 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--pico-card-background-color, #fff);
-  border: 1px solid var(--pico-border-color, #ddd);
-  border-radius: var(--pico-border-radius, 6px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   max-height: 300px;
   overflow-y: auto;
   z-index: 1000;
@@ -247,15 +282,15 @@
 .sugerencia-item {
   padding: 10px 16px;
   cursor: pointer;
-  border-bottom: 1px solid var(--pico-muted-border-color, #f0f0f0);
+  border-bottom: 1px solid var(--mi-muted-border);
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 .sugerencia-item:hover {
-  background: var(--pico-muted-background-color, #f5f5f5);
+  background: rgba(var(--mi-primary-rgb), 0.08);
 }
 
 .sugerencia-item:last-child {
@@ -265,17 +300,17 @@
 .sugerencia-nombre {
   font-weight: 600;
   flex: 1;
-  color: var(--pico-color, #222);
+  color: var(--mi-color);
 }
 
 .sugerencia-direccion {
   font-size: 0.85em;
-  color: var(--pico-muted-color, #666);
+  color: var(--mi-muted-color);
   flex: 1;
 }
 
 .sugerencia-pmr {
-  color: #2e7d32;
+  color: var(--map-success);
   font-size: 1.1em;
 }
 
@@ -285,18 +320,14 @@
 }
 
 .sugerencias-lista::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--mi-muted-color);
   border-radius: 3px;
-}
-
-.sugerencias-lista::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
 }
 
 /* Mensaje de sin resultados */
 .mensaje-sin-resultados {
   margin-top: 0.5rem;
-  color: #d9534f;
+  color: var(--map-danger);
   font-size: 0.9rem;
 }
 
@@ -311,43 +342,43 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: var(--mi-border-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: system-ui, sans-serif;
+  font-family: inherit;
   max-width: 90%;
 }
 
 #indicador-seleccion {
-  background: #2e7d32;
-  color: white;
+  background: var(--map-success);
+  color: #ffffff;
 }
 
 #indicador-exacta-automatico {
-  background: #ff6b35;
-  color: white;
+  background: var(--map-warning);
+  color: #ffffff;
   bottom: 80px;
 }
 
 #indicador-seleccion button,
 #indicador-exacta-automatico button {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   border: none;
-  color: white;
+  color: #ffffff;
   padding: 4px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.9em;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
   white-space: nowrap;
 }
 
 #indicador-seleccion button:hover,
 #indicador-exacta-automatico button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* ============================================================
