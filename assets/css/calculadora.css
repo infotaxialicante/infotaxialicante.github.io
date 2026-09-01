@@ -133,3 +133,8 @@
     align-items: center;
   }
 }
+
+/* Utilidades de formulario */
+.espacio-superior {
+  margin-top: 0.5rem;
+}
