@@ -1290,3 +1290,102 @@ footer .footer-copy small {
   border-color: var(--mi-primary);
   color: var(--mi-primary);
 }
+
+/* ==========================================================================
+   ESTILOS PÁGINA 404
+   ========================================================================== */
+
+.error-404-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.error-404-content {
+  max-width: 550px;
+  background-color: var(--mi-card-bg);
+  border: 1px solid var(--mi-muted-border);
+  border-radius: var(--mi-border-radius);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.error-badge {
+  display: inline-block;
+  background-color: rgba(var(--mi-primary-rgb, 16, 185, 129), 0.12);
+  color: var(--mi-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.error-404-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--mi-color);
+  margin-bottom: 1rem;
+}
+
+.error-descripcion {
+  color: var(--mi-muted-color);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.error-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-acciones a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--mi-border-radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.error-acciones .btn-principal {
+  background-color: var(--mi-primary);
+  color: #ffffff;
+  border: 1px solid var(--mi-primary);
+}
+
+.error-acciones .btn-principal:hover {
+  filter: brightness(0.9);
+}
+
+.error-acciones .btn-secundario {
+  background-color: transparent;
+  color: var(--mi-color);
+  border: 1px solid var(--mi-muted-border);
+}
+
+.error-acciones .btn-secundario:hover {
+  border-color: var(--mi-primary);
+  color: var(--mi-primary);
+}
+
+.error-ayuda {
+  border-top: 1px solid var(--mi-muted-border);
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.error-ayuda p {
+  font-size: 0.85rem;
+  color: var(--mi-muted-color);
+  margin: 0;
+}

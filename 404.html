@@ -1,5 +1,35 @@
 ---
 layout: default
 title: Página no encontrada
+permalink: /404.html
+lang: es
+ref: error-404
 ---
-<h1>Error 404</h1>
+
+<div class="error-404-container">
+  <div class="error-404-content">
+    <div class="error-badge">Error 404</div>
+    <h1>¡Vaya ruta equivocada!</h1>
+    <p class="error-descripcion">
+      Parece que la dirección que buscas no existe, se ha movido o el taxista se ha metido por una calle cortada.
+    </p>
+
+    <!-- Opciones de navegación rápida -->
+    <div class="error-acciones">
+      <a href="{{ '/' | relative_url }}" class="btn-principal">
+        🏠 Ir a la página principal
+      </a>
+      <a href="{{ '/paradas/' | relative_url }}" class="btn-secundario">
+        📍 Ver mapa de paradas
+      </a>
+      <a href="{{ '/calculadora/' | relative_url }}" class="btn-secundario">
+        🧮 Calcular tarifa
+      </a>
+    </div>
+
+    <!-- Buscador o sugerencia de ayuda -->
+    <div class="error-ayuda">
+      <p>¿Buscas una parada o tarifa concreta? Usa nuestro menú superior o vuelve atrás para reintentarlo.</p>
+    </div>
+  </div>
+</div>
