@@ -1,1 +1,49 @@
+---
+layout: default
+title: "Categoría - Infotaxi Alicante"
+category_name: "Tarifas y precios"
+lang: es
+show_in_nav: false
+---
 
+<div class="category-archive-container">
+  <!-- Cabecera de la Categoría -->
+  <header class="category-header mb-4">
+    <h1>{{ page.category_name }}</h1>
+    <p class="text-muted">Explora los artículos publicados en esta sección o utiliza las etiquetas para filtrar el contenido.</p>
+  </header>
+
+  <div class="content-grid-with-sidebar">
+    
+    <!-- Columna Principal: Listado de Artículos de la Categoría (De 8 en 8) -->
+    <main class="articles-list-container">
+      <div class="articles-grid">
+        {% assign target_cat = page.category_name %}
+        {% assign category_posts = site.posts | where: "category", target_cat | where: "lang", "es" %}
+        
+        {% for post in category_posts limit:8 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+            <div class="post-info">
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <div class="post-meta">
+                <small>{{ post.date | date: "%d/%m/%Y" }}</small>
+              </div>
+            </div>
+          </article>
+        {% else %}
+          <p>Próximamente publicaremos artículos en esta categoría.</p>
+        {% endfor %}
+      </div>
+    </main>
+
+    <!-- Columna Lateral: Nube de Tags reutilizable -->
+    <aside class="sidebar-widget">
+      {% include tag-cloud.html %}
+    </aside>
+
+  </div>
+</div>

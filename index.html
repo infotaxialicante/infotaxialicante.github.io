@@ -40,7 +40,8 @@ show_in_nav: false
     <div class="articles-container">
       <h2>📰 Novedades y Noticias del Taxi</h2>
       <div class="articles-grid">
-        {% for post in site.posts limit:4 %}
+        {% assign spanish_posts = site.posts | where: "lang", "es" %}
+        {% for post in spanish_posts limit:4 %}
           <article class="post-card">
             {% if post.image %}
               <img src="{{ post.image }}" alt="{{ post.title }}" class="post-thumbnail">
@@ -61,16 +62,25 @@ show_in_nav: false
     <aside class="sidebar">
       <h3>📂 Categorías</h3>
       <ul class="categories-list">
+        {% assign has_categories = false %}
         {% for category in site.categories %}
-          {% capture category_name %}{{ category | first }}{% endcapture %}
-          <li>
-            <a href="/categorias/{{ category_name | slugify }}/">
-              {{ category_name }} <span class="category-count">({{ category[1].size }})</span>
-            </a>
-          </li>
-        {% else %}
-          <li><small>No hay categorías registradas.</small></li>
+          {% assign cat_name = category[0] %}
+          {% assign es_posts_in_cat = category[1] | where: "lang", "es" %}
+          
+          {% if es_posts_in_cat.size > 0 %}
+            {% assign has_categories = true %}
+            {% assign cat_slug = cat_name | slugify %}
+            <li>
+              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">
+                {{ cat_name }} <span class="category-count">({{ es_posts_in_cat.size }})</span>
+              </a>
+            </li>
+          {% endif %}
         {% endfor %}
+        
+        {% unless has_categories %}
+          <li><small>No hay categorías registradas.</small></li>
+        {% endunless %}
       </ul>
     </aside>
 

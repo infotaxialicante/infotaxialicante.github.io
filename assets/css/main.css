@@ -1411,3 +1411,40 @@ footer .footer-copy small {
   color: var(--mi-muted-color);
   margin: 0;
 }
+
+/* ==============================
+ESTILOS BACK BUTTON (AZUL ALICANTE)
+=================================*/
+.back-link-container {
+  margin: 1.5rem 0;
+}
+.back-link-container.text-left { text-align: left; }
+.back-link-container.text-right { text-align: right; }
+.back-link-container.text-center { text-align: center; }
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff; /* Texto en blanco para contraste */
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  background: #0055a5; /* Azul Alicante / Azul institucional */
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #003f7d; /* Un tono un poco más oscuro al pasar el ratón */
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Control del icono SVG en blanco */
+.back-btn svg.back-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor; /* Hereda el blanco del texto */
+}

@@ -1,0 +1,8 @@
+<a href="javascript:history.back()" class="back-btn">
+  <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 14L4 9l5-5"/>
+    <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
+  </svg>
+  {% assign current_lang = page.lang | default: site.lang | default: 'es' %}
+  {% if current_lang == 'en' %}Back{% else %}Volver{% endif %}
+</a>

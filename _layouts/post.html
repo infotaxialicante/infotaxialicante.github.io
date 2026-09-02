@@ -12,16 +12,22 @@ layout: default
         📅 {{ page.date | date: "%d/%m/%Y" }}
       </time>
       {% if page.author %}
-        <span class="post-author">✍️ {{ page.author }}</span>
+        <span class="post-author">
+          ✍️ 
+          <a href="{% if current_lang == 'en' %}{{ '/en/about/' | relative_url }}{% else %}{{ '/sobre-nosotros/' | relative_url }}{% endif %}">
+            {{ page.author }}
+          </a>
+        </span>
       {% endif %}
       {% if page.categories.size > 0 %}
         <span class="post-categories">
           📂 
           {% for category in page.categories %}
+            {% assign cat_slug = category | downcase | replace: ' ', '-' | replace: 'á', 'a' | replace: 'é', 'e' | replace: 'í', 'i' | replace: 'ó', 'o' | replace: 'ú', 'u' %}
             {% if current_lang == 'en' %}
-              <a href="{{ '/en/categories/' | append: category | slugify | append: '/' | relative_url }}">{{ category }}</a>
+              <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ category }}</a>
             {% else %}
-              <a href="{{ '/categorias/' | append: category | slugify | append: '/' | relative_url }}">{{ category }}</a>
+              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">{{ category }}</a>
             {% endif %}
             {% unless forloop.last %}, {% endunless %}
           {% endfor %}
@@ -67,16 +73,32 @@ layout: default
 
     <!-- NAVEGACIÓN ENTRE ARTÍCULOS -->
     <nav class="post-navigation">
-      {% if page.previous %}
-        <a href="{{ page.previous.url | relative_url }}" class="post-prev">← {{ page.previous.title }}</a>
+      {% assign lang_posts = site.posts | where: "lang", current_lang %}
+      {% for p in lang_posts %}
+        {% if p.url == page.url %}
+          {% assign current_index = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign prev_index = current_index | plus: 1 %}
+      {% assign next_index = current_index | minus: 1 %}
+
+      {% if prev_index < lang_posts.size %}
+        {% assign prev_post = lang_posts[prev_index] %}
+        <a href="{{ prev_post.url | relative_url }}" class="post-prev">← {{ prev_post.title }}</a>
+      {% else %}
+        <span class="post-prev-empty"></span>
       {% endif %}
       
       <a href="{% if current_lang == 'en' %}{{ '/en/blog/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}" class="post-all">
         {% if current_lang == 'en' %}📋 View all{% else %}📋 Ver todos{% endif %}
       </a>
       
-      {% if page.next %}
-        <a href="{{ page.next.url | relative_url }}" class="post-next">{{ page.next.title }} →</a>
+      {% if next_index >= 0 %}
+        {% assign next_post = lang_posts[next_index] %}
+        <a href="{{ next_post.url | relative_url }}" class="post-next">{{ next_post.title }} →</a>
+      {% else %}
+        <span class="post-next-empty"></span>
       {% endif %}
     </nav>
   </footer>
