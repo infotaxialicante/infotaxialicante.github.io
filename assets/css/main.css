@@ -73,7 +73,8 @@ body {
   position: relative;
   border-radius: var(--mi-border-radius);
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-top: 2rem;   /* <--- Añadimos esto para separarlo de la navegación de arriba */
+  margin-bottom: 2.5rem; /* <--- Ampliamos un pelín para que respire hacia las tarjetas */
   width: 100%;
 }
 
@@ -166,6 +167,14 @@ header .logo {
 
 header .logo:hover {
   color: var(--mi-primary);
+}
+
+/* ============================================================
+   RESPIRACIÓN SUPERIOR PARA EL HEADER
+   ============================================================ */
+header.container {
+  margin-top: 1.5rem;   /* Separa la cabecera del borde superior del navegador */
+  margin-bottom: 1.5rem; /* Separa la cabecera de lo que viene abajo (el Hero) */
 }
 
 /* Botón Hamburguesa */
@@ -556,26 +565,82 @@ main.container aside.sidebar span.category-count {
   }
 }
 
-/* ACCESO RÁPIDO EN MÓVIL */
+/* ============================================================
+   5.a. TARJETAS DE ACCESO RÁPIDO (Calculadora y Paradas)
+   ============================================================ */
+.quick-access {
+  margin: 3rem auto;
+  max-width: 1100px; /* Restringe el ancho total para que no se estiren demasiado en pantallas grandes */
+  padding: 0 1rem;
+}
+
+.quick-access .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card-action {
+  background-color: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius);
+  padding: 2.2rem; /* Un poco más de margen interno para que respire mejor en PC */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* Sombra más visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-action h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--mi-color);
+}
+
+.card-action p {
+  color: var(--mi-muted-color);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.card-action a[role="button"] {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--mi-border-radius);
+  transition: background-color 0.2s ease;
+}
+
+/* Adaptación móvil */
 @media (max-width: 768px) {
+  .quick-access {
+    max-width: 100%;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
   .quick-access .grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 0 1rem;
   }
   
   .card-action {
     padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .card-action h3 {
-    font-size: 1.2rem;
   }
 }
 
 /* ============================================================
-   6. SECCIÓN BLOG (LISTADO DE PUBLICACIONES)
+   6. SECCIÓN BLOG Y ARTÍCULOS DE PORTADA
    ============================================================ */
 .blog-description {
   font-size: 1.1rem;
@@ -583,11 +648,18 @@ main.container aside.sidebar span.category-count {
   margin-bottom: 2rem;
 }
 
-.blog-grid,
-.articles-grid {
+/* Rejilla fluida para la página general del Blog */
+.blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+}
+
+/* Rejilla fija de 2 columnas exclusivamente para la Portada (Inicio) */
+.content-grid .articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .blog-card,
@@ -599,6 +671,7 @@ main.container aside.sidebar span.category-count {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .blog-card:hover,
@@ -616,26 +689,31 @@ main.container aside.sidebar span.category-count {
   display: block;
 }
 
-.blog-card-content {
+.blog-card-content,
+.post-info {
   padding: 1.5rem 1.5rem 1.2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.blog-card-content h2 {
+.blog-card-content h2,
+.post-info h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
   line-height: 1.3;
 }
 
-.blog-card-content h2 a {
+.blog-card-content h2 a,
+.post-info h3 a {
   color: var(--mi-color);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.blog-card-content h2 a:hover {
+.blog-card-content h2 a:hover,
+.post-info h3 a:hover {
   color: var(--mi-primary);
 }
 
@@ -657,12 +735,21 @@ main.container aside.sidebar span.category-count {
   text-decoration: underline;
 }
 
-.blog-card-content p {
+.blog-card-content p,
+.post-info p {
   flex: 1;
   font-size: 0.9rem;
   color: var(--mi-muted-color);
   margin-bottom: 1rem;
   line-height: 1.5;
+}
+
+/* Estilo para las fechas pequeñas de la portada si usas <small> */
+.post-info small {
+  font-size: 0.8rem;
+  color: var(--mi-muted-color);
+  display: block;
+  margin-top: auto;
 }
 
 .blog-card-link {
@@ -679,10 +766,10 @@ main.container aside.sidebar span.category-count {
   transform: translateX(4px);
 }
 
-/* Adaptación móvil */
-@media (max-width: 768px) {
+/* Adaptación móvil para ambas vistas */
+@media (max-width: 850px) {
   .blog-grid,
-  .articles-grid {
+  .content-grid .articles-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -1053,7 +1140,8 @@ main.container aside.sidebar span.category-count {
   }
   
   .post-share {
-    gap: 0.4rem;
+    gap: 1.3rem;
+    flex-wrap: wrap; /* Asegura que si no caben, bajen ordenados */
   }
   
   .share-label {
@@ -1065,6 +1153,7 @@ main.container aside.sidebar span.category-count {
     height: 34px;
     min-width: 34px;
     min-height: 34px;
+    margin-bottom: 0.4rem; /* Margen inferior por si hacen wrap */
   }
   
   .share-btn svg {
@@ -1448,3 +1537,62 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
   height: 14px;
   stroke: currentColor; /* Hereda el blanco del texto */
 }
+
+/* ============================================================
+   WIDGET Y NUBE DE ETIQUETAS (TAGS)
+   ============================================================ */
+.tags-widget {
+  background-color: var(--mi-card-bg);
+  padding: 1.5rem;
+  border-radius: var(--mi-border-radius);
+  border: 1px solid var(--mi-border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem;
+}
+
+.tags-widget h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--mi-color);
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.9rem; /* Margen amplio para que no se apelmacen */
+  align-items: center;
+}
+
+/* Base de la etiqueta con transición suave */
+.tag-pill {
+  text-decoration: none;
+  color: var(--mi-muted-color);
+  background-color: var(--mi-bg-color, #f8f9fa);
+  border: 1px solid var(--mi-border-color);
+  border-radius: 20px;
+  padding: 0.2rem 0.6rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  line-height: 1.2;
+}
+
+.tag-pill:hover {
+  color: var(--mi-primary);
+  border-color: var(--mi-primary);
+  background-color: rgba(var(--mi-primary-rgb), 0.05);
+  transform: translateY(-2px);
+}
+
+.tag-count {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Tamaños clásicos de la nube según la frecuencia */
+.tag-pill.tag-xs { font-size: 0.75rem; opacity: 0.7; }
+.tag-pill.tag-sm { font-size: 0.85rem; }
+.tag-pill.tag-md { font-size: 1rem; font-weight: 500; }
+.tag-pill.tag-lg { font-size: 1.2rem; font-weight: 600; color: var(--mi-color); }
+.tag-pill.tag-xl { font-size: 1.45rem; font-weight: 700; color: var(--mi-primary); }

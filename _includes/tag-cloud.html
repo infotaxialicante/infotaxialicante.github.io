@@ -1,6 +1,6 @@
 <div class="tags-widget">
   <h3>🏷️ Etiquetas</h3>
-  <div class="tags-cloud">
+  <div class="tag-cloud">
     {% assign lang_posts = site.posts | where: "lang", page.lang %}
     {% assign site_tags = lang_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
     
@@ -8,8 +8,23 @@
       {% assign clean_tag = tag | strip %}
       {% if clean_tag != "" %}
         {% assign tag_posts = lang_posts | where_exp: "post", "post.tags contains clean_tag" %}
-        <a href="{{ '/tags/' | append: (clean_tag | slugify) | append: '/' | relative_url }}" class="tag-pill">
-          {{ clean_tag }} <span class="tag-count">({{ tag_posts.size }})</span>
+        {% assign tag_count = tag_posts.size %}
+        
+        <!-- Asignación de tamaño dinámico según cuántos posts usan el tag -->
+        {% if tag_count > 6 %}
+          {% assign tag_size = "tag-xl" %}
+        {% elsif tag_count > 4 %}
+          {% assign tag_size = "tag-lg" %}
+        {% elsif tag_count > 2 %}
+          {% assign tag_size = "tag-md" %}
+        {% elsif tag_count > 1 %}
+          {% assign tag_size = "tag-sm" %}
+        {% else %}
+          {% assign tag_size = "tag-xs" %}
+        {% endif %}
+
+        <a href="{{ '/tags/' | append: (clean_tag | slugify) | append: '/' | relative_url }}" class="tag-pill {{ tag_size }}">
+          {{ clean_tag }} <span class="tag-count">({{ tag_count }})</span>
         </a>
       {% endif %}
     {% endfor %}

@@ -20,19 +20,6 @@
   font-weight: bold;
 }
 
-#resultado {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--calc-success);
-  margin: 1rem 0;
-  display: none;
-}
-
-#resultado.resultado-visible {
-  display: block;
-  animation: fadeInResult 0.4s ease-in-out;
-}
-
 @keyframes fadeInResult {
   from {
     opacity: 0;
@@ -143,4 +130,108 @@
 /* Utilidades de formulario */
 .espacio-superior {
   margin-top: 0.5rem;
+}
+
+/* ============================================================
+   ESTILOS Y MAQUETACIÓN DE LA CALCULADORA
+   ============================================================ */
+
+/* Contenedor principal del formulario tipo tarjeta elegante */
+#calculatorForm {
+  background-color: var(--mi-card-bg, #ffffff);
+  border: 1px solid var(--mi-border-color, #e5e7eb);
+  border-radius: var(--mi-border-radius, 8px);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Fieldsets limpios sin bordes agresivos de navegador por defecto */
+#calculatorForm fieldset {
+  border: 1px solid var(--mi-border-color, #e5e7eb);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(var(--mi-primary-rgb, 16, 185, 129), 0.01);
+}
+
+#calculatorForm legend {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--mi-color, #1f2937);
+  padding: 0 0.5rem;
+}
+
+/* Inputs de texto y selects con presencia y buen padding */
+#calculatorForm input[type="text"],
+#calculatorForm input[type="datetime-local"],
+#calculatorForm input[type="number"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--mi-border-color, #d1d5db);
+  border-radius: 6px;
+  background-color: var(--mi-bg-color, #ffffff);
+  color: var(--mi-color, #1f2937);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#calculatorForm input:focus {
+  outline: none;
+  border-color: var(--mi-primary, #10b981);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Espaciado para los labels y opciones de radio/checkbox */
+#calculatorForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#calculatorForm fieldset label:has(input[type="radio"]),
+#calculatorForm fieldset label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+#calculatorForm fieldset label:last-child {
+  margin-bottom: 0;
+}
+
+/* Botón de cálculo principal con aspecto sólido y accesible */
+#calcularBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background-color: var(--mi-primary, #10b981);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+#calcularBtn:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+#calcularBtn:active {
+  transform: translateY(0);
+}
+
+/* Ocultar el contenedor antiguo de resultado para evitar duplicidades */
+#resultado {
+  display: none;
 }

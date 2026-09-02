@@ -98,8 +98,10 @@
     {{ content }}
   </main>
 
-  <!-- Pie de página modular -->
-  {% include footer.html lang=current_lang %}
+  <!-- Pie de página modular (Ocultable por página) -->
+  {% unless page.hide_footer %}
+    {% include footer.html lang=current_lang %}
+  {% endunless %}
 
   <!-- JavaScript principal -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
