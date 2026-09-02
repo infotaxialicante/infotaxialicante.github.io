@@ -4,3 +4,40 @@ title: Blog
 lang: en
 ref: blog
 ---
+
+<h1>📰 InfoTaxi Alicante Blog</h1>
+<p class="blog-description">All the news and updates regarding the taxi service in Alicante.</p>
+
+<div class="blog-grid">
+  {% assign lang_posts = site.posts | where: "lang", page.lang %}
+  {% for post in lang_posts %}
+    <article class="blog-card">
+      {% if post.image %}
+        <a href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-card-image" loading="lazy">
+        </a>
+      {% endif %}
+      <div class="blog-card-content">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        
+        <div class="blog-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            📅 {{ post.date | date: "%m/%d/%Y" }}
+          </time>
+          {% if post.categories.size > 0 %}
+            <span class="blog-card-categories">
+              📂 {% for category in post.categories %}
+                <a href="{{ '/categories/' | append: category | slugify | append: '/' | relative_url }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
+        
+        <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        <a href="{{ post.url | relative_url }}" class="blog-card-link">Read more →</a>
+      </div>
+    </article>
+  {% else %}
+    <p class="no-posts">No articles published yet. Check back soon!</p>
+  {% endfor %}
+</div>
