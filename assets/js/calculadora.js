@@ -226,6 +226,40 @@ const T4_INT_KM = 1.68;
 const SUPLEMENTO_ESPECIAL = 3.00;
 const MAXIMO_RECOGIDA = 7.35;
 
+// Diccionario de textos según el idioma de la página
+const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+
+const i18n = {
+    es: {
+        destinoOk: (nombre, km) => `✅ Destino: ${nombre} (${km} km)`,
+        coincidencias: (n) => `🔍 ${n} coincidencia(s) encontrada(s). Selecciona una opción.`,
+        noEncontrado: '✏️ Destino no encontrado en la lista oficial. Introduce los km manualmente.',
+        errorDistancia: '⚠️ Por favor, selecciona o introduce una distancia válida.',
+        tarifa3: 'Tarifa 3 (diurna laborable)',
+        tarifa4: 'Tarifa 4 (nocturna / festiva)',
+        bajada: 'Bajada de bandera',
+        bajadaRecogida: 'Bajada de bandera + recogida',
+        distanciaLabel: 'Distancia',
+        suplementoTexto: '➕ Suplemento especial (+3 €) aplicado',
+        calculadaLog: '✅ Calculadora interurbana cargada correctamente (ES).'
+    },
+    en: {
+        destinoOk: (nombre, km) => `✅ Destination: ${nombre} (${km} km)`,
+        coincidencias: (n) => `🔍 ${n} match(es) found. Please select an option.`,
+        noEncontrado: '✏️ Destination not found in the official list. Please enter km manually.',
+        errorDistancia: '⚠️ Please select or enter a valid distance.',
+        tarifa3: 'Rate 3 (daytime weekday)',
+        tarifa4: 'Rate 4 (night / holiday)',
+        bajada: 'Flag drop',
+        bajadaRecogida: 'Flag drop + pickup',
+        distanciaLabel: 'Distance',
+        suplementoTexto: '➕ Special surcharge (+€3) applied',
+        calculadaLog: '✅ Intercity calculator loaded successfully (EN).'
+    }
+};
+
+const t = isEnglish ? i18n.en : i18n.es;
+
 // ===================================================================
 // CALENDARIO DE FESTIVOS
 // ===================================================================
@@ -275,9 +309,6 @@ function comprobarSuplementoEspecial(fecha) {
 // ===================================================================
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ===================================================================
-    // DOM REFERENCIAS
-    // ===================================================================
     const $ = (id) => document.getElementById(id);
     const timeModeRadios = document.querySelectorAll('input[name="timeMode"]');
     const customTimeContainer = $('customTimeContainer');
@@ -289,12 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const distanceManual = $('distanceManual');
     const distanciaSeleccionada = $('distanciaSeleccionada');
     const calcularBtn = $('calcularBtn');
-    const resultadoDiv = $('resultado');
     const statusBox = $('statusBox');
 
-    // ===================================================================
-    // FUNCIONES DE NORMALIZACIÓN Y BÚSQUEDA (DENTRO DEL DOMContentLoaded)
-    // ===================================================================
     function normalizarTexto(texto) {
         return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
     }
@@ -309,9 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return destinos.filter(d => normalizarTexto(d.nombre).includes(norm));
     }
 
-    // ===================================================================
-    // CONTENEDOR DE SUGERENCIAS PERSONALIZADO
-    // ===================================================================
     const sugerenciasContainer = document.createElement('div');
     sugerenciasContainer.id = 'sugerenciasContainer';
     sugerenciasContainer.className = 'sugerencias-lista';
@@ -359,20 +383,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 min-height: 44px;
             `;
             
-            const nombreNormalizado = normalizarTexto(item.nombre);
-            const busquedaNormalizada = normalizarTexto(destinoInput.value);
-            const indexCoincidencia = nombreNormalizado.indexOf(busquedaNormalizada);
-            
-            let nombreHTML = item.nombre;
-            if (indexCoincidencia !== -1) {
-                const before = item.nombre.substring(0, indexCoincidencia);
-                const match = item.nombre.substring(indexCoincidencia, indexCoincidencia + destinoInput.value.length);
-                const after = item.nombre.substring(indexCoincidencia + destinoInput.value.length);
-                nombreHTML = `${before}<strong>${match}</strong>${after}`;
-            }
-            
             div.innerHTML = `
-                <span>${nombreHTML}</span>
+                <span>${item.nombre}</span>
                 <span style="color: #6c757d; font-size: 0.85rem;">${item.distancia} km</span>
             `;
             
@@ -403,22 +415,17 @@ document.addEventListener('DOMContentLoaded', function() {
         distanceManual.value = destino.distancia;
         customKmContainer.classList.add('campo-oculto');
         mensajeDestino.className = 'mensaje-ayuda mensaje-ok';
-        mensajeDestino.textContent = `✅ Destino: ${destino.nombre} (${destino.distancia} km)`;
+        mensajeDestino.textContent = t.destinoOk(destino.nombre, destino.distancia);
         ocultarSugerencias();
     }
 
-    // ===================================================================
-    // LÓGICA DE AUTOCOMPLETADO
-    // ===================================================================
     let timeoutId = null;
 
     destinoInput.addEventListener('input', function() {
         clearTimeout(timeoutId);
-        
         const valor = this.value.trim();
-        const longitud = valor.length;
 
-        if (longitud < 2) {
+        if (valor.length < 2) {
             mensajeDestino.textContent = '';
             customKmContainer.classList.add('campo-oculto');
             distanciaSeleccionada.value = '';
@@ -437,12 +444,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (parciales.length > 0) {
                 mensajeDestino.className = 'mensaje-ayuda mensaje-info';
-                mensajeDestino.textContent = `🔍 ${parciales.length} coincidencia(s) encontrada(s). Selecciona una opción.`;
+                mensajeDestino.textContent = t.coincidencias(parciales.length);
                 customKmContainer.classList.add('campo-oculto');
                 mostrarSugerencias(parciales);
             } else {
                 mensajeDestino.className = 'mensaje-ayuda mensaje-error';
-                mensajeDestino.textContent = '✏️ Destino no encontrado en la lista oficial. Introduce los km manualmente.';
+                mensajeDestino.textContent = t.noEncontrado;
                 customKmContainer.classList.remove('campo-oculto');
                 distanceManual.value = '';
                 distanceManual.focus();
@@ -452,70 +459,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    // Navegación con teclado
-    destinoInput.addEventListener('keydown', function(e) {
-        const items = sugerenciasContainer.querySelectorAll('.sugerencia-item');
-        if (items.length === 0) return;
-        
-        let currentIndex = -1;
-        
-        items.forEach((item, index) => {
-            if (item.style.background === 'rgb(240, 248, 255)') {
-                currentIndex = index;
-            }
-        });
-        
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            const newIndex = Math.min(currentIndex + 1, items.length - 1);
-            items.forEach((item, index) => {
-                item.style.background = index === newIndex ? '#f0f8ff' : '';
-            });
-            if (newIndex >= 0) {
-                items[newIndex].scrollIntoView({ block: 'nearest' });
-            }
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            const newIndex = Math.max(currentIndex - 1, 0);
-            items.forEach((item, index) => {
-                item.style.background = index === newIndex ? '#f0f8ff' : '';
-            });
-            if (newIndex >= 0) {
-                items[newIndex].scrollIntoView({ block: 'nearest' });
-            }
-        } else if (e.key === 'Enter') {
-            if (currentIndex >= 0 && items[currentIndex]) {
-                e.preventDefault();
-                items[currentIndex].click();
-            } else if (items.length > 0) {
-                items[0].click();
-            }
-        } else if (e.key === 'Escape') {
-            ocultarSugerencias();
-        }
-    });
-
-    // Ocultar sugerencias al hacer clic fuera
     document.addEventListener('click', function(e) {
         if (e.target !== destinoInput && !sugerenciasContainer.contains(e.target)) {
             ocultarSugerencias();
         }
     });
 
-    // Al perder el foco, si hay coincidencia exacta, seleccionar
-    destinoInput.addEventListener('blur', function() {
-        const valor = this.value.trim();
-        if (valor) {
-            const encontrado = buscarDestino(valor);
-            if (encontrado) {
-                seleccionarDestino(encontrado);
-            }
-        }
-    });
-
-    // ===================================================================
-    // MOSTRAR/OCULTAR FECHA PERSONALIZADA
-    // ===================================================================
     timeModeRadios.forEach(radio => {
         radio.addEventListener('change', function() {
             if (this.value === 'custom') {
@@ -531,132 +480,95 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===================================================================
-    // CÁLCULO
-    // ===================================================================
     function calcularTarifa() {
-    // Ocultar resultado anterior
-    ocultarResultado();
-    mostrarStatus('');
+        ocultarResultado();
+        mostrarStatus('');
 
-    let fecha = new Date();
-    const timeMode = document.querySelector('input[name="timeMode"]:checked').value;
-    if (timeMode === 'custom') {
-        const val = customDateTime.value;
-        if (val) fecha = new Date(val);
+        let fecha = new Date();
+        const timeMode = document.querySelector('input[name="timeMode"]:checked').value;
+        if (timeMode === 'custom') {
+            const val = customDateTime.value;
+            if (val) fecha = new Date(val);
+        }
+
+        let km = parseFloat(distanciaSeleccionada.value) || parseFloat(distanceManual.value) || 0;
+
+        if (!km || km <= 0) {
+            mostrarStatus(t.errorDistancia, 'error');
+            return;
+        }
+
+        const esRemoto = isRemoteRequest.checked;
+        const hora = fecha.getHours();
+        const minutos = fecha.getMinutes();
+        const tiempoEnMinutos = hora * 60 + minutos;
+        const diaSemana = fecha.getDay();
+        const esFestivo = comprobarFestivoOAsimilado(fecha);
+        const esFinDeSemana = (diaSemana === 0 || diaSemana === 6);
+        const esNocturno = (tiempoEnMinutos >= 1260 || tiempoEnMinutos < 420);
+
+        const esTarifa4 = esNocturno || esFestivo || esFinDeSemana;
+
+        let bajadaBandera = esTarifa4 ? T4_INT_BAJADA : T3_INT_BAJADA;
+        let precioKm = esTarifa4 ? T4_INT_KM : T3_INT_KM;
+
+        let baseBajada = esRemoto ? MAXIMO_RECOGIDA : bajadaBandera;
+        let total = baseBajada + (km * precioKm);
+
+        const tieneSuplemento = comprobarSuplementoEspecial(fecha);
+        if (tieneSuplemento) {
+            total += SUPLEMENTO_ESPECIAL;
+        }
+
+        mostrarResultado(total);
+
+        let tarifaTexto = esTarifa4 ? t.tarifa4 : t.tarifa3;
+        let statusHTML = `<span class="etiqueta-tarifa">${tarifaTexto}</span><br>`;
+        let textoBajada = esRemoto ? t.bajadaRecogida : t.bajada;
+        statusHTML += `${textoBajada}: ${baseBajada.toFixed(2)} €<br>`;
+        statusHTML += `${t.distanciaLabel}: ${km} km → ${(km * precioKm).toFixed(2)} €<br>`;
+        if (tieneSuplemento) {
+            statusHTML += `<span class="status-suplemento">${t.suplementoTexto}</span><br>`;
+        }
+        statusHTML += `<strong>💰 TOTAL: ${total.toFixed(2)} €</strong>`;
+
+        statusBox.innerHTML = statusHTML;
+        statusBox.classList.add('status-visible');
     }
 
-    let km = parseFloat(distanciaSeleccionada.value) || parseFloat(distanceManual.value) || 0;
+    calcularBtn.addEventListener('click', calcularTarifa);
 
-    // Validar que hay distancia
-    if (!km || km <= 0) {
-        mostrarStatus('⚠️ Por favor, selecciona o introduce una distancia válida.', 'error');
-        return;
-    }
-
-    const esRemoto = isRemoteRequest.checked;
-
-    const hora = fecha.getHours();
-    const minutos = fecha.getMinutes();
-    const tiempoEnMinutos = hora * 60 + minutos;
-    const diaSemana = fecha.getDay();
-    const esFestivo = comprobarFestivoOAsimilado(fecha);
-    const esFinDeSemana = (diaSemana === 0 || diaSemana === 6);
-    const esNocturno = (tiempoEnMinutos >= 1260 || tiempoEnMinutos < 420);
-
-    const esTarifa4 = esNocturno || esFestivo || esFinDeSemana;
-
-    let bajadaBandera, precioKm;
-    if (esTarifa4) {
-        bajadaBandera = T4_INT_BAJADA;
-        precioKm = T4_INT_KM;
-    } else {
-        bajadaBandera = T3_INT_BAJADA;
-        precioKm = T3_INT_KM;
-    }
-
-    let baseBajada = esRemoto ? MAXIMO_RECOGIDA : bajadaBandera;
-
-    let total = baseBajada + (km * precioKm);
-
-    const tieneSuplemento = comprobarSuplementoEspecial(fecha);
-    if (tieneSuplemento) {
-        total += SUPLEMENTO_ESPECIAL;
-    }
-
-    // ✅ MOSTRAR EL TOTAL con la función mostrarResultado()
-    mostrarResultado(total);
-
-    // ✅ DESGLOSE COMPLETO en statusBox
-    let tarifaTexto = esTarifa4 ? 'Tarifa 4 (nocturna / festiva)' : 'Tarifa 3 (diurna laborable)';
-    let statusHTML = `<span class="etiqueta-tarifa">${tarifaTexto}</span><br>`;
-    let textoBajada = esRemoto ? 'Bajada de bandera + recogida' : 'Bajada de bandera';
-    statusHTML += `${textoBajada}: ${baseBajada.toFixed(2)} €<br>`;
-    statusHTML += `Distancia: ${km} km → ${(km * precioKm).toFixed(2)} €<br>`;
-    if (tieneSuplemento) {
-        statusHTML += `<span class="status-suplemento">➕ Suplemento especial (+3 €) aplicado</span><br>`;
-    }
-    statusHTML += `<strong>💰 TOTAL: ${total.toFixed(2)} €</strong>`;
-
-    statusBox.innerHTML = statusHTML;
-    statusBox.classList.add('status-visible');
-}
-
-calcularBtn.addEventListener('click', calcularTarifa);
-
-    // ===================================================================
-    // INICIALIZAR FECHA POR DEFECTO
-    // ===================================================================
     (function setDefaultDateTime() {
         const ahora = new Date();
         ahora.setMinutes(ahora.getMinutes() - ahora.getTimezoneOffset());
         customDateTime.value = ahora.toISOString().slice(0, 16);
     })();
 
-    // ============================================================
-    // CONTROL DE VISIBILIDAD DEL RESULTADO
-    // ============================================================
-
-    /**
-     * Muestra el resultado con animación
-     * @param {string|number} precio - El precio a mostrar
-     */
     function mostrarResultado(precio) {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.innerHTML = `${parseFloat(precio).toFixed(2)} €`;
         resultadoDiv.classList.add('resultado-visible');
     }
 
-    /**
-     * Oculta el resultado
-     */
     function ocultarResultado() {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.innerHTML = '';
         resultadoDiv.classList.remove('resultado-visible');
     }
 
-    /**
-     * Muestra un mensaje de estado (error, info, etc.)
-     */
     function mostrarStatus(mensaje, tipo = 'info') {
         const statusBox = document.getElementById('statusBox');
         if (!mensaje) {
             statusBox.textContent = '';
             statusBox.className = '';
-            statusBox.classList.remove('status-visible'); // 👈 Ocultar
+            statusBox.classList.remove('status-visible');
             return;
         }
         statusBox.textContent = mensaje;
         statusBox.className = `mensaje-${tipo}`;
-        statusBox.classList.add('status-visible'); // 👈 Mostrar
+        statusBox.classList.add('status-visible');
     }
 
-        // ============================================================
-    // BORRAR PRESUPUESTO AL BORRAR EL DESTINO O LA DISTANCIA
-    // ============================================================
-
-    // Cuando se borra el destino del campo de búsqueda
     destinoInput.addEventListener('input', function() {
         if (this.value.trim() === '') {
             ocultarResultado();
@@ -664,7 +576,6 @@ calcularBtn.addEventListener('click', calcularTarifa);
         }
     });
 
-    // Cuando se borra la distancia manual
     distanceManual.addEventListener('input', function() {
         if (this.value.trim() === '') {
             ocultarResultado();
@@ -672,21 +583,5 @@ calcularBtn.addEventListener('click', calcularTarifa);
         }
     });
 
-    // Opcional: cuando el campo destino pierde el foco y está vacío
-    destinoInput.addEventListener('blur', function() {
-        if (this.value.trim() === '') {
-            ocultarResultado();
-            mostrarStatus('');
-        }
-    });
-
-    // Opcional: cuando el campo manual pierde el foco y está vacío
-    distanceManual.addEventListener('blur', function() {
-        if (this.value.trim() === '') {
-            ocultarResultado();
-            mostrarStatus('');
-        }
-    });
-
-    console.log('✅ Calculadora interurbana cargada correctamente.');
+    console.log(t.calculadaLog);
 });
