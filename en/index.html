@@ -1,75 +1,79 @@
 ---
 layout: default
-title: Taxi Ranks
+title: Home
 lang: en
-ref: paradas
+ref: home
+show_in_nav: false
 ---
 
-<header class="mb-4">
-  <h1>Taxi Ranks</h1>
-  <p>Check the taxi ranks of the Joint Provision Area (Alicante, El Campello, San Vicente, San Juan, and Muchamiel).</p>
-</header>
+<!-- Banner Principal con Texto SUPERPUESTO -->
+<section class="hero-container">
+  <img src="/assets/img/ui/portada-alicante.webp" alt="Taxi Alicante" class="hero-image">
+  <div class="hero-overlay">
+    <h1>Taxis in Alicante</h1>
+    <p>Official fares, route calculator, and nearby taxi ranks.</p>
+  </div>
+</section>
 
-<!-- Controls Panel -->
-<div class="panel-controles-mapa">
+<!-- Tarjetas de Acceso Rápido -->
+<section class="quick-access">
   <div class="grid">
-    <div>
-      <label for="filtro-municipio"><strong>Municipality</strong></label>
-      <select id="filtro-municipio">
-        <option value="todos">All municipalities</option>
-        <option value="alicante">Alicante</option>
-        <option value="el-campello">El Campello</option>
-        <option value="san-vicente">San Vicente del Raspeig</option>
-        <option value="san-juan">San Juan de Alicante</option>
-        <option value="muchamiel">Muchamiel</option>
-      </select>
-    </div>
+    <article class="card-action">
+      <h3>🧮 Fare Calculator</h3>
+      <p>Estimate the approximate cost of your trip.</p>
+      <a href="{{ '/en/calculator/' | relative_url }}" role="button" class="contrast">Calculate taxi price</a>
+    </article>
 
-    <div>
-      <label for="filtro-texto"><strong>Search rank</strong></label>
-      <div class="buscador-con-sugerencias">
-        <input 
-          type="search" 
-          id="filtro-texto" 
-          placeholder="E.g.: Pau 5, Gran Vía, Hospital..." 
-          autocomplete="off"
-        />
-        <div id="sugerencias-container" class="sugerencias-lista"></div>
-      </div>
-      <div id="mensaje-sin-resultados" class="mensaje-sin-resultados" style="display: none;" role="status">
-        ⚠️ No ranks found. Try different terms or select a municipality.
-      </div>
-    </div>
-
-    <div>
-      <label for="filtro-pmr" class="switch-pmr">
-        <input type="checkbox" id="filtro-pmr" role="switch">
-        Accessible only (PRM ♿)
-      </label>
-    </div>
+    <article class="card-action">
+      <h3>📍 Taxi Ranks</h3>
+      <p>Check the location and distribution of taxi ranks.</p>
+      <a href="{{ '/en/ranks/' | relative_url }}" role="button">Find nearby rank</a>
+    </article>
   </div>
+</section>
 
-  <div class="contenedor-acciones-mapa">
-    <button id="btn-mi-ubicacion" class="outline">
-      📍 Use my location
-    </button>
-    <button id="btn-parada-cercana" class="secondary" hidden>
-      🎯 Go to nearest rank
-    </button>
+<!-- Sección Principal: Novedades + Sidebar -->
+<section class="main-content">
+  <div class="content-grid">
+    
+    <!-- Columna Izquierda: Últimas Novedades -->
+    <div class="articles-container">
+      <h2>📰 News and Updates</h2>
+      <div class="articles-grid">
+        {% assign lang_posts = site.posts | where: "lang", page.lang %}
+        {% for post in lang_posts limit:4 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+            <div class="post-info">
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <small>{{ post.date | date: "%m/%d/%Y" }}</small>
+            </div>
+          </article>
+        {% else %}
+          <p>Guides and news about the taxi sector will be published soon.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Sidebar de Categorías -->
+    <aside class="sidebar">
+      <h3>📂 Categories</h3>
+      <ul class="categories-list">
+        {% for category in site.categories %}
+          {% capture category_name %}{{ category | first }}{% endcapture %}
+          <li>
+            <a href="{{ '/categories/' | append: category_name | slugify | append: '/' | relative_url }}">
+              {{ category_name }} <span class="category-count">({{ category[1].size }})</span>
+            </a>
+          </li>
+        {% else %}
+          <li><small>No categories registered.</small></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
   </div>
-</div>
-
-<!-- Map Container -->
-<div id="mapa-paradas" class="mapa-paradas-container" aria-label="Interactive map of taxi ranks"></div>
-
-<!-- Stylesheets -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<link rel="stylesheet" href="{{ '/assets/css/mapa-paradas.css' | relative_url }}">
-
-<!-- Scripts -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-  window.PARADAS_DATA = {{ site.data.paradas | jsonify }};
-  window.CURRENT_LANG = "{{ page.lang | default: 'en' }}";
-</script>
-<script src="{{ '/assets/js/mapa-paradas.js' | relative_url }}" defer></script>
+</section>
