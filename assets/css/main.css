@@ -1165,7 +1165,7 @@ footer .footer-copy small {
   white-space: normal;
 }
 
-/* Adaptación táctil para móviles */
+/* Adaptación táctil para móviles (Se queda exactamente como lo tienes) */
 @media (max-width: 600px) {
   footer .footer-nav {
     gap: 0.6rem;
@@ -1205,6 +1205,28 @@ footer .footer-copy small {
   footer .footer-nav a {
     font-size: 0.8rem;
     padding: 0.35rem 0.6rem;
+  }
+}
+
+/* Adaptación para PC (Pantallas grandes): Enlaces a la izda, copyright a la dcha */
+@media (min-width: 768px) {
+  footer .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .footer-nav {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  footer .footer-copy {
+    text-align: right;
+    border-top: none;
+    width: auto;
+    max-width: none;
+    padding-top: 0;
   }
 }
 
