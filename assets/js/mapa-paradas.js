@@ -4,6 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!mapElement || paradas.length === 0) return;
 
+  // ============================================================
+  // DICCIONARIO INTERNACIONAL (I18N)
+  // ============================================================
+  const lang = window.CURRENT_LANG || 'es';
+  const t = {
+    es: {
+      pmrAdaptada: '♿ Adaptada PMR',
+      pmrEstandar: 'Estándar',
+      badgeExacta: '⭐ Exacta',
+      distancia: 'A %s m de ti',
+      btnPedir: '📞 Pedir',
+      btnIr: '🗺️ Ir',
+      exactaTitulo: 'Coincidencia exacta: ',
+      btnVerTodas: 'Ver todas',
+      seleccionada: 'seleccionada',
+      btnCerrar: '✕ Cerrar',
+      sinUbicacion: 'La geolocalización no está soportada por tu navegador.',
+      errorUbicacion: 'No se pudo obtener la ubicación. Comprueba los permisos de tu navegador.',
+      tuUbicacion: 'Tu ubicación'
+    },
+    en: {
+      pmrAdaptada: '♿ PRM Accessible',
+      pmrEstandar: 'Standard',
+      badgeExacta: '⭐ Exact',
+      distancia: '%s m away from you',
+      btnPedir: '📞 Call',
+      btnIr: '🗺️ Go',
+      exactaTitulo: 'Exact match: ',
+      btnVerTodas: 'View all',
+      seleccionada: 'selected',
+      btnCerrar: '✕ Close',
+      sinUbicacion: 'Geolocation is not supported by your browser.',
+      errorUbicacion: 'Could not retrieve location. Check your browser permissions.',
+      tuUbicacion: 'Your location'
+    }
+  }[lang] || {};
+
   // Centro: Alicante
   const CENTRO_INICIAL = [38.345392, -0.495378];
   const ZOOM_INICIAL = 13;
@@ -20,19 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let posUsuario = null;
   let usuarioMarker = null;
 
-  // ============================================================
-  // NUEVAS VARIABLES PARA BÚSQUEDA MEJORADA
-  // ============================================================
   let busquedaExacta = null;
-  let modoBusqueda = 'libre'; // 'libre' | 'exacta'
+  let modoBusqueda = 'libre';
   let modoAutomaticoExacto = false;
 
-  // ============================================================
-  // FUNCIONES DE BÚSQUEDA INTELIGENTE
-  // ============================================================
-
-  // Lista de stopwords (palabras vacías que se ignoran)
-  // AHORA: eliminamos 'plaza', 'avenida', 'calle', 'centro', 'comercial', 'vía'
   const STOPWORDS = [
     'parada', 'estación', 'de', 'la', 'el', 'los', 'las', 'y', 'en', 'por',
     'para', 'con', 'sin', 'sobre', 'entre', 'hasta', 'desde', 'del', 'al',
@@ -41,10 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'hospital', 'terminal', 'estacion'
   ];
 
-  // Palabras genéricas con peso reducido (NUEVO)
   const PALABRAS_GENERICAS = ['centro', 'comercial', 'plaza', 'avenida', 'calle', 'paseo', 'ronda', 'glorieta', 'via'];
 
-  // Normaliza texto: minúsculas, sin tildes, sin diacríticos
   function normalizarTexto(texto) {
     if (!texto) return '';
     return texto
@@ -55,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/ü/g, 'u');
   }
 
-  // NUEVA: Función de peso para palabras genéricas
   function obtenerPesoPalabra(palabra, campo) {
     if (PALABRAS_GENERICAS.includes(palabra)) {
       return campo === 'nombre' ? 1.5 : 0.5;
@@ -63,12 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return 2;
   }
 
-  // NUEVA: Función de búsqueda mejorada (reemplaza a procesarBusqueda)
   function buscarParadas(paradas, textoBusqueda, municipioSeleccionado, soloPmr, posUsuario, modo = 'libre') {
     const textoNormalizado = normalizarTexto(textoBusqueda.trim());
     const palabrasBusqueda = textoNormalizado.split(/\s+/).filter(p => p.length >= 2);
 
-    // MODO EXACTO FORZADO (selección de sugerencia)
     if (modo === 'exacta' && busquedaExacta) {
       const parada = busquedaExacta;
       let dist = null;
@@ -85,14 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }];
     }
 
-    // Filtrar por municipio y PMR
     let paradasFiltradas = paradas.filter(p => {
       const coincideMunicipio = municipioSeleccionado === 'todos' || p.municipio === municipioSeleccionado;
       const coincidePmr = !soloPmr || p.pmr === true;
       return coincideMunicipio && coincidePmr;
     });
 
-    // Si no hay palabras de búsqueda, devolver todas
     if (palabrasBusqueda.length === 0) {
       return paradasFiltradas.map(p => {
         let dist = null;
@@ -124,26 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
       let tipoCoincidencia = 'ninguna';
       let esExacta = false;
 
-      // ============================================
-      // 1. DETECTAR COINCIDENCIA EXACTA (AJUSTADO)
-      // ============================================
-      
-      // EXACTA: El nombre ES exactamente la búsqueda (ej: "pau 5" === "Pau 5")
       if (nombreNormalizado === textoNormalizado) {
         puntuacion = 100;
         coincideTexto = true;
         esExacta = true;
         tipoCoincidencia = 'exacta_nombre';
         coincidenciasExactas.push(parada);
-      } 
-      // EXACTA PARCIAL: Solo si la búsqueda tiene 2+ palabras y coincide como frase
-      // Esto evita que "pau" active exacta para "Pau 5"
-      else if (palabrasBusqueda.length >= 2 && 
+      } else if (palabrasBusqueda.length >= 2 && 
                (nombreNormalizado.includes(' ' + textoNormalizado + ' ') ||
                 nombreNormalizado.startsWith(textoNormalizado + ' ') ||
                 nombreNormalizado.endsWith(' ' + textoNormalizado))) {
-        // Solo considerar exacta si la búsqueda es un nombre propio conocido
-        // o tiene 3+ palabras (ej: "plaza del mar")
         const esNombreCompuesto = esNombrePropio(textoNormalizado);
         if (esNombreCompuesto || palabrasBusqueda.length >= 3) {
           puntuacion = 90;
@@ -152,15 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
           tipoCoincidencia = 'exacta_frase';
           coincidenciasExactas.push(parada);
         } else {
-          // Si no es nombre compuesto, tratarlo como coincidencia parcial
           puntuacion += 40;
           coincideTexto = true;
           tipoCoincidencia = 'frase_parcial';
         }
-      }
-      // EXACTA en otros campos (zona, keywords) - SOLO si es exactamente igual
-      // y la búsqueda tiene 2+ palabras
-      else if (palabrasBusqueda.length >= 2 &&
+      } else if (palabrasBusqueda.length >= 2 &&
                (zonaNormalizada === textoNormalizado || 
                 keywordsNormalizadas.some(k => k === textoNormalizado))) {
         puntuacion = 80;
@@ -170,9 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         coincidenciasExactas.push(parada);
       }
 
-      // ============================================
-      // 2. BUSCAR COINCIDENCIAS PARCIALES
-      // ============================================
       if (!esExacta) {
         if (palabrasBusqueda.length > 1) {
           const fraseCompleta = textoNormalizado;
@@ -241,31 +245,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // DECISIÓN: Si hay exactas, mostrar SOLO exactas
     if (coincidenciasExactas.length > 0) {
       const resultadosExactos = resultados.filter(r => r.esExacta);
       resultadosExactos.sort((a, b) => b.puntuacion - a.puntuacion);
       modoAutomaticoExacto = true;
-      console.log('⭐ Coincidencia exacta encontrada, mostrando solo:', resultadosExactos.map(r => r.parada.nombre));
       return resultadosExactos;
     }
 
     modoAutomaticoExacto = false;
     resultados.sort((a, b) => b.puntuacion - a.puntuacion);
     if (resultados.length > 50) resultados = resultados.slice(0, 50);
-    console.log('🔍 No hay coincidencia exacta, mostrando todas las coincidencias');
     return resultados;
   }
 
-  // Función auxiliar para detectar nombres propios compuestos
   function esNombrePropio(texto) {
     const indicadores = ['gran', 'sant', 'santa', 'san', 'puerta', 'portal', 'muelle', 'rambla', 'paseo', 'ronda', 'glorieta', 'travesía'];
     return indicadores.some(ind => texto.toLowerCase().includes(ind));
   }
 
-  // ============================================================
-  // FUNCIÓN CENTRAR EN MUNICIPIO
-  // ============================================================
   function centrarEnMunicipio(municipio) {
     const centros = {
       'alicante': [38.345392, -0.495378],
@@ -282,9 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ============================================================
-  // CÁLCULO DE DISTANCIA
-  // ============================================================
   function calcularDistancia(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -298,15 +292,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // POPUP (ACTUALIZADO CON BADGE DE EXACTA)
+  // POPUP TRADUCIDO
   // ============================================================
   function crearContenidoPopup(parada, distanciaKm = null, esExacta = false) {
     const badgePmr = parada.pmr 
-      ? '<span style="color: #2e7d32; font-weight: 600;">♿ Adaptada PMR</span>' 
-      : '<span style="color: #666;">Estándar</span>';
+      ? `<span style="color: #2e7d32; font-weight: 600;">${t.pmrAdaptada}</span>` 
+      : `<span style="color: #666;">${t.pmrEstandar}</span>`;
 
     const badgeExacta = esExacta
-      ? '<span style="background: #ff6b35; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-left: 6px;">⭐ Exacta</span>'
+      ? `<span style="background: #ff6b35; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-left: 6px;">${t.badgeExacta}</span>`
       : '';
 
     const notaHtml = parada.nota 
@@ -314,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : '';
 
     const distHtml = distanciaKm !== null 
-      ? `<p style="margin: 2px 0; font-weight: bold; color: #007bff; font-size: 0.85em;">📍 A ${(distanciaKm * 1000).toFixed(0)} m de ti</p>` 
+      ? `<p style="margin: 2px 0; font-weight: bold; color: #007bff; font-size: 0.85em;">📍 ${t.distancia.replace('%s', (distanciaKm * 1000).toFixed(0))}</p>` 
       : '';
 
     return `
@@ -328,15 +322,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <p style="margin: 2px 0 6px 0; font-size: 0.8em;">${badgePmr}</p>
         ${notaHtml}
         <div style="margin-top: 8px; display: flex; gap: 6px;">
-          <a href="tel:${parada.telefono}" style="padding: 5px 8px; background: #2e7d32; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">📞 Pedir</a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=${parada.lat},${parada.lng}" target="_blank" rel="noopener" style="padding: 5px 8px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">🗺️ Ir</a>
+          <a href="tel:${parada.telefono}" style="padding: 5px 8px; background: #2e7d32; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">${t.btnPedir}</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${parada.lat},${parada.lng}" target="_blank" rel="noopener" style="padding: 5px 8px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">${t.btnIr}</a>
         </div>
       </div>
     `;
   }
 
   // ============================================================
-  // INDICADORES (NUEVO)
+  // INDICADORES TRADUCIDOS
   // ============================================================
   function mostrarIndicadorExactaAutomatico(resultados) {
     const indicadorAnterior = document.getElementById('indicador-exacta-automatico');
@@ -347,34 +341,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicador = document.createElement('div');
     indicador.id = 'indicador-exacta-automatico';
     indicador.style.cssText = `
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff6b35;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: system-ui, sans-serif;
-      animation: slideUp 0.3s ease;
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: #ff6b35; color: white; padding: 10px 20px; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3); z-index: 1000;
+      display: flex; align-items: center; gap: 12px; font-family: system-ui, sans-serif;
       font-size: 0.9em;
     `;
     indicador.innerHTML = `
-      <span>⭐ Coincidencia exacta: <strong>${nombres}</strong></span>
+      <span>${t.exactaTitulo}<strong>${nombres}</strong></span>
       <button onclick="window.mostrarTodasLasCoincidencias()" style="
-        background: rgba(255,255,255,0.2);
-        border: none;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 0.85em;
-      ">Ver todas</button>
+        background: rgba(255,255,255,0.2); border: none; color: white;
+        padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85em;
+      ">${t.btnVerTodas}</button>
     `;
     document.body.appendChild(indicador);
   }
@@ -386,40 +364,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicador = document.createElement('div');
     indicador.id = 'indicador-seleccion';
     indicador.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2e7d32;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: system-ui, sans-serif;
-      animation: slideUp 0.3s ease;
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: #2e7d32; color: white; padding: 12px 24px; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000;
+      display: flex; align-items: center; gap: 12px; font-family: system-ui, sans-serif;
     `;
     indicador.innerHTML = `
-      <span>📍 <strong>${parada.nombre}</strong> seleccionada</span>
+      <span>📍 <strong>${parada.nombre}</strong> ${t.seleccionada}</span>
       <button onclick="window.resetearBusqueda()" style="
-        background: rgba(255,255,255,0.2);
-        border: none;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 0.9em;
-      ">✕ Cerrar</button>
+        background: rgba(255,255,255,0.2); border: none; color: white;
+        padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em;
+      ">${t.btnCerrar}</button>
     `;
     document.body.appendChild(indicador);
   }
 
-  // ============================================================
-  // FUNCIONES GLOBALES PARA SUGERENCIAS (NUEVO)
-  // ============================================================
   window.seleccionarSugerencia = function(parada) {
     busquedaExacta = parada;
     modoBusqueda = 'exacta';
@@ -450,9 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarMarcadores();
   };
 
-  // ============================================================
-  // SUGERENCIAS EN TIEMPO REAL (NUEVO)
-  // ============================================================
   function mostrarSugerencias(texto) {
     const contenedor = document.getElementById('sugerencias-container');
     if (!contenedor) return;
@@ -508,9 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contenedor) contenedor.style.display = 'none';
   }
 
-  // ============================================================
-  // RENDERIZAR MARCADORES (ACTUALIZADO)
-  // ============================================================
   function renderizarMarcadores() {
     markersGroup.clearLayers();
     marcadoresActivos = [];
@@ -519,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const soloPmr = document.getElementById('filtro-pmr').checked;
     const textoBusqueda = document.getElementById('filtro-texto').value;
 
-    // Usar la nueva función de búsqueda
     const resultados = buscarParadas(
       paradas,
       textoBusqueda,
@@ -531,7 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resultadosEncontrados = resultados.length;
 
-    // Renderizar marcadores
     resultados.forEach(({ parada, dist, esExacta }) => {
       const marker = L.marker([parada.lat, parada.lng])
         .bindPopup(crearContenidoPopup(parada, dist, esExacta));
@@ -540,7 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
       marcadoresActivos.push({ parada, marker, dist, esExacta });
     });
 
-    // Mostrar indicador de exacta automática
     const hayExacta = resultados.some(r => r.esExacta);
     if (hayExacta && modoBusqueda !== 'exacta' && textoBusqueda.trim() !== '') {
       mostrarIndicadorExactaAutomatico(resultados);
@@ -549,7 +499,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (indicador) indicador.remove();
     }
 
-    // Mostrar u ocultar mensaje de "sin resultados"
     const mensaje = document.getElementById('mensaje-sin-resultados');
     if (mensaje) {
       if (textoBusqueda.trim() !== '' && resultadosEncontrados === 0) {
@@ -559,7 +508,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Centrar el mapa según los resultados de búsqueda
     if (textoBusqueda.trim() !== '' && marcadoresActivos.length === 1) {
       const parada = marcadoresActivos[0].parada;
       map.setView([parada.lat, parada.lng], 16);
@@ -576,9 +524,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ============================================================
-  // FILTRADO REACTIVO (ACTUALIZADO)
-  // ============================================================
   document.getElementById('filtro-municipio').addEventListener('change', function() {
     centrarEnMunicipio(this.value);
     renderizarMarcadores();
@@ -586,7 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('filtro-pmr').addEventListener('change', renderizarMarcadores);
   
-  // NUEVO: Event listener con sugerencias
   document.getElementById('filtro-texto').addEventListener('input', function(e) {
     const texto = this.value;
     if (modoBusqueda === 'exacta') {
@@ -599,7 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarMarcadores();
   });
 
-  // NUEVO: Enter para buscar
   document.getElementById('filtro-texto').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       ocultarSugerencias();
@@ -607,7 +550,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // NUEVO: Clic fuera para ocultar sugerencias
   document.addEventListener('click', function(e) {
     const contenedor = document.getElementById('sugerencias-container');
     const input = document.getElementById('filtro-texto');
@@ -618,12 +560,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ============================================================
-  // GEOLOCALIZACIÓN (SIN CAMBIOS)
-  // ============================================================
   document.getElementById('btn-mi-ubicacion').addEventListener('click', () => {
     if (!navigator.geolocation) {
-      alert('La geolocalización no está soportada por tu navegador.');
+      alert(t.sinUbicacion);
       return;
     }
 
@@ -643,14 +582,14 @@ document.addEventListener('DOMContentLoaded', () => {
           weight: 2,
           opacity: 1,
           fillOpacity: 0.9
-        }).addTo(map).bindPopup('<b>Tu ubicación</b>');
+        }).addTo(map).bindPopup(`<b>${t.tuUbicacion}</b>`);
 
         document.getElementById('btn-parada-cercana').style.display = 'inline-block';
         
         renderizarMarcadores();
         encontrarParadaMasCercana(true);
       },
-      () => alert('No se pudo obtener la ubicación. Comprueba los permisos de tu navegador.'),
+      () => alert(t.errorUbicacion),
       { enableHighAccuracy: true }
     );
   });
@@ -676,8 +615,5 @@ document.addEventListener('DOMContentLoaded', () => {
     encontrarParadaMasCercana(true);
   });
 
-  // ============================================================
-  // INICIALIZACIÓN
-  // ============================================================
   renderizarMarcadores();
 });
