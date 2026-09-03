@@ -1,1 +1,40 @@
+---
+layout: default
+title: "Opinion and Sector - Infotaxi Alicante"
+category_name: "Opinion and Sector"
+lang: en
+show_in_nav: false
+permalink: /en/opinion-and-sector/
+---
 
+<div class="category-archive-container">
+  <header class="category-header mb-4">
+    <h1>{{ page.category_name }}</h1>
+    <p class="text-muted">Analysis, news, and perspectives on the taxi sector in Alicante.</p>
+  </header>
+
+  <div class="content-grid-with-sidebar">
+    <main class="articles-list-container">
+      <div class="articles-grid">
+        {% assign category_posts = site.posts | where: "category", page.category_name | where: "lang", "en" %}
+        {% for post in category_posts limit:8 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+            <div class="post-info">
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <div class="post-meta"><small>{{ post.date | date: "%d/%m/%Y" }}</small></div>
+            </div>
+          </article>
+        {% else %}
+          <p>Articles in this category coming soon.</p>
+        {% endfor %}
+      </div>
+    </main>
+    <aside class="sidebar-widget">
+      {% include tag-cloud.html %}
+    </aside>
+  </div>
+</div>
