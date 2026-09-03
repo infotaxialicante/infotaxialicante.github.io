@@ -612,7 +612,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.getElementById('btn-parada-cercana').addEventListener('click', () => {
-    encontrarParadaMasCercana(true);
+    if (!posUsuario || marcadoresActivos.length === 0) return;
+
+    let masCercana = marcadoresActivos[0];
+
+    marcadoresActivos.forEach(item => {
+      if (item.dist < masCercana.dist) {
+        masCercana = item;
+      }
+    });
+
+    // Abre Google Maps con la ruta hacia la parada más cercana, igual que en la tarjeta
+    const urlMaps = `https://www.google.com/maps/dir/?api=1&destination=${masCercana.parada.lat},${masCercana.parada.lng}`;
+    window.open(urlMaps, '_blank');
   });
 
   renderizarMarcadores();
