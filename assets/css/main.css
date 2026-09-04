@@ -1,47 +1,60 @@
 /* ============================================================
-   1. RESET BÁSICO Y VARIABLES DE COLOR
+   1. RESET BÁSICO Y VARIABLES (Tipografía y Color)
    ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 :root {
+  /* Tipografía del Sistema (Mobile-First y cero peticiones externas) */
+  --mi-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
   /* Fondo y Superficies */
-  --mi-bg-color: #ffffff;
-  --mi-card-bg: #f8f9fa;
+  --mi-bg-color: #f4f2ed;
+  --mi-card-bg: #fffdf9;
   
   /* Textos */
-  --mi-color: #212529;
-  --mi-muted-color: #6c757d;
+  --mi-color: #1a1a1a;
+  --mi-muted-color: #666666;
   
   /* Bordes */
-  --mi-border-color: #e2e8f0;
-  --mi-muted-border: #f1f5f9;
+  --mi-border-color: #e3e1d5;
+  --mi-muted-border: #eeede6;
   
   /* Color Principal / Acento */
-  --mi-primary: #10b981;
-  --mi-primary-hover: #059669;
-  --mi-primary-rgb: 16, 185, 129;
+  --mi-primary: #b84a39;
+  --mi-primary-hover: #9b3d2e;
+  --mi-primary-rgb: 184, 74, 57;
   
   /* Bordes Redondeados */
-  --mi-border-radius: 8px;
+  --mi-border-radius: 6px;
   
   color-scheme: light dark;
 }
 
-/* Modo Oscuro Automático (Preferencia del sistema) */
+/* Aplicación global de la tipografía y colores base en el body */
+body {
+  font-family: var(--mi-font);
+  background-color: var(--mi-bg-color);
+  color: var(--mi-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Modo Oscuro Automático */
 @media (prefers-color-scheme: dark) {
   :root {
     --mi-bg-color: #121212;
     --mi-card-bg: #1e1e1e;
-    --mi-color: #e0e0e0;
-    --mi-muted-color: #a0a0a0;
-    --mi-border-color: #333333;
-    --mi-muted-border: #2a2a2a;
+    --mi-color: #ecebe4;
+    --mi-muted-color: #999999;
+    --mi-border-color: #2e2e2e;
+    --mi-muted-border: #242424;
 
-    --mi-primary: #34d399;
-    --mi-primary-hover: #10b981;
-    --mi-primary-rgb: 52, 211, 153;
+    --mi-primary: #d1604e;
+    --mi-primary-hover: #b84a39;
+    --mi-primary-rgb: 209, 96, 78;
   }
 }
 
@@ -74,7 +87,7 @@ body {
   border-radius: var(--mi-border-radius);
   overflow: hidden;
   margin-top: 2rem;   /* <--- Añadimos esto para separarlo de la navegación de arriba */
-  margin-bottom: 2.5rem; /* <--- Ampliamos un pelín para que respire hacia las tarjetas */
+  margin-bottom: 0; /* <--- Ampliamos un pelín para que respire hacia las tarjetas */
   width: 100%;
 }
 
@@ -569,23 +582,21 @@ main.container aside.sidebar span.category-count {
    5.a. TARJETAS DE ACCESO RÁPIDO (Calculadora y Paradas)
    ============================================================ */
 .quick-access {
-  margin: 3rem auto;
-  max-width: 1100px; /* Restringe el ancho total para que no se estiren demasiado en pantallas grandes */
-  padding: 0 1rem;
+  margin: 2.5rem 0;
 }
 
 .quick-access .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .card-action {
   background-color: var(--mi-card-bg);
   border: 1px solid var(--mi-border-color);
   border-radius: var(--mi-border-radius);
-  padding: 2.2rem; /* Un poco más de margen interno para que respire mejor en PC */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* Sombra más visible */
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -593,21 +604,21 @@ main.container aside.sidebar span.category-count {
 }
 
 .card-action:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .card-action h3 {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   color: var(--mi-color);
 }
 
 .card-action p {
   color: var(--mi-muted-color);
-  font-size: 1rem;
-  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
   line-height: 1.5;
 }
 
@@ -618,7 +629,15 @@ main.container aside.sidebar span.category-count {
   font-weight: 500;
   padding: 0.7rem 1.4rem;
   border-radius: var(--mi-border-radius);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background-color: var(--mi-primary);
+  color: #fff;
+  border: 1px solid var(--mi-primary);
+}
+
+.card-action a[role="button"]:hover {
+  background-color: var(--mi-primary-hover);
+  border-color: var(--mi-primary-hover);
 }
 
 /* Adaptación móvil */
@@ -628,12 +647,10 @@ main.container aside.sidebar span.category-count {
     padding: 0;
     margin: 2rem 0;
   }
-
   .quick-access .grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
   .card-action {
     padding: 1.5rem;
   }
