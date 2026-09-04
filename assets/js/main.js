@@ -54,3 +54,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 250);
   });
 });
+
+//===================================
+// FUNCIONALIDAD BOTÓN BACK-TO-TOP
+//===================================
+
+const backToTop = document.getElementById('backToTop');
+
+if (backToTop) {
+  const scrollThreshold = 400;
+
+  function toggleBackToTop() {
+    if (window.scrollY > scrollThreshold) {
+      backToTop.classList.add('is-visible');
+    } else {
+      backToTop.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Comprobar el estado inicial
+  toggleBackToTop();
+}
+

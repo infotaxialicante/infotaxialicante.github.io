@@ -1613,3 +1613,79 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
 .tag-pill.tag-md { font-size: 1rem; font-weight: 500; }
 .tag-pill.tag-lg { font-size: 1.2rem; font-weight: 600; color: var(--mi-color); }
 .tag-pill.tag-xl { font-size: 1.45rem; font-weight: 700; color: var(--mi-primary); }
+
+/* ============================================================
+   NAVEGACIÓN AUXILIAR
+   Botón "Volver arriba" y otros elementos flotantes
+   ============================================================ */
+
+/* ============================================================
+   NAVEGACIÓN AUXILIAR
+   Botón "Volver arriba"
+   ============================================================ */
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--mi-border-color);
+  border-radius: 50%;
+
+  background-color: var(--mi-card-bg);
+  color: var(--mi-color);
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+.back-to-top svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Accesibilidad: foco visible mediante teclado */
+.back-to-top:focus-visible {
+  outline: 3px solid var(--mi-primary);
+  outline-offset: 3px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .back-to-top {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
