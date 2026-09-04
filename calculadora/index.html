@@ -40,10 +40,10 @@ ref: calculator
   <fieldset>
     <legend>📍 Destino</legend>
     <label for="destinoInput">Escribe el nombre del destino (mínimo 2 caracteres para sugerencias):</label>
-    <input type="text" id="destinoInput" list="destinosList" placeholder="Ej: Benidorm, Elche, Valencia..." autocomplete="off">
-    <datalist id="destinosList">
-      <!-- Rellenado opcionalmente vía JS o Jekyll data -->
-    </datalist>
+    <div class="buscador-con-sugerencias">
+      <input type="text" id="destinoInput" placeholder="Ej: Benidorm, Elche, Valencia..." autocomplete="off">
+      <div id="sugerenciasContainer" class="sugerencias-lista"></div>
+    </div>
     
     <div id="mensajeDestino" class="mensaje-ayuda"></div>
 

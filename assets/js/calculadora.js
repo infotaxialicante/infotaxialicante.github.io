@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             div.innerHTML = `
-                <span>${item.nombre}</span>
+                <span class="sugerencia-nombre">${item.nombre}</span>
                 <span style="color: #6c757d; font-size: 0.85rem;">${item.distancia} km</span>
             `;
             
