@@ -19,20 +19,55 @@ layout: default
           </a>
         </span>
       {% endif %}
+  
       {% if page.categories.size > 0 %}
         <span class="post-categories">
-          📂 
+          📂
+
           {% for category in page.categories %}
-            {% assign cat_slug = category | downcase | replace: ' ', '-' | replace: 'á', 'a' | replace: 'é', 'e' | replace: 'í', 'i' | replace: 'ó', 'o' | replace: 'ú', 'u' %}
+
             {% if current_lang == 'en' %}
-              <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ category }}</a>
+
+              {% case category %}
+                {% when 'Fares and pricing' %}
+                  <a href="{{ '/en/categories/fares-and-pricing/' | relative_url }}">{{ category }}</a>
+                {% when 'Inside the taxi' %}
+                  <a href="{{ '/en/categories/inside-the-taxi/' | relative_url }}">{{ category }}</a>
+                {% when 'Passenger guide' %}
+                  <a href="{{ '/en/categories/passenger-guide/' | relative_url }}">{{ category }}</a>
+                {% when 'Routes and trips' %}
+                  <a href="{{ '/en/categories/routes-and-trips/' | relative_url }}">{{ category }}</a>
+                {% when 'Opinion and sector' %}
+                  <a href="{{ '/en/categories/opinion-and-sector/' | relative_url }}">{{ category }}</a>
+                {% else %}
+                  <span>{{ category }}</span>
+              {% endcase %}
+
             {% else %}
-              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">{{ category }}</a>
+
+              {% case category %}
+                {% when 'Tarifas y precios' %}
+                  <a href="{{ '/categorias/tarifas-y-precios/' | relative_url }}">{{ category }}</a>
+                {% when 'El taxi por dentro' %}
+                  <a href="{{ '/categorias/el-taxi-por-dentro/' | relative_url }}">{{ category }}</a>
+                {% when 'Guía del pasajero' %}
+                  <a href="{{ '/categorias/guia-del-pasajero/' | relative_url }}">{{ category }}</a>
+                {% when 'Rutas y trayectos' %}
+                  <a href="{{ '/categorias/rutas-y-trayectos/' | relative_url }}">{{ category }}</a>
+                {% when 'Sector y opinión' %}
+                  <a href="{{ '/categorias/sector-y-opinion/' | relative_url }}">{{ category }}</a>
+                {% else %}
+                  <span>{{ category }}</span>
+              {% endcase %}
+
             {% endif %}
+
             {% unless forloop.last %}, {% endunless %}
+
           {% endfor %}
         </span>
       {% endif %}
+
     </div>
   </header>
 

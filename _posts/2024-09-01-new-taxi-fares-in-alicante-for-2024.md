@@ -3,7 +3,8 @@ layout: post
 title: "New Taxi Fares in Alicante for 2024"
 date: 2024-09-01 10:00:00 +0100
 author: "InfoTaxi Alicante"
-category: "Fares and pricing"
+categories: 
+    - "Fares and pricing"
 tags: [fares, alicante, taxi, 2024]
 image: /assets/img/posts/tarifas-taxi-2024.jpg
 image_caption: "New approved taxi fares in Alicante"

@@ -1689,3 +1689,47 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
     height: 2.6rem;
   }
 }
+
+/* ============================================================
+   BREADCRUMBS
+   ============================================================ */
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+
+  margin-top: -0.75rem;
+  margin-bottom: 1.25rem;
+
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.breadcrumbs a {
+  color: var(--mi-primary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--mi-primary-hover);
+  text-decoration: underline;
+}
+
+.breadcrumbs-separator {
+  color: var(--mi-muted-color);
+  user-select: none;
+}
+
+.breadcrumbs-current {
+  color: var(--mi-muted-color);
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+}

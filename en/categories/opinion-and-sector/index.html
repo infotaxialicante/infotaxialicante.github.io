@@ -16,7 +16,7 @@ permalink: /en/opinion-and-sector/
   <div class="content-grid-with-sidebar">
     <main class="articles-list-container">
       <div class="articles-grid">
-        {% assign category_posts = site.posts | where: "category", page.category_name | where: "lang", "en" %}
+        {% assign category_posts = site.posts | where_exp: "post", "post.categories contains target_cat" | where: "lang", "en" %}
         {% for post in category_posts limit:8 %}
           <article class="post-card">
             {% if post.image %}

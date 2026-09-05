@@ -19,7 +19,7 @@ show_in_nav: false
     <main class="articles-list-container">
       <div class="articles-grid">
         {% assign target_cat = page.category_name %}
-        {% assign category_posts = site.posts | where: "category", target_cat | where: "lang", "en" %}
+        {% assign category_posts = site.posts | where_exp: "post", "post.categories contains target_cat" | where: "lang", "en" %}
         
         {% for post in category_posts limit:8 %}
           <article class="post-card">
