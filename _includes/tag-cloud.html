@@ -1,31 +1,47 @@
 <div class="tags-widget">
-  <h3>🏷️ Etiquetas</h3>
+  <h3>🏷️ {% if page.lang == 'en' %}Tags{% else %}Etiquetas{% endif %}</h3>
+
   <div class="tag-cloud">
     {% assign lang_posts = site.posts | where: "lang", page.lang %}
     {% assign site_tags = lang_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
-    
+
     {% for tag in site_tags %}
       {% assign clean_tag = tag | strip %}
+
       {% if clean_tag != "" %}
         {% assign tag_posts = lang_posts | where_exp: "post", "post.tags contains clean_tag" %}
         {% assign tag_count = tag_posts.size %}
-        
-        <!-- Asignación de tamaño dinámico según cuántos posts usan el tag -->
-        {% if tag_count > 6 %}
-          {% assign tag_size = "tag-xl" %}
-        {% elsif tag_count > 4 %}
-          {% assign tag_size = "tag-lg" %}
-        {% elsif tag_count > 2 %}
-          {% assign tag_size = "tag-md" %}
-        {% elsif tag_count > 1 %}
-          {% assign tag_size = "tag-sm" %}
-        {% else %}
-          {% assign tag_size = "tag-xs" %}
-        {% endif %}
 
-        <a href="{{ '/tags/' | append: (clean_tag | slugify) | append: '/' | relative_url }}" class="tag-pill {{ tag_size }}">
-          {{ clean_tag }} <span class="tag-count">({{ tag_count }})</span>
-        </a>
+        {% if tag_count > 0 %}
+
+          <!-- Asignación de tamaño dinámico según cuántos posts usan el tag -->
+          {% if tag_count > 6 %}
+            {% assign tag_size = "tag-xl" %}
+          {% elsif tag_count > 4 %}
+            {% assign tag_size = "tag-lg" %}
+          {% elsif tag_count > 2 %}
+            {% assign tag_size = "tag-md" %}
+          {% elsif tag_count > 1 %}
+            {% assign tag_size = "tag-sm" %}
+          {% else %}
+            {% assign tag_size = "tag-xs" %}
+          {% endif %}
+
+          {% if page.lang == 'en' %}
+            {% assign tag_base_url = '/en/tags/' %}
+          {% else %}
+            {% assign tag_base_url = '/etiquetas/' %}
+          {% endif %}
+
+          {% assign tag_slug = clean_tag | slugify %}
+          {% assign tag_url = tag_base_url | append: tag_slug | append: '/' %}
+
+          <a href="{{ tag_url | relative_url }}"
+            class="tag-pill {{ tag_size }}">
+            {{ clean_tag }} <span class="tag-count">({{ tag_count }})</span>
+          </a>
+
+        {% endif %}
       {% endif %}
     {% endfor %}
   </div>
