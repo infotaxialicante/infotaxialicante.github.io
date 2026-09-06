@@ -27,22 +27,11 @@
         {% assign post_category = page.categories | first %}
 
         {% if post_category %}
+          {% assign cat_slug = post_category | slugify %}
+          {% assign cat_label = post_category | replace: '-', ' ' | capitalize %}
+          
           <span class="breadcrumbs-separator" aria-hidden="true">›</span>
-
-          {% case post_category %}
-            {% when 'Fares and pricing' %}
-              <a href="{{ '/en/categories/fares-and-pricing/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Inside the taxi' %}
-              <a href="{{ '/en/categories/inside-the-taxi/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Passenger guide' %}
-              <a href="{{ '/en/categories/passenger-guide/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Routes and trips' %}
-              <a href="{{ '/en/categories/routes-and-trips/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Opinion and sector' %}
-              <a href="{{ '/en/categories/opinion-and-sector/' | relative_url }}">{{ post_category }}</a>
-            {% else %}
-              <span>{{ post_category }}</span>
-          {% endcase %}
+          <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
         {% endif %}
 
         <span class="breadcrumbs-separator" aria-hidden="true">›</span>
@@ -79,22 +68,11 @@
         {% assign post_category = page.categories | first %}
 
         {% if post_category %}
-          <span class="breadcrumbs-separator" aria-hidden="true">›</span>
+          {% assign cat_slug = post_category | slugify %}
+          {% assign cat_label = post_category | replace: '-', ' ' | capitalize %}
 
-          {% case post_category %}
-            {% when 'Tarifas y precios' %}
-              <a href="{{ '/categorias/tarifas-y-precios/' | relative_url }}">{{ post_category }}</a>
-            {% when 'El taxi por dentro' %}
-              <a href="{{ '/categorias/el-taxi-por-dentro/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Guía del pasajero' %}
-              <a href="{{ '/categorias/guia-del-pasajero/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Rutas y trayectos' %}
-              <a href="{{ '/categorias/rutas-y-trayectos/' | relative_url }}">{{ post_category }}</a>
-            {% when 'Sector y opinión' %}
-              <a href="{{ '/categorias/sector-y-opinion/' | relative_url }}">{{ post_category }}</a>
-            {% else %}
-              <span>{{ post_category }}</span>
-          {% endcase %}
+          <span class="breadcrumbs-separator" aria-hidden="true">›</span>
+          <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
         {% endif %}
 
         <span class="breadcrumbs-separator" aria-hidden="true">›</span>

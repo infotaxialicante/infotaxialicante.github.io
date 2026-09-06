@@ -18,8 +18,17 @@ show_in_nav: false
     <!-- Columna Principal: Listado de Artículos de la Categoría (De 8 en 8) -->
     <main class="articles-list-container">
       <div class="articles-grid">
-        {% assign target_cat = page.category_name %}
-        {% assign category_posts = site.posts | where_exp: "post", "post.categories contains target_cat" | where: "lang", "es" %}
+        {% assign target_cat_slug = page.category_name | slugify %}
+        {% assign category_posts = "" | split: "" %}
+        
+        {% for post in site.posts %}
+          {% if post.lang == "es" %}
+            {% assign post_cats_slug = post.categories | join: " " | slugify %}
+            {% if post_cats_slug contains target_cat_slug %}
+              {% assign category_posts = category_posts | push: post %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
         
         {% for post in category_posts limit:8 %}
           <article class="post-card">

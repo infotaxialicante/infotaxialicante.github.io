@@ -3,17 +3,53 @@
   <div class="footer-container">
     <nav class="footer-nav">
       {% if include.lang == 'en' %}
-        <a href="/en/legal-notice/">Legal Notice</a>
+        <a href="/en/legal-notice/">Legal notice & privacy</a>
         <a href="/en/about/">This project</a>
         <a href="/en/contact/">Contact</a>
       {% else %}
-        <a href="/aviso-legal/">Aviso Legal</a>
+        <a href="/aviso-legal/">Aviso legal y privacidad</a>
         <a href="/sobre-nosotros/">Este proyecto</a>
         <a href="/contacto/">Contacto</a>
       {% endif %}
     </nav>
     <div class="footer-copy">
       <small>&copy; {{ "now" | date: "%Y" }} InfoTaxi Alicante</small>
+      <span class="footer-separator">•</span>
+      <small>
+        {% if include.lang == 'en' %}
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en" target="_blank" rel="noopener" class="footer-link" title="CC BY-NC-ND 4.0 License">
+            <svg width="13" height="13" viewBox="0 0 496 512" fill="currentColor" class="footer-icon">
+              <path d="M245.83 214.87l-33.22 17.28c-10.15-21.69-21.72-38.11-41.66-38.11-20.94 0-39.75 18.72-39.75 48.7 0 30.21 17.18 48.21 40.85 48.21 21.92 0 31.86-15.54 41.56-37.75l33.22 16.03c-16.7 34.3-43.01 58.28-76.77 58.28-52.05 0-82.51-39.81-82.51-85.3 0-46.02 31.39-85.3 82.51-85.3 35.85 0 61.27 21.08 75.55 58.01zm143.7 0l-33.22 17.28c-10.15-21.69-21.72-38.11-41.66-38.11-20.94 0-39.75 18.72-39.75 48.7 0 30.21 17.18 48.21 40.85 48.21 21.92 0 31.86-15.54 41.56-37.75l33.22 16.03c-16.7 34.3-43.01 58.28-76.77 58.28-52.05 0-82.51-39.81-82.51-85.3 0-46.02 31.39-85.3 82.51-85.3 35.85 0 61.27 21.08 75.55 58.01zM248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200z"/>
+            </svg>
+            CC BY-NC-ND 4.0
+          </a>
+        {% else %}
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener" class="footer-link" title="Licencia CC BY-NC-ND 4.0">
+            <svg width="13" height="13" viewBox="0 0 496 512" fill="currentColor" class="footer-icon">
+              <path d="M245.83 214.87l-33.22 17.28c-10.15-21.69-21.72-38.11-41.66-38.11-20.94 0-39.75 18.72-39.75 48.7 0 30.21 17.18 48.21 40.85 48.21 21.92 0 31.86-15.54 41.56-37.75l33.22 16.03c-16.7 34.3-43.01 58.28-76.77 58.28-52.05 0-82.51-39.81-82.51-85.3 0-46.02 31.39-85.3 82.51-85.3 35.85 0 61.27 21.08 75.55 58.01zm143.7 0l-33.22 17.28c-10.15-21.69-21.72-38.11-41.66-38.11-20.94 0-39.75 18.72-39.75 48.7 0 30.21 17.18 48.21 40.85 48.21 21.92 0 31.86-15.54 41.56-37.75l33.22 16.03c-16.7 34.3-43.01 58.28-76.77 58.28-52.05 0-82.51-39.81-82.51-85.3 0-46.02 31.39-85.3 82.51-85.3 35.85 0 61.27 21.08 75.55 58.01zM248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200z"/>
+            </svg>
+            CC BY-NC-ND 4.0
+          </a>
+        {% endif %}
+      </small>
+      <span class="footer-separator">•</span>
+      <small>
+        {% if include.lang == 'en' %}
+          <a href="/en/feed.xml" target="_blank" rel="noopener" class="footer-rss-btn" title="RSS feed">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
+              <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+            </svg>
+            <span>RSS</span>
+          </a>
+        {% else %}
+          <a href="/feed.xml" target="_blank" rel="noopener" class="footer-rss-btn" title="Canal RSS">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
+              <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+            </svg>
+            <span>RSS</span>
+          </a>
+        {% endif %}
+      </small>
     </div>
   </div>
 </footer>

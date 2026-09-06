@@ -8,15 +8,29 @@ permalink: /en/passenger-guide/
 ---
 
 <div class="category-archive-container">
+  <!-- Cabecera de la Categoría -->
   <header class="category-header mb-4">
     <h1>{{ page.category_name }}</h1>
-    <p class="text-muted">Useful tips, regulations, and everything travelers need to know when taking a taxi.</p>
+    <p class="text-muted">Explore the articles published in this section or use the tags to filter the content.</p>
   </header>
 
   <div class="content-grid-with-sidebar">
+    
+    <!-- Columna Principal: Listado de Artículos de la Categoría (De 8 en 8) -->
     <main class="articles-list-container">
       <div class="articles-grid">
-        {% assign category_posts = site.posts | where_exp: "post", "post.categories contains target_cat" | where: "lang", "en" %}
+        {% assign target_cat_slug = page.category_name | slugify %}
+        {% assign category_posts = "" | split: "" %}
+        
+        {% for post in site.posts %}
+          {% if post.lang == "en" %}
+            {% assign post_cats_slug = post.categories | join: " " | slugify %}
+            {% if post_cats_slug contains target_cat_slug %}
+              {% assign category_posts = category_posts | push: post %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        
         {% for post in category_posts limit:8 %}
           <article class="post-card">
             {% if post.image %}
@@ -25,16 +39,21 @@ permalink: /en/passenger-guide/
             <div class="post-info">
               <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
               <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-              <div class="post-meta"><small>{{ post.date | date: "%d/%m/%Y" }}</small></div>
+              <div class="post-meta">
+                <small>{{ post.date | date: "%m/%d/%Y" }}</small>
+              </div>
             </div>
           </article>
         {% else %}
-          <p>Articles in this category coming soon.</p>
+          <p>Articles in this category will be published soon.</p>
         {% endfor %}
       </div>
     </main>
+
+    <!-- Columna Lateral: Nube de Tags reutilizable -->
     <aside class="sidebar-widget">
       {% include tag-cloud.html %}
     </aside>
+
   </div>
 </div>

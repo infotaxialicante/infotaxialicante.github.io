@@ -1378,6 +1378,77 @@ footer .footer-copy small {
   }
 }
 
+/* --- Añadidos para Licencia CC y RSS --- */
+footer .footer-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+footer .footer-separator {
+  color: var(--mi-border-color);
+  font-size: 0.8rem;
+}
+
+footer .footer-icon {
+  vertical-align: -1px;
+  margin-right: 2px;
+}
+
+footer .footer-link {
+  color: var(--mi-muted-color);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+footer .footer-link:hover {
+  color: var(--mi-primary);
+}
+
+/* Botón RSS con tu color corporativo y corrección de hover táctil/click */
+footer .footer-rss-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.4rem;
+  background-color: var(--mi-card-bg);
+  border: 1px solid var(--mi-border-color);
+  border-radius: var(--mi-border-radius, 6px);
+  color: var(--mi-muted-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent; /* Elimina el recuadro azul/gris en móvil */
+}
+
+/* Solo aplica el hover si el dispositivo usa un ratón real (evita el "foco pegado" en móvil y al volver) */
+@media (hover: hover) {
+  footer .footer-rss-btn:hover {
+    background-color: var(--mi-primary);
+    color: #ffffff;
+    border-color: var(--mi-primary);
+  }
+}
+
+/* Estado al pulsar activamente */
+footer .footer-rss-btn:active {
+  background-color: var(--mi-primary-hover);
+  border-color: var(--mi-primary-hover);
+  color: #ffffff;
+}
+
+/* Quita el borde/sombra de enfoque molesto tras hacer clic */
+footer .footer-rss-btn:focus {
+  outline: none;
+}
+
+/* Mantiene accesibilidad por teclado (Tab) sin enganchar el hover al volver */
+footer .footer-rss-btn:focus-visible {
+  outline: 2px solid var(--mi-primary);
+  outline-offset: 2px;
+}
+
 /* ============================================================
    ESTILOS SECCIÓN DESCARGAS Y DOCUMENTOS
    ============================================================ */

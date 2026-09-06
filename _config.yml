@@ -1,8 +1,12 @@
 # Información general del sitio (conserva tus valores si ya los tenías)
 title: Infotaxialicante
 description: Guía de movilidad, tarifas, paradas y normativa del taxi en Alicante y provincia.
+description_en: Mobility guide, fares, taxi ranks, and regulations in Alicante and province.
 url: "https://infotaxialicante.es"
 baseurl: ""
+
+# Estructura de URLs limpia para las publicaciones
+permalink: /blog/:categories/:slug/
 
 # Paginación (8 artículos por página para la vista tipo Google)
 paginate: 8
@@ -12,7 +16,6 @@ paginate_path: "/blog/pagina:num/"
 plugins:
   - jekyll-paginate
   - jekyll-feed
-  - jekyll-sitemap
 
 # Archivos a ignorar durante la compilación
 exclude:

@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign current_lang = page.lang | default: site.lang | default: 'es' %}
+{% assign author_name = page.author | default: "InfoTaxi Alicante" %}
 
 <article class="post-article">
   <header class="post-header">
@@ -11,59 +12,29 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">
         📅 {{ page.date | date: "%d/%m/%Y" }}
       </time>
-      {% if page.author %}
-        <span class="post-author">
-          ✍️ 
-          <a href="{% if current_lang == 'en' %}{{ '/en/about/' | relative_url }}{% else %}{{ '/sobre-nosotros/' | relative_url }}{% endif %}">
-            {{ page.author }}
-          </a>
-        </span>
-      {% endif %}
+      
+      <span class="post-author">
+        ✍️ 
+        <a href="{% if current_lang == 'en' %}{{ '/en/about/' | relative_url }}{% else %}{{ '/sobre-nosotros/' | relative_url }}{% endif %}">
+          {{ author_name }}
+        </a>
+      </span>
   
       {% if page.categories.size > 0 %}
         <span class="post-categories">
           📂
 
           {% for category in page.categories %}
+            {% assign cat_slug = category | slugify %}
+            {% assign cat_label = category | replace: '-', ' ' | capitalize %}
 
             {% if current_lang == 'en' %}
-
-              {% case category %}
-                {% when 'Fares and pricing' %}
-                  <a href="{{ '/en/categories/fares-and-pricing/' | relative_url }}">{{ category }}</a>
-                {% when 'Inside the taxi' %}
-                  <a href="{{ '/en/categories/inside-the-taxi/' | relative_url }}">{{ category }}</a>
-                {% when 'Passenger guide' %}
-                  <a href="{{ '/en/categories/passenger-guide/' | relative_url }}">{{ category }}</a>
-                {% when 'Routes and trips' %}
-                  <a href="{{ '/en/categories/routes-and-trips/' | relative_url }}">{{ category }}</a>
-                {% when 'Opinion and sector' %}
-                  <a href="{{ '/en/categories/opinion-and-sector/' | relative_url }}">{{ category }}</a>
-                {% else %}
-                  <span>{{ category }}</span>
-              {% endcase %}
-
+              <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
             {% else %}
-
-              {% case category %}
-                {% when 'Tarifas y precios' %}
-                  <a href="{{ '/categorias/tarifas-y-precios/' | relative_url }}">{{ category }}</a>
-                {% when 'El taxi por dentro' %}
-                  <a href="{{ '/categorias/el-taxi-por-dentro/' | relative_url }}">{{ category }}</a>
-                {% when 'Guía del pasajero' %}
-                  <a href="{{ '/categorias/guia-del-pasajero/' | relative_url }}">{{ category }}</a>
-                {% when 'Rutas y trayectos' %}
-                  <a href="{{ '/categorias/rutas-y-trayectos/' | relative_url }}">{{ category }}</a>
-                {% when 'Sector y opinión' %}
-                  <a href="{{ '/categorias/sector-y-opinion/' | relative_url }}">{{ category }}</a>
-                {% else %}
-                  <span>{{ category }}</span>
-              {% endcase %}
-
+              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
             {% endif %}
 
             {% unless forloop.last %}, {% endunless %}
-
           {% endfor %}
         </span>
       {% endif %}

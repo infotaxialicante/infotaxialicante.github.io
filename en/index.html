@@ -72,7 +72,7 @@ show_in_nav: false
             {% assign cat_slug = cat_name | slugify %}
             <li>
               <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">
-                {{ cat_name }} <span class="category-count">({{ en_posts_in_cat.size }})</span>
+                {{ cat_name | replace: '-', ' ' | capitalize }} <span class="category-count">({{ en_posts_in_cat.size }})</span>
               </a>
             </li>
           {% endif %}

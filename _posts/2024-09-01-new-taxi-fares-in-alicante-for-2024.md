@@ -3,13 +3,13 @@ layout: post
 title: "New Taxi Fares in Alicante for 2024"
 date: 2024-09-01 10:00:00 +0100
 author: "InfoTaxi Alicante"
-categories: 
-    - "Fares and pricing"
+categories: [fares-and-pricing]
 tags: [fares, alicante, taxi, "2024"]
 image: /assets/img/posts/tarifas-taxi-2024.jpg
 image_caption: "New approved taxi fares in Alicante"
 description: "Discover the new taxi fares in Alicante for 2024. Price updates, new rates, and everything you need to know."
 lang: en
+ref: tarifas-2024
 ---
 
 The Alicante City Council has approved the **new taxi fares** that will come into effect next month. This update represents an average increase of **3.5%** compared to the previous year.
