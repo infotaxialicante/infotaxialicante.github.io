@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
 require "yaml"
-
+require "date"
+require "fileutils"
 # Configuración de idiomas y rutas
 TAG_CONFIG = {
   "es" => "etiquetas",

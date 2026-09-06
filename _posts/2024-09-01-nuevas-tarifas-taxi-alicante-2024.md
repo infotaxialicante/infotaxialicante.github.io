@@ -5,7 +5,7 @@ date: 2024-09-01 10:00:00 +0100
 author: "InfoTaxi Alicante"
 categories: 
     - "Tarifas y precios"
-tags: [tarifas, alicante, taxi, 2024]
+tags: [tarifas, alicante, taxi, "2024"]
 image: /assets/img/posts/tarifas-taxi-2024.jpg
 image_caption: "Nuevas tarifas aprobadas para el taxi en Alicante"
 description: "Conoce las nuevas tarifas del taxi en Alicante para 2024. Actualización de precios, nuevas tarifas y todo lo que necesitas saber."
