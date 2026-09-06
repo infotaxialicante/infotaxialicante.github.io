@@ -673,9 +673,10 @@ main.container aside.sidebar span.category-count {
 }
 
 /* Rejilla fija de 2 columnas exclusivamente para la Portada (Inicio) */
-.content-grid .articles-grid {
+.content-grid .articles-grid,
+.content-grid-with-sidebar .articles-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -785,12 +786,14 @@ main.container aside.sidebar span.category-count {
 
 /* Adaptación móvil para ambas vistas */
 @media (max-width: 850px) {
+
   .blog-grid,
-  .content-grid .articles-grid {
+  .content-grid .articles-grid,
+  .content-grid-with-sidebar .articles-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .blog-card-image,
   .post-thumbnail {
     height: 180px;
@@ -800,6 +803,7 @@ main.container aside.sidebar span.category-count {
 /* ============================================================
    7. POST INDIVIDUAL (ARTÍCULO)
    ============================================================ */
+
 .post-article {
   max-width: 800px;
   margin: 0 auto;
@@ -807,6 +811,7 @@ main.container aside.sidebar span.category-count {
 }
 
 /* Cabecera y Meta */
+
 .post-header {
   margin-bottom: 2rem;
   border-bottom: 2px solid var(--mi-muted-border);
@@ -838,6 +843,7 @@ main.container aside.sidebar span.category-count {
 }
 
 /* Imagen destacada */
+
 .post-image {
   margin: 1.5rem 0 2rem 0;
   border-radius: var(--mi-border-radius);
@@ -861,6 +867,7 @@ main.container aside.sidebar span.category-count {
 }
 
 /* Cuerpo del artículo (Markdown) */
+
 .post-content {
   font-size: 1.05rem;
   line-height: 1.8;
@@ -930,83 +937,33 @@ main.container aside.sidebar span.category-count {
   font-weight: 600;
 }
 
-/* Pie del artículo: Compartir y Navegación entre entradas */
+/* Pie del artículo */
+
 .post-footer {
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 2px solid var(--mi-muted-border);
 }
 
-.post-share {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.share-label {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.share-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--mi-card-bg);
-  border: 1px solid var(--mi-muted-border);
-  color: var(--mi-color);
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  text-decoration: none;
-}
-
-.share-btn:hover {
-  transform: translateY(-2px);
-  color: var(--mi-primary);
-  border-color: var(--mi-primary);
-}
-
-.post-navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.post-navigation a {
-  color: var(--mi-primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.post-navigation a:hover {
-  text-decoration: underline;
-}
-
 /* Adaptación responsive para pantallas pequeñas */
+
 @media (max-width: 576px) {
+
   .post-image img {
     height: 240px;
   }
-  
+
   .post-header h1 {
     font-size: 1.75rem;
   }
 }
 
+
 /* ============================================================
    8. COMPARTIR Y NAVEGACIÓN DE POSTS
    ============================================================ */
-.post-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--mi-muted-border);
-}
+
+/* Compartir */
 
 .post-share {
   display: flex;
@@ -1038,13 +995,35 @@ main.container aside.sidebar span.category-count {
   min-width: 40px;
   min-height: 40px;
   border-radius: 50%;
-  transition: all 0.25s ease;
   background: var(--mi-card-bg);
   border: 1px solid var(--mi-border-color);
-  color: var(--mi-color);
   opacity: 0.8;
   flex-shrink: 0;
   text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Color normal de cada icono */
+
+.share-btn.share-twitter {
+  color: #000000;
+}
+
+.share-btn.share-facebook {
+  color: #1877f2;
+}
+
+.share-btn.share-whatsapp {
+  color: #25d366;
+}
+
+.share-btn.share-email {
+  color: #6c757d;
 }
 
 .share-btn svg {
@@ -1053,37 +1032,90 @@ main.container aside.sidebar span.category-count {
   fill: currentColor;
 }
 
-.share-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-  border-color: var(--mi-primary);
+/* Hover solamente en dispositivos con ratón */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .share-btn:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    border-color: var(--mi-primary);
+  }
+
+  .share-btn.share-twitter:hover {
+    background: #000000;
+    border-color: #000000;
+    color: #ffffff;
+  }
+
+  .share-btn.share-facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+    color: #ffffff;
+  }
+
+  .share-btn.share-whatsapp:hover {
+    background: #25d366;
+    border-color: #25d366;
+    color: #ffffff;
+  }
+
+  .share-btn.share-email:hover {
+    background: #6c757d;
+    border-color: #6c757d;
+    color: #ffffff;
+  }
 }
 
-.share-btn.share-twitter:hover {
+/* Evita que el enlace conserve el efecto visual al volver
+   de la página de compartir */
+
+.share-btn:focus {
+  outline: none;
+  transform: none;
+  opacity: 0.8;
+  background: var(--mi-card-bg);
+  border-color: var(--mi-border-color);
+}
+
+/* Mantiene una indicación de foco cuando corresponde */
+
+.share-btn:focus-visible {
+  outline: 2px solid var(--mi-primary);
+  outline-offset: 2px;
+}
+
+.share-btn:active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.share-btn.share-twitter:active {
   background: #000000;
   border-color: #000000;
   color: #ffffff;
 }
 
-.share-btn.share-facebook:hover {
+.share-btn.share-facebook:active {
   background: #1877f2;
   border-color: #1877f2;
   color: #ffffff;
 }
 
-.share-btn.share-whatsapp:hover {
+.share-btn.share-whatsapp:active {
   background: #25d366;
   border-color: #25d366;
   color: #ffffff;
 }
 
-.share-btn.share-email:hover {
+.share-btn.share-email:active {
   background: #6c757d;
   border-color: #6c757d;
   color: #ffffff;
 }
 
-/* NAVEGACIÓN ANTERIOR / SIGUIENTE */
+/* Navegación anterior / siguiente */
+
 .post-navigation {
   display: flex;
   justify-content: space-between;
@@ -1129,65 +1161,74 @@ main.container aside.sidebar span.category-count {
   text-overflow: ellipsis;
 }
 
-/* RESPONSIVE POSTS */
+
+/* Responsive posts */
+
+@media (min-width: 769px) {
+  .share-btn + .share-btn {
+    margin-left: 0.75rem;
+  }
+}
+
 @media (max-width: 768px) {
+
   .post-header h1 {
     font-size: 1.6rem;
   }
-  
+
   .post-meta {
     font-size: 0.8rem;
     gap: 0.5rem 1rem;
   }
-  
+
   .post-image img {
     height: 200px;
   }
-  
+
   .post-content {
     font-size: 0.95rem;
   }
-  
+
   .post-content h2 {
     font-size: 1.4rem;
   }
-  
+
   .post-content h3 {
     font-size: 1.2rem;
   }
-  
+
   .post-share {
     gap: 1.3rem;
-    flex-wrap: wrap; /* Asegura que si no caben, bajen ordenados */
+    flex-wrap: wrap;
   }
-  
+
   .share-label {
     font-size: 0.8rem;
   }
-  
+
   .share-btn {
     width: 34px;
     height: 34px;
     min-width: 34px;
     min-height: 34px;
-    margin-bottom: 0.4rem; /* Margen inferior por si hacen wrap */
+    margin-bottom: 0.4rem;
   }
-  
+
   .share-btn svg {
     width: 16px;
     height: 16px;
   }
-  
+
   .post-navigation {
     flex-direction: column;
     align-items: stretch;
     gap: 0.5rem;
   }
-  
+
   .post-navigation a {
     text-align: center;
   }
-  
+
   .post-navigation .post-prev,
   .post-navigation .post-next {
     max-width: 100%;
@@ -1196,17 +1237,18 @@ main.container aside.sidebar span.category-count {
 }
 
 @media (max-width: 400px) {
+
   .share-label {
     font-size: 0.7rem;
   }
-  
+
   .share-btn {
     width: 30px;
     height: 30px;
     min-width: 30px;
     min-height: 30px;
   }
-  
+
   .share-btn svg {
     width: 14px;
     height: 14px;
