@@ -1,10 +1,12 @@
 <header class="site-header">
   <nav class="container nav-container">
+    {% assign current_lang = include.lang | default: page.lang | default: "es" %}
+
     <div class="nav-header">
-      <a href="{% if include.lang == 'en' %}/en/{% else %}/{% endif %}" class="logo">
+      <a href="{% if current_lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="logo">
         <strong>infotaxialicante.es</strong>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <button class="menu-toggle" id="menuToggle" aria-label="{% if current_lang == 'en' %}Open menu{% else %}Abrir menú{% endif %}" aria-expanded="false" aria-controls="navMenu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -12,17 +14,24 @@
     </div>
 
     <ul class="nav-menu" id="navMenu">
-      {% if include.lang == 'en' %}
-        <li><a href="/en/calculator/" {% if page.ref == 'calculator' %}class="active"{% endif %}>Calculator</a></li>
-        <li><a href="/en/ranks/" {% if page.ref == 'ranks' %}class="active"{% endif %}>Ranks</a></li>
-        <li><a href="/en/blog/" {% if page.ref == 'blog' %}class="active"{% endif %}>Blog</a></li>
-        <li><a href="/en/downloads/" {% if page.ref == 'downloads' %}class="active"{% endif %}>Downloads</a></li>
-      {% else %}
-        <li><a href="/calculadora/" {% if page.ref == 'calculator' %}class="active"{% endif %}>Calculadora</a></li>
-        <li><a href="/paradas/" {% if page.ref == 'ranks' or page.url contains '/paradas/' %}class="active"{% endif %}>Paradas</a></li>
-        <li><a href="/blog/" {% if page.ref == 'blog' or page.url contains '/blog/' %}class="active"{% endif %}>Blog</a></li>
-        <li><a href="/descargas/" {% if page.ref == 'downloads' or page.url contains '/descargas/' %}class="active"{% endif %}>Descargas</a></li>
-      {% endif %}
+      {% assign nav_pages = site.pages | where: "lang", current_lang %}
+      
+      {% for p in nav_pages %}
+        {% comment %}
+          Excluimos:
+          1. Páginas del pie (in_footer: true)
+          2. Portadas (/, /en/, index.html)
+          3. Páginas con show_in_nav: false
+        {% endcomment %}
+        {% unless p.in_footer or p.show_in_nav == false or p.url == "/" or p.url == "/en/" or p.url == "/index.html" or p.url == "/en/index.html" %}
+          <li>
+            <a href="{{ p.url | relative_url }}" 
+               {% if p.ref == page.ref or page.url contains p.url %}class="active"{% endif %}>
+              {{ p.title }}
+            </a>
+          </li>
+        {% endunless %}
+      {% endfor %}
     </ul>
   </nav>
 </header>
