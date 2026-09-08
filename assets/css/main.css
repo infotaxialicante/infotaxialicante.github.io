@@ -42,6 +42,31 @@ body {
   padding: 0;
 }
 
+/* Subrayado limpio solo para enlaces dentro de párrafos, listas y bloque de texto del post */
+.post-content a,
+main p a,
+main li a {
+  color: var(--mi-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.post-content a:hover,
+main p a:hover,
+main li a:hover {
+  opacity: 0.75;
+}
+
+/* Quitar subrayado explícitamente a tarjetas, títulos y metadatos del blog */
+.blog-card a,
+.card a,
+.post-meta a,
+.post-title a {
+  text-decoration: none !important;
+}
+
 /* Modo Oscuro Automático */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -892,18 +917,6 @@ main.container aside.sidebar span.category-count {
 }
 
 /* Enlaces dentro del contenido de los artículos */
-
-.post-content a {
-  color: var(--mi-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s ease;
-}
-
-.post-content a:hover {
-  opacity: 0.75;
-}
 
 .post-content ul,
 .post-content ol {

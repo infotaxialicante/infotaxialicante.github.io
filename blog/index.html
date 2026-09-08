@@ -26,8 +26,12 @@ ref: blog
           </time>
           {% if post.categories.size > 0 %}
             <span class="blog-card-categories">
-              📂 {% for category in post.categories %}
-                <a href="{{ '/categorias/' | append: category | slugify | append: '/' | relative_url }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+              📂 
+              {% for category in post.categories %}
+                {% assign cat_slug = category | slugify %}
+                <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">
+                  {{ category | replace: "-", " " | capitalize }}
+                </a>{% unless forloop.last %}, {% endunless %}
               {% endfor %}
             </span>
           {% endif %}
