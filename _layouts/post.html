@@ -12,7 +12,11 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">
         📅 {{ page.date | date: "%d/%m/%Y" }}
       </time>
-      
+      {% if page.last_modified_at %}
+        <span class="post-updated">
+          (<time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% if current_lang == 'en' %}Updated on{% else %}Actualizado el{% endif %} {{ page.last_modified_at | date: "%d/%m/%Y" }}</time>)
+        </span>
+      {% endif %}      
       <span class="post-author">
         ✍️ 
         <a href="{% if current_lang == 'en' %}{{ '/en/about/' | relative_url }}{% else %}{{ '/sobre-nosotros/' | relative_url }}{% endif %}">

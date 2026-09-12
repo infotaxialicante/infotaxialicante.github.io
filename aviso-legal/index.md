@@ -9,7 +9,7 @@ show_in_nav: false
 
 # Aviso legal y condiciones de uso
 
-El presente documento regula el uso del sitio web **infotaxialicante.es**, un portal de carácter informativo, divulgativo y de uso gratuito dedicado al sector del taxi, la movilidad urbana y la información de interés local en Alicante.
+El presente documento regula el uso del sitio web **infotaxialicante.es**, un portal de carácter informativo, divulgativo y de uso gratuito dedicado al sector del taxi en la ciudad de Alicante y su Área de Prestación Conjunta.
 
 ---
 
@@ -29,7 +29,7 @@ El presente documento regula el uso del sitio web **infotaxialicante.es**, un po
 InfoTaxi Alicante tiene actualmente carácter **exclusivamente informativo y divulgativo**. Sus contenidos se ofrecen de forma gratuita y no constituyen, por sí mismos, la prestación de un servicio de taxi ni la contratación de ningún servicio a través del sitio web.
 
 * Actualmente, el sitio no incluye publicidad comercial remunerada, enlaces de afiliación ni otras vías de monetización, y no percibe ingresos por los contenidos o servicios ofrecidos a través de la web.
-* La información publicada pretende facilitar la consulta y comprensión de cuestiones relacionadas con el taxi y la movilidad en Alicante. 
+* La información publicada pretende facilitar la consulta y comprensión de cuestiones relacionadas con el taxi en Alicante. 
 * No constituye asesoramiento profesional ni sustituye a las disposiciones legales, fuentes oficiales o información que resulte de aplicación en cada caso.
 
 ---
@@ -83,7 +83,7 @@ InfoTaxi Alicante puede permitir la recepción de artículos y otras aportacione
 
 * El envío de una propuesta no garantiza su publicación. Las aportaciones son valoradas previamente y el titular se reserva la decisión sobre su publicación, edición o rechazo.
 * Los contenidos deberán ser originales y respetuosos y no deberán incluir, entre otros, amenazas, insultos, humillaciones, ataques personales o acusaciones sin fundamento.
-* Las condiciones y el procedimiento específico para participar se encuentran en la página *Participa*.
+* Las condiciones y el procedimiento específico para participar se encuentran en la página [Participa](https://infotaxialicante.es/participa/)
 
 ---
 

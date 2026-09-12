@@ -36,11 +36,11 @@ Los datos personales pueden tratarse cuando una persona decide comunicarse volun
 
 ### Consultas por correo electrónico
 
-Cuando una persona escribe voluntariamente a **[contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)**, pueden tratarse los datos incluidos en el mensaje y los datos necesarios para responder a la consulta, como el nombre, la dirección de correo electrónico y el contenido de la comunicación.
+Cuando una persona escribe voluntariamente a [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es), pueden tratarse los datos incluidos en el mensaje y los datos necesarios para responder a la consulta, como el nombre, la dirección de correo electrónico y el contenido de la comunicación.
 
 ### Participaciones y propuestas de artículos
 
-Cuando una persona participa mediante el procedimiento establecido en la página **[Participa](https://infotaxialicante.es/participa/)**, pueden tratarse los datos facilitados a través del formulario de LiberaForms y las comunicaciones posteriores mantenidas por correo electrónico.
+Cuando una persona participa mediante el procedimiento establecido en la página [Participa](https://infotaxialicante.es/participa/), pueden tratarse los datos facilitados a través del formulario de LiberaForms y las comunicaciones posteriores mantenidas por correo electrónico.
 
 Estos datos pueden incluir:
 
@@ -213,7 +213,7 @@ Las personas cuyos datos personales sean objeto de tratamiento pueden ejercer, c
 - derecho a la portabilidad de los datos;
 - derecho a retirar el consentimiento cuando el tratamiento se base en él.
 
-Para ejercer estos derechos puede enviarse una solicitud a **[contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)**, indicando el derecho que se desea ejercer y aportando la información necesaria para poder atender la solicitud.
+Para ejercer estos derechos puede enviarse una solicitud a [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es), indicando el derecho que se desea ejercer y aportando la información necesaria para poder atender la solicitud.
 
 El ejercicio de estos derechos es gratuito, salvo los supuestos previstos por la normativa aplicable.
 
@@ -223,7 +223,7 @@ Las solicitudes serán atendidas dentro de los plazos establecidos legalmente.
 
 ## 12. Derecho a reclamar ante la autoridad de control
 
-Si una persona considera que el tratamiento de sus datos personales no se ajusta a la normativa aplicable, puede presentar una reclamación ante la **[Agencia Española de Protección de Datos (AEPD)](https://www.aepd.es)**, sin perjuicio de cualquier otro recurso administrativo o judicial que pudiera corresponderle.
+Si una persona considera que el tratamiento de sus datos personales no se ajusta a la normativa aplicable, puede presentar una reclamación ante la [Agencia Española de Protección de Datos (AEPD)](https://www.aepd.es), sin perjuicio de cualquier otro recurso administrativo o judicial que pudiera corresponderle.
 
 ---
 
@@ -231,7 +231,7 @@ Si una persona considera que el tratamiento de sus datos personales no se ajusta
 
 La retirada de un artículo o de otro contenido publicado en InfoTaxi Alicante constituye una cuestión independiente del ejercicio de los derechos de protección de datos.
 
-El autor de una colaboración puede solicitar la retirada de su contenido mediante **[colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)**.
+El autor de una colaboración puede solicitar la retirada de su contenido mediante [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)
 
 La solicitud será valorada y, cuando corresponda, se procederá a retirar el contenido.
 

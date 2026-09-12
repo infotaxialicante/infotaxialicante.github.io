@@ -11,8 +11,8 @@
   nombre: "Estación RENFE / AVE"
   direccion: "Avenida Salamanca, s/n"
   zona: "centro"
-  lat: 38.345392
-  lng: -0.495378
+  lat: 38.344750
+  lng: -0.495326
   pmr: true
   telefono: "965252511"
   keywords: ["tren"]
@@ -33,8 +33,8 @@
   nombre: "San Juan Bautista"
   direccion: "Calle San Juan Bautista, 2"
   zona: "san-blas"
-  lat: 38.348328
-  lng: -0.496178
+  lat: 38.348103
+  lng: -0.496195
   pmr: true
   telefono: "965252511"
   keywords: ["San Blas"]

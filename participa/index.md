@@ -135,10 +135,10 @@ InfoTaxi Alicante no adquiere la propiedad ni una cesión exclusiva de los derec
 
 La autorización concedida se limita a permitir al portal la publicación del contenido que haya sido expresamente autorizado en el proceso descrito anteriormente.
 
-El artículo podrá publicarse utilizando:
+El artículo podrá publicarse bajo cualquiera de las siguientes modalidades:
 
-- El nombre y apellidos del autor; o
-- Un alias elegido por el propio autor.
+- Nombre y apellidos del autor.
+- Un alias o seudónimo elegido por el propio autor.
 
 La elección se realizará durante el proceso de participación.
 

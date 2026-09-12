@@ -9,7 +9,7 @@ show_in_nav: false
 
 # Sobre este proyecto
 
-**InfoTaxi Alicante** es un portal informativo, divulgativo e independiente dedicado al sector del taxi, la movilidad urbana y la información de interés local en la ciudad de Alicante y sus alrededores.
+**InfoTaxi Alicante** es un portal informativo, divulgativo e independiente centrado en el sector del taxi en la ciudad de Alicante y su Área de Prestación Conjunta.
 
 Nace con la idea de ofrecer un espacio web sencillo, limpio y accesible donde centralizar datos útiles tanto para quienes utilizan el servicio de taxi a diario como para las personas que visitan la ciudad.
 
@@ -25,7 +25,7 @@ Este proyecto surge con tres objetivos fundamentales:
 
 * **Ofrecer herramientas útiles:** Desarrollar recursos prácticos de libre acceso, como el mapa de paradas o la calculadora orientativa de trayectos.
 
-* **Crear un espacio abierto:** Dar voz a profesionales, usuarios y colaboradores interesados en aportar contenidos y reflexiones sobre el sector y la movilidad local.
+* **Crear un espacio abierto:** Dar voz a profesionales, usuarios y colaboradores interesados en aportar reflexiones, análisis y contenidos de valor vinculados al sector.
 
 ---
 
