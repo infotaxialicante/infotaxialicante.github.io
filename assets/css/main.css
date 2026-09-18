@@ -1872,15 +1872,10 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
   }
 }
 
-/* emojis*/
-/*
-.icon--flag {
-  display: inline-block;
-  width: 1.6em;
-  height: 1.6em;
-  vertical-align: middle;
-}
-*/
+/* ============================================================
+   SVG
+   ============================================================ */
+
 .lang-selector {
   display: flex;
   align-items: center;
@@ -1972,4 +1967,39 @@ button > .icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.125em;
+}
+
+/* ===============================
+   Enlaces corporativos (texto)
+   =============================== */
+.link-corporativo {
+  display: inline-block;
+  color: var(--mi-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link-corporativo:hover {
+  color: var(--mi-primary-hover, var(--mi-primary));
+  text-decoration: underline;
+}
+
+.link-corporativo:focus-visible {
+  outline: 2px solid var(--mi-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Enlace "ver todo" del index */
+.ver-todo-actualizados {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor del enlace "volver" en posts */
+.updated-back-link {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
