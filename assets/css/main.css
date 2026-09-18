@@ -138,7 +138,7 @@ body {
   z-index: 10;
 }
 
-.hero-overlay h1 {
+.hero-overlay p {
   color: #ffffff;
   margin: 0 0 0.3rem 0;
   font-size: 2.2rem;
@@ -147,11 +147,12 @@ body {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85), 0 4px 16px rgba(0, 0, 0, 0.9);
 }
 
-.hero-overlay p {
+.hero-overlay h1 {
   color: #ffffff;
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 500;
+  font-style: italic;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 3px 12px rgba(0, 0, 0, 0.9);
 }
 
@@ -167,11 +168,7 @@ body {
   }
   
   .hero-overlay h1 {
-    font-size: 1.4rem;
-  }
-  
-  .hero-overlay p {
-    font-size: 0.95rem;
+    font-size: 1.0rem;
   }
 }
 
@@ -856,6 +853,7 @@ main.container aside.sidebar span.category-count {
   gap: 0.5rem 1.5rem;
   font-size: 0.9rem;
   color: var(--mi-muted-color);
+  margin-top: 1.2rem; /* O 1.25rem si quieres un pelín más de respiro */
 }
 
 .post-meta a {
@@ -1872,4 +1870,92 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
     margin-bottom: 1rem;
     font-size: 0.8rem;
   }
+}
+
+/* emojis*/
+/*
+.icon--flag {
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  vertical-align: middle;
+}
+*/
+.lang-selector {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0.25em;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  /* Ancla el tamaño de la bandera al texto del nav */
+  font-size: 1em;
+}
+
+.lang-switch:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.lang-switch .icon--flag {
+  /* 1.75em ≈ 28px si el nav usa 16px. Escala con el texto. */
+  width: 1.4em;
+  height: 1.4em;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* ===============================
+   Iconos generales (OpenMoji)
+   =============================== */
+
+/* Base para cualquier icono */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  /* Tamaño por defecto si no se sobreescribe en contexto */
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Variante a color (OpenMoji) */
+.icon--color {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* ===============================
+   Iconos dentro de títulos (h1-h6)
+   =============================== */
+
+h1 > .icon,
+h2 > .icon,
+h3 > .icon,
+h4 > .icon,
+h5 > .icon,
+h6 > .icon {
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: 0.4em;
+  vertical-align: -0.25em; /* pequeño ajuste óptico */
+}
+
+/* ===============================
+   Iconos dentro de enlaces/botones
+   =============================== */
+a > .icon,
+button > .icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
 }

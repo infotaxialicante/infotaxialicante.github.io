@@ -6,7 +6,7 @@ ref: paradas
 ---
 
 <header class="mb-4">
-  <h1>Paradas de Taxi</h1>
+  <h1>{% include icon.html name="ubicacion2" %}Paradas de Taxi</h1>
   <p>Consulta las paradas del Área de Prestación Conjunta (Alicante, El Campello, San Vicente, San Juan y Muchamiel).</p>
 </header>
 
@@ -14,7 +14,7 @@ ref: paradas
 <div class="panel-controles-mapa">
   <div class="grid">
     <div>
-      <label for="filtro-municipio"><strong>Municipio</strong></label>
+      <label for="filtro-municipio"><strong>{% include icon.html name="casa" %}Municipio</strong></label>
       <select id="filtro-municipio">
         <option value="todos">Todos los municipios</option>
         <option value="alicante">Alicante</option>
@@ -26,7 +26,7 @@ ref: paradas
     </div>
 
     <div>
-      <label for="filtro-texto"><strong>Buscar parada</strong></label>
+      <label for="filtro-texto"><strong>{% include icon.html name="lupa" %}Buscar parada</strong></label>
       <div class="buscador-con-sugerencias">
         <input 
           type="search" 
@@ -37,7 +37,7 @@ ref: paradas
         <div id="sugerencias-container" class="sugerencias-lista"></div>
       </div>
       <div id="mensaje-sin-resultados" class="mensaje-sin-resultados" style="display: none;" role="status">
-        ⚠️ No se encontraron paradas. Prueba con otros términos o selecciona un municipio.
+        {% include icon.html name="aviso" %} No se encontraron paradas. Prueba con otros términos o selecciona un municipio.
       </div>
     </div>
 
@@ -51,10 +51,10 @@ ref: paradas
 
   <div class="contenedor-acciones-mapa">
     <button id="btn-mi-ubicacion" class="outline">
-      📍 Usar mi ubicación
+      {% include icon.html name="ubicacion" %}Usar mi ubicación
     </button>
     <button id="btn-parada-cercana" class="secondary" hidden>
-      🎯 Ir a la parada más cercana
+      {% include icon.html name="diana" %}Ir a la parada más cercana
     </button>
   </div>
 </div>

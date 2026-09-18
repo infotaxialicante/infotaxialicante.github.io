@@ -5,14 +5,14 @@ lang: es
 ref: calculator
 ---
 
-<h1>🚖 Estimador de precio – Servicio interurbano</h1>
+<h1>{% include icon.html name="taxi-frente" %}Estimador de precio – Servicio interurbano</h1>
 <p>Selecciona los datos del trayecto y obtén una estimación orientativa del coste.</p>
 
 <form id="calculatorForm">
 
   <!-- Momento del trayecto -->
   <fieldset>
-    <legend>📅 Momento del trayecto</legend>
+    <legend>{% include icon.html name="calendario" %}Momento del trayecto</legend>
     <label>
       <input type="radio" name="timeMode" value="now" checked>
       Ahora mismo
@@ -29,7 +29,7 @@ ref: calculator
 
   <!-- Forma de solicitud -->
   <fieldset>
-    <legend>📞 Forma de solicitud</legend>
+    <legend>{% include icon.html name="telefono" %}Forma de solicitud</legend>
     <label>
       <input type="checkbox" id="isRemoteRequest">
       Solicitado por teléfono, WhatsApp o App (se aplica suplemento de recogida de 7,35 €)
@@ -38,7 +38,7 @@ ref: calculator
 
   <!-- Destino / Distancia -->
   <fieldset>
-    <legend>📍 Destino</legend>
+    <legend>{% include icon.html name="ubicacion" %}Destino</legend>
     <label for="destinoInput">Escribe el nombre del destino (mínimo 2 caracteres para sugerencias):</label>
     <div class="buscador-con-sugerencias">
       <input type="text" id="destinoInput" placeholder="Ej: Benidorm, Elche, Valencia..." autocomplete="off">

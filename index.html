@@ -10,8 +10,7 @@ show_in_nav: false
 <section class="hero-container">
   <img src="/assets/img/ui/portada-alicante.webp" alt="Taxi Alicante" class="hero-image">
   <div class="hero-overlay">
-    <h1>El Taxi en Alicante</h1>
-    <p>Tarifa oficial, calculadora de recorridos y paradas cercanas.</p>
+    <h1>Un punto de encuentro del taxi en Alicante</h1>
   </div>
 </section>
 
@@ -19,13 +18,13 @@ show_in_nav: false
 <section class="quick-access">
   <div class="grid">
     <article class="card-action">
-      <h3>🧮 Calculadora de tarifas</h3>
+      <h3>{% include icon.html name="numeros" %}Calculadora de tarifas</h3>
       <p>Estima el coste orientativo de tu trayecto interurbano.</p>
       <a href="/calculadora/" role="button">Calcular precio del taxi</a>
     </article>
 
     <article class="card-action">
-      <h3>📍 Paradas de taxi</h3>
+      <h3>{% include icon.html name="ubicacion" %}Paradas de taxi</h3>
       <p>Consulta la ubicación de las paradas de taxi del APC de Alicante.</p>
       <a href="/paradas/" role="button">Localizar parada cercana</a>
     </article>
@@ -38,7 +37,7 @@ show_in_nav: false
     
     <!-- Columna Izquierda: Últimas Novedades -->
     <div class="articles-container">
-      <h2>📰 Novedades y Noticias del Taxi</h2>
+      <h2>{% include icon.html name="articulos" %}Últimos artículos</h2>
       <div class="articles-grid">
         {% assign spanish_posts = site.posts | where: "lang", "es" %}
         {% for post in spanish_posts limit:4 %}
@@ -53,14 +52,14 @@ show_in_nav: false
             </div>
           </article>
         {% else %}
-          <p>Próximamente publicaremos las primeras guías y novedades sobre el sector del taxi.</p>
+          <p>Próximamente publicaremos las novedades sobre el sector del taxi.</p>
         {% endfor %}
       </div>
     </div>
 
     <!-- Columna Derecha: Sidebar de Categorías -->
     <aside class="sidebar">
-      <h3>📂 Categorías</h3>
+      <h3>{% include icon.html name="categorias" %} Categorías</h3>
       <ul class="categories-list">
         {% assign has_categories = false %}
         {% for category in site.categories %}
@@ -83,6 +82,33 @@ show_in_nav: false
         {% endunless %}
       </ul>
     </aside>
+
+        <!-- Segunda columna: Contenido Actualizado -->
+    <div class="articles-container">
+      <h2>{% include icon.html name="actualizacion" %}Contenido actualizado</h2>
+      <div class="articles-grid">
+        {% assign spanish_posts = site.posts | where: "lang", "es" %}
+        {% assign modified_posts = spanish_posts | where_exp: "post", "post.last_modified_at" | sort: "last_modified_at" | reverse %}
+
+        {% for post in modified_posts limit:4 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+            <div class="post-info">
+              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <small>Actualizado el {{ post.last_modified_at | date: "%d/%m/%Y" }}</small>
+            </div>
+          </article>
+        {% else %}
+          <p>Próximamente encontrarás aquí los artículos que hayamos actualizado.</p>
+        {% endfor %}
+      </div>
+
+        <a href="/actualizados/" class="blog-card-link">Ver todo el contenido actualizado →</a>
+        
+    </div>
 
   </div>
 </section>

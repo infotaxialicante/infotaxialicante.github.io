@@ -73,7 +73,7 @@
              hreflang="{{ target_lang }}"
              class="lang-switch"
              title="{% if current_lang == 'es' %}Switch to English{% else %}Cambiar a Español{% endif %}">
-            {% if current_lang == 'es' %}🇬🇧{% else %}🇪🇸{% endif %}
+            {% if current_lang == 'es' %} {% include icon.html name="united-kingdom" %} {% else %} {% include icon.html name="espanya" %} {% endif %}
           </a>
         </li>
       </ul>

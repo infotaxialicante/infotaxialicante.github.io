@@ -84,8 +84,34 @@ show_in_nav: false
       </ul>
     </aside>
 
-  </div>
-</section>
+    <!-- Second column: Updated Content -->
+    <div class="articles-container">
+      <h2>{% include icon.html name="actualizacion" %}Updated content</h2>
+
+      <div class="articles-grid">
+        {% assign english_posts = site.posts | where: "lang", "en" %}
+        {% assign modified_posts = english_posts | where_exp: "post", "post.last_modified_at" | sort: "last_modified_at" | reverse %}
+
+        {% for post in modified_posts limit:4 %}
+          <article class="post-card">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}" class="post-thumbnail">
+            {% endif %}
+
+            <div class="post-info">
+              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+              <small>Updated on {{ post.last_modified_at | date: "%d/%m/%Y" }}</small>
+            </div>
+          </article>
+        {% else %}
+          <p>Articles that have been updated will appear here soon.</p>
+        {% endfor %}
+      </div>
+
+      <a href="/en/updated/" class="blog-card-link">View all updated content →</a>
+    </div>
+
 
   </div>
 </section>

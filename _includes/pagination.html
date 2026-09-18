@@ -1,0 +1,55 @@
+{% if include.total_pages > 1 %}
+
+  <nav class="pagination" aria-label="Paginación">
+
+    {% if include.current_page > 1 %}
+      {% assign previous_page = include.current_page | minus: 1 %}
+
+      {% if previous_page == 1 %}
+        <a href="{{ include.base_path | append: '/' | relative_url }}" rel="prev">
+          ← Anterior
+        </a>
+      {% else %}
+        <a href="{{ include.base_path | append: '/pagina' | append: previous_page | append: '/' | relative_url }}" rel="prev">
+          ← Anterior
+        </a>
+      {% endif %}
+    {% endif %}
+
+    <div class="pagination-pages">
+      {% for page_number in (1..include.total_pages) %}
+
+        {% if page_number == include.current_page %}
+
+          <span class="pagination-current" aria-current="page">
+            {{ page_number }}
+          </span>
+
+        {% else %}
+
+          {% if page_number == 1 %}
+            <a href="{{ include.base_path | append: '/' }}">
+              {{ page_number }}
+            </a>
+          {% else %}
+            <a href="{{ include.base_path | append: '/pagina' | append: page_number | append: '/' }}">
+              {{ page_number }}
+            </a>
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+    </div>
+
+    {% if include.current_page < include.total_pages %}
+      {% assign next_page = include.current_page | plus: 1 %}
+
+      <a href="{{ include.base_path | append: '/pagina' | append: next_page | append: '/' | relative_url }}" rel="next">
+        Siguiente →
+      </a>
+    {% endif %}
+
+  </nav>
+
+{% endif %}

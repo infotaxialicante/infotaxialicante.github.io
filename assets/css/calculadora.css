@@ -266,3 +266,31 @@
 #resultado {
   display: none;
 }
+
+/* Iconos SVG dentro de los legend de la calculadora */
+#calculatorForm legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0 0.5em;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+#calculatorForm legend .icon {
+  /* Escala con el texto del legend (em) */
+  width: 1.75em;
+  height: 1.75em;
+  display: block;
+  flex-shrink: 0;
+  /* Que no se vea el borde negro del SVG tan duro */
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* En móvil, un pelín más pequeños para que no dominen */
+@media (max-width: 600px) {
+  #calculatorForm legend .icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}

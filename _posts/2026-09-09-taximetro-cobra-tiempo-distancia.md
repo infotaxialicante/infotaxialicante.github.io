@@ -12,16 +12,18 @@ lang: es
 ref: velocidad-arrastre
 ---
 
-Si tuviera que elegir la pregunta más repetida que los clientes me han transmitido durante mis más de veinte años de profesión, sería esta.
+Si tuviera que elegir la pregunta más repetida que los clientes me han transmitido durante mis años de profesión, sería esta.
 
 Hay muchos falsos mitos relacionados con el funcionamiento del taxímetro, normalmente por desconocimiento. 
 
-Ante dicha pregunta les respondo que es por distancia, dejándolos descolocados. Les suelo poner un ejemplo para situarlos: imaginad un recorrido ideal de 50 km en el que no hay tráfico ni interrupciones de la marcha, y salen dos coches al mismo tiempo, uno a 200 km/h y otro a 70 km/h. Cuando ambos acaben el recorrido, ¿quién tendrá un precio superior en el taxímetro?
+Ante dicha pregunta les respondo que, en condiciones normales de circulación, es por distancia, dejándolos descolocados. Les suelo poner un ejemplo para situarlos: imaginad un recorrido ideal de 50 km en el que no hay tráfico ni interrupciones de la marcha, y salen dos coches al mismo tiempo, uno a 200 km/h y otro a 70 km/h. Cuando ambos acaben el recorrido, ¿quién tendrá un precio superior en el taxímetro?
 
 — *El que ha hecho el recorrido a 70 km/h* —me suelen responder.  
-— *No* —respondo yo, quedando un silencio cortante en el ambiente. 
+— *No* —respondo yo, dejando una brisa de sorpresa en el ambiente. 
 
-Es normal; la intuición hace pensar una cosa y la regla matemática otra. Efectivamente, en ese recorrido ideal no habría ganador ni perdedor: los dos taxímetros marcarían lo mismo (de esto ya os hablaré en otro artículo). 
+Es normal; la intuición hace pensar una cosa y la matemática otra. Efectivamente, en ese recorrido ideal no habría ganador ni perdedor: los dos taxímetros marcarían lo mismo. 
+
+La razón es sencilla: si ambos recorren exactamente los mismos 50 kilómetros sin detenerse, ambos taxímetros están tarificando por distancia. La velocidad solo hará que lleguen antes o después.
 
 Los clientes se quedan con cara de sorpresa pero entienden que el rey, en ese escenario, es la distancia. Hasta que llegamos a un semáforo, ven que el taxímetro sigue contando aun estando parados y me dicen: *«Pero, ¿esto no contaba por distancia?»*.
 
@@ -50,8 +52,12 @@ Esa sería la velocidad de arrastre para esa tarifa concreta (ya que tanto el pr
 
 #### Conclusión
 
-Entonces, lo normal en un recorrido urbano e interurbano es que el precio final sea una combinación de ambos tipos de tarificación, aunque en ciudad el importe final se ve más afectado por la velocidad de arrastre; es decir, el importe final de una carrera urbana es más impredecible.
+Entonces, lo normal en un recorrido urbano e interurbano es que el precio final sea una combinación de ambos tipos de tarificación, aunque en ciudad el importe final se ve más afectado por la velocidad de arrastre; es decir, el importe final de una carrera urbana es más difícil de anticipar, sobre todo en hora punta.
 
 #### Entonces, ¿cómo puedo saber el precio exacto de un servicio?
 
 La realidad es que no lo puedes saber, aunque una aproximación sí se puede dar... hasta ahora. En Alicante, desde hace escasos meses, contamos con la posibilidad de contratar un servicio urbano con precio cerrado, sabiendo el cliente lo que va a pagar antes de subir... Pero eso ya queda para otro día.
+ 
+### Más información
+
+Puedes consultar en nuestra sección de [Descargas]({{ site.baseurl }}/descargas) las tarifas oficiales del año en curso, así podrás hacerte una idea más aproximada del precio por kilómetro y hora de espera según la franja horaria.

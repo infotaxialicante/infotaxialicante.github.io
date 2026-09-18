@@ -31,13 +31,13 @@ Este proyecto surge con tres objetivos fundamentales:
 
 ## Lo que vas a encontrar aquí
 
-* 🗺️ **Mapas e infraestructuras:** Ubicación y consulta de paradas de taxi en Alicante y su Área de Prestación Conjunta.
+* **Mapas e infraestructuras:** Ubicación y consulta de paradas de taxi en Alicante y su Área de Prestación Conjunta.
 
-* 🧮 **Herramientas de cálculo:** Estimación orientativa de tarifas interurbanas para planificar trayectos.
+* **Herramientas de cálculo:** Estimación orientativa de tarifas interurbanas para planificar trayectos.
 
-* 📝 **Artículos y divulgación:** Publicaciones sobre normativa, historias del sector, guías locales y análisis del impacto de la movilidad en la ciudad.
+* **Artículos y divulgación:** Publicaciones sobre normativa, historias del sector, guías locales y análisis del impacto de la movilidad en la ciudad.
 
-* 🤝 **Participación:** Un espacio donde se pueden proponer contenidos y artículos de interés sobre el sector y la movilidad local.
+* **Participación:** Un espacio donde se pueden proponer contenidos y artículos de interés sobre el sector y la movilidad local.
 
 ---
 

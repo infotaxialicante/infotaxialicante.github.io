@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+{% assign lang_posts = site.posts | where: "lang", page.lang %}
+
+{% if page.pagination_section == "updated" %}
+
+  {% assign archive_posts = "" | split: "" %}
+
+  {% for post in lang_posts %}
+    {% if post.last_modified_at %}
+      {% assign archive_posts = archive_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign archive_posts = archive_posts | sort: "last_modified_at" | reverse %}
+
+  {% if page.lang == "en" %}
+    {% assign archive_title = "Updated content" %}
+    {% assign archive_description = "Articles that have been recently reviewed or updated." %}
+  {% else %}
+    {% assign archive_title = "Contenido actualizado" %}
+    {% assign archive_description = "Artículos que han sido revisados o actualizados recientemente." %}
+  {% endif %}
+
+{% else %}
+
+  {% assign archive_posts = lang_posts %}
+
+  {% if page.lang == "en" %}
+    {% assign archive_title = "InfoTaxi Alicante Blog" %}
+    {% assign archive_description = "News and updates about taxi services in Alicante." %}
+  {% else %}
+    {% assign archive_title = "Blog de InfoTaxi Alicante" %}
+    {% assign archive_description = "Todas las noticias y novedades sobre el servicio de taxi en Alicante." %}
+  {% endif %}
+
+{% endif %}
+
+{% assign page_posts = archive_posts | slice: page.pagination_offset, 6 %}
+
+{% assign total_posts = archive_posts.size %}
+
+{% if total_posts == 0 %}
+  {% assign total_pages = 0 %}
+{% else %}
+  {% assign total_pages = total_posts | divided_by: 6 | plus: 1 %}
+{% endif %}
+
+{% if page.lang == "en" %}
+  {% if page.pagination_section == "updated" %}
+    {% assign pagination_base = "/en/updated" %}
+  {% else %}
+    {% assign pagination_base = "/en/blog" %}
+  {% endif %}
+{% else %}
+  {% if page.pagination_section == "updated" %}
+    {% assign pagination_base = "/actualizados" %}
+  {% else %}
+    {% assign pagination_base = "/blog" %}
+  {% endif %}
+{% endif %}
+
+<h1>{% include icon.html name="articulos" %}{{ archive_title }}</h1>
+
+<p class="blog-description">{{ archive_description }}</p>
+
+<div class="blog-grid">
+  {% include archive-posts.html posts=page_posts %}
+</div>
+
+{% include pagination.html
+  current_page=page.pagination_page
+  total_pages=total_pages
+  base_path=pagination_base
+%}
