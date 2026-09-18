@@ -279,8 +279,8 @@
 
 #calculatorForm legend .icon {
   /* Escala con el texto del legend (em) */
-  width: 1.75em;
-  height: 1.75em;
+  width: 1.25em;
+  height: 1.25em;
   display: block;
   flex-shrink: 0;
   /* Que no se vea el borde negro del SVG tan duro */
@@ -290,7 +290,7 @@
 /* En móvil, un pelín más pequeños para que no dominen */
 @media (max-width: 600px) {
   #calculatorForm legend .icon {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.1em;
+    height: 1.1em;
   }
 }
