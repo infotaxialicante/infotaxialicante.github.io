@@ -1003,12 +1003,20 @@ main.container aside.sidebar span.category-count {
 }
 
 .share-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   font-weight: 600;
   color: var(--mi-muted-color);
   font-size: 0.95rem;
   white-space: nowrap;
   flex-shrink: 0;
-  display: inline-block;
+}
+
+.share-label .icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
 }
 
 .share-btn {
@@ -1033,6 +1041,16 @@ main.container aside.sidebar span.category-count {
     color 0.25s ease;
 }
 
+@media (min-width: 769px) {
+  .post-share {
+    gap: 0.25rem;   /* más juntos en escritorio */
+  }
+
+  .share-label {
+    margin-right: 0.4rem;   /* el label mantiene su aire */
+  }
+}
+
 /* Color normal de cada icono */
 
 .share-btn.share-twitter {
@@ -1054,7 +1072,8 @@ main.container aside.sidebar span.category-count {
 .share-btn svg {
   width: 18px;
   height: 18px;
-  fill: currentColor;
+  display: block;
+  stroke: currentColor;
 }
 
 /* Hover solamente en dispositivos con ratón */
@@ -1279,6 +1298,8 @@ main.container aside.sidebar span.category-count {
     height: 14px;
   }
 }
+
+
 
 /* ============================================================
    9. FOOTER
