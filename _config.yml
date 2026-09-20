@@ -8,15 +8,6 @@ baseurl: ""
 # Estructura de URLs limpia para las publicaciones
 permalink: /blog/:categories/:slug/
 
-# Paginación (8 artículos por página para la vista tipo Google)
-paginate: 8
-paginate_path: "/blog/pagina:num/"
-
-# Plugins oficiales para GitHub Pages
-plugins:
-  - jekyll-paginate
-  - jekyll-feed
-
 # Archivos a ignorar durante la compilación
 exclude:
   - README.md
