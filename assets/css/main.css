@@ -945,21 +945,51 @@ main.container aside.sidebar span.category-count {
   margin: 1.5rem 0;
 }
 
+/* --- TABLAS MODERNAS Y LIMPIAS --- */
 .post-content table {
-  width: 100%;
+  width: 100%;                    /* Ocupa el 100% del contenedor siempre */
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 1.5rem 0;
-  border-collapse: collapse;
-}
-
-.post-content table th,
-.post-content table td {
-  padding: 0.6rem 0.8rem;
+  border-radius: var(--mi-border-radius, 8px);
+  overflow: hidden;
   border: 1px solid var(--mi-muted-border);
+  font-size: 0.95rem;
 }
 
 .post-content table th {
-  background: var(--mi-card-bg);
+  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.12);
+  color: inherit;
+  text-align: left;
+  padding: 0.75rem 1rem;
   font-weight: 600;
+  border-bottom: 2px solid var(--mi-primary);
+}
+
+.post-content table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--mi-muted-border);
+}
+
+.post-content table tr:nth-child(even) {
+  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.03);
+}
+
+.post-content table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alinea la última columna a la derecha para equilibrar visualmente precios/números */
+.post-content table th:last-child,
+.post-content table td:last-child {
+  text-align: right;
+}
+
+/* Ajuste para móvil sin encoger la tabla */
+@media (max-width: 640px) {
+  .post-content {
+    overflow-x: auto;            /* El contenedor gestiona el scroll si la tabla excede el ancho */
+  }
 }
 
 /* Pie del artículo */
