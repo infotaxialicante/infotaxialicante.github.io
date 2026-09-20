@@ -9,10 +9,10 @@
 - id: "ali-renfe"
   municipio: "alicante"
   nombre: "Estación RENFE / AVE"
-  direccion: "Avenida Salamanca, s/n"
+  direccion: "Avenida Salamanca, 1"
   zona: "centro"
-  lat: 38.344750
-  lng: -0.495326
+  lat: 38.344744
+  lng: -0.495322
   pmr: true
   telefono: "965252511"
   keywords: ["tren"]
@@ -22,8 +22,8 @@
   nombre: "Centro Comercial Isla de Corfú"
   direccion: "Avenida del Dr. Jiménez Díaz, 17"
   zona: "san-blas"
-  lat: 38.354541
-  lng: -0.502440
+  lat: 38.354376
+  lng: -0.503145
   pmr: true
   telefono: "965252511"
   keywords: ["Nuevo San Blas", "Pau 2"]
@@ -33,8 +33,8 @@
   nombre: "San Juan Bautista"
   direccion: "Calle San Juan Bautista, 2"
   zona: "san-blas"
-  lat: 38.348103
-  lng: -0.496195
+  lat: 38.348281
+  lng: -0.496154
   pmr: true
   telefono: "965252511"
   keywords: ["San Blas"]
@@ -44,8 +44,8 @@
   nombre: "Plaza de España / Plaza de Toros"
   direccion: "Plaza de España, 1"
   zona: "centro"
-  lat: 38.351278
-  lng: -0.484895
+  lat: 38.351105
+  lng: -0.485083
   pmr: true
   telefono: "965252511"
 
@@ -54,8 +54,8 @@
   nombre: "Mercado"
   direccion: "Avenida de Alfonso X El Sabio, 9"
   zona: "centro"
-  lat: 38.347919
-  lng: -0.485751
+  lat: 38.347642
+  lng: -0.485760
   pmr: true
   telefono: "965252511"
   keywords: ["Mercado Central"]
@@ -63,10 +63,10 @@
 - id: "ali-alfonso-el-sabio"
   municipio: "alicante"
   nombre: "Alfonso el Sabio"
-  direccion: "Avenida de Alfonso el Sabio, 27"
+  direccion: "Avenida X de Alfonso el Sabio, 27"
   zona: "centro"
-  lat: 38.347147
-  lng: -0.487997
+  lat: 38.346795
+  lng: -0.487978
   pmr: true
   telefono: "965252511"
   keywords: ["Simago", "Esfera"]
@@ -74,10 +74,10 @@
 - id: "ali-calvo-sotelo"
   municipio: "alicante"
   nombre: "Plaza de Calvo Sotelo"
-  direccion: "Plaza de Calvo Sotelo, 2"
+  direccion: "Plaza de Calvo Sotelo, 3"
   zona: "centro"
-  lat: 38.343705
-  lng: -0.487756
+  lat: 38.343457
+  lng: -0.487843
   pmr: true
   telefono: "965252511"
   keywords: ["Montañeta", "Hacienda", "Palomas"]
@@ -87,8 +87,8 @@
   nombre: "Portugal"
   direccion: "Calle Portugal, 22"
   zona: "centro"
-  lat: 38.341464
-  lng: -0.489818
+  lat: 38.341522
+  lng: -0.489725
   pmr: true
   telefono: "965252511"
   keywords: ["Antigua Estación de Autobuses", "Séneca"]
@@ -98,18 +98,18 @@
   nombre: "Estación Autobuses"
   direccion: "Muelle de Poniente, s/n"
   zona: "puerto"
-  lat: 38.337818
-  lng: -0.491773
+  lat: 38.335713
+  lng: -0.491866
   pmr: true
   telefono: "965252511"
 
 - id: "ali-portal-de-elche"
   municipio: "alicante"
   nombre: "Portal de Elche"
-  direccion: "Rambla de Méndez Núñez, 7"
+  direccion: "Rambla de Méndez Núñez, 10"
   zona: "centro"
-  lat: 38.344953
-  lng: -0.483232
+  lat: 38.344544
+  lng: -0.483145
   pmr: true
   telefono: "965252511"
 
@@ -118,8 +118,8 @@
   nombre: "Plaza del Mar"
   direccion: "Plaza Puerta del Mar, 1"
   zona: "puerto"
-  lat: 38.345222
-  lng: -0.480443
+  lat: 38.344510
+  lng: -0.480393
   pmr: true
   telefono: "965252511"
   keywords: ["Puerto"]
@@ -129,8 +129,8 @@
   nombre: "Melia"
   direccion: "Plaza Puerta del Mar, 3"
   zona: "puerto"
-  lat: 38.343708
-  lng: -0.478941
+  lat: 38.342767
+  lng: -0.478984
   pmr: true
   telefono: "965252511"
   keywords: ["Plaza del Mar"]
@@ -140,8 +140,8 @@
   nombre: "Marvá"
   direccion: "Avenida General Marvá, 7"
   zona: "centro"
-  lat: 38.347410
-  lng: -0.491386
+  lat: 38.346776
+  lng: -0.491381
   pmr: true
   telefono: "965252511"
   keywords: ["Luceros"]
@@ -149,10 +149,10 @@
 - id: "ali-corte-ingles"
   municipio: "alicante"
   nombre: "Corte Inglés"
-  direccion: "Calle Churruca, 41"
+  direccion: "Calle Churruca, 43"
   zona: "centro"
-  lat: 38.343338
-  lng: -0.493833
+  lat: 38.343207
+  lng: -0.493948
   pmr: true
   telefono: "965252511"
 
@@ -161,8 +161,8 @@
   nombre: "Plaza de Gómez Ulla"
   direccion: "Plaza de Gómez Ulla, 1"
   zona: "carolinas"
-  lat: 38.353569
-  lng: -0.476881
+  lat: 38.353029
+  lng: -0.477019
   pmr: true
   telefono: "965252511"
   keywords: ["Vithas Perpetuo Socorro"]
@@ -172,8 +172,18 @@
   nombre: "Juzgados"
   direccion: "Calle Pardo Gimeno, 53"
   zona: "benalua"
-  lat: 38.342316
-  lng: -0.501764
+  lat: 38.341411
+  lng: -0.501909
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-la-era"
+  municipio: "alicante"
+  nombre: "San Gabriel"
+  direccion: "Calle de La Era, 3"
+  zona: "san-gabriel"
+  lat: 38.330280
+  lng: -0.514644
   pmr: true
   telefono: "965252511"
 
@@ -182,8 +192,8 @@
   nombre: "Centro Comercial Puerta de Alicante"
   direccion: "Calle de Rio Muni, 10"
   zona: "babel"
-  lat: 38.342441
-  lng: -0.517068
+  lat: 38.341832
+  lng: -0.516465
   pmr: true
   telefono: "965252511"
 
@@ -192,8 +202,8 @@
   nombre: "San Mateo"
   direccion: "Calle de San Mateo, 2"
   zona: "carolinas"
-  lat: 38.356318
-  lng: -0.479804
+  lat: 38.355922
+  lng: -0.479768
   pmr: true
   telefono: "965252511"
   keywords: ["Mercado de Carolinas"]
@@ -203,8 +213,8 @@
   nombre: "Pardo Bazán"
   direccion: "Calle de Pardo Bazán, 1"
   zona: "los-angeles"
-  lat: 38.366899
-  lng: -0.495781
+  lat: 38.366119
+  lng: -0.495626
   pmr: true
   telefono: "965252511"
   keywords: ["Los Ángeles"]
@@ -214,8 +224,8 @@
   nombre: "Padre Esplá"
   direccion: "Avenida del Padre Esplá, 58"
   zona: "carolinas"
-  lat: 38.359076
-  lng: -0.473555
+  lat: 38.358127
+  lng: -0.473683
   pmr: true
   telefono: "965252511"
 
@@ -225,8 +235,8 @@
   direccion: "Muelle de Levante"
   zona: "puerto"
   nota: "⚠️ Servicio activo únicamente durante la atracada de cruceros"
-  lat: 38.333505
-  lng: -0.484203
+  lat: 38.334672
+  lng: -0.481025
   pmr: true
   telefono: "965252511"
 
@@ -235,8 +245,8 @@
   nombre: "Manila"
   direccion: "Calle de Góngora, 4"
   zona: "carolinas"
-  lat: 38.359531
-  lng: -0.478250
+  lat: 38.358795
+  lng: -0.478280
   pmr: true
   telefono: "965252511"
 
@@ -245,8 +255,8 @@
   nombre: "Hospital Dr. Balmis (Puerta Principal)"
   direccion: "Avenida Pintor Baeza, 12"
   zona: "hospital"
-  lat: 38.364141
-  lng: -0.486704
+  lat: 38.363440
+  lng: -0.486098
   pmr: true
   telefono: "965252511"
 
@@ -255,18 +265,28 @@
   nombre: "Hospital Dr. Balmis (Puerta Consultas Externas)"
   direccion: "Avenida Maestro Alonso, s/n"
   zona: "hospital"
-  lat: 38.364814
-  lng: -0.485331
+  lat: 38.363999
+  lng: -0.485039
   pmr: true
   telefono: "965252511"
 
 - id: "ali-gran-via"
   municipio: "alicante"
   nombre: "Centro Comercial Gran Vía"
-  direccion: "Calle José García Sellés, 1"
+  direccion: "Calle José García Sellés, 13"
   zona: "gran-via"
-  lat: 38.367943
-  lng: -0.470268
+  lat: 38.367341
+  lng: -0.470340
+  pmr: true
+  telefono: "965252511"
+
+- id: "ali-vissum"
+  municipio: "alicante"
+  nombre: "Centro Oftalmológico Vissum"
+  direccion: "Calle del Cabañal, 3"
+  zona: "vistahermosa"
+  lat: 38.362859
+  lng: -0.462474
   pmr: true
   telefono: "965252511"
 
@@ -275,8 +295,8 @@
   nombre: "Ambulatorio de Babel"
   direccion: "Calle Vicente Chávarri, 17"
   zona: "babel"
-  lat: 38.341796
-  lng: -0.509708
+  lat: 38.341020
+  lng: -0.509400
   pmr: true
   telefono: "965252511"
 
@@ -285,18 +305,18 @@
   nombre: "Alcalde Carbonell"
   direccion: "Avenida Alcalde Carbonell, 55"
   zona: "babel"
-  lat: 38.339406
-  lng: -0.513570
+  lat: 38.338586
+  lng: -0.513430
   pmr: true
   telefono: "965252511"
 
 - id: "ali-pino-santo"
   municipio: "alicante"
   nombre: "Pino Santo"
-  direccion: "Avenida del Pino Santo, 2"
+  direccion: "Avenida del Pino Santo, 1"
   zona: "virgen-del-remedio"
-  lat: 38.371824
-  lng: -0.486824
+  lat: 38.371103
+  lng: -0.487578
   pmr: true
   telefono: "965252511"
 
@@ -305,8 +325,8 @@
   nombre: "Plaza Mar 2"
   direccion: "Avenida de Dénia, s/n"
   zona: "goteta"
-  lat: 38.355226
-  lng: -0.473061
+  lat: 38.349619
+  lng: -0.473390
   pmr: true
   telefono: "965252511"
   keywords: ["Alcampo", "Goteta"]
@@ -316,8 +336,8 @@
   nombre: "Clínica Medimar"
   direccion: "Avenida del Padre Arrupe, 17"
   zona: "goteta"
-  lat: 38.359137
-  lng: -0.467042
+  lat: 38.358922
+  lng: -0.467063
   pmr: true
   telefono: "965252511"
   keywords: ["Vithas Medimar", "San Carlos"]
@@ -327,19 +347,29 @@
   nombre: "Aguamarga"
   direccion: "Calle Bélgica, 3"
   zona: "aguamarga"
-  lat: 38.318778
-  lng: -0.517992
+  lat: 38.313421
+  lng: -0.516838
   pmr: true
   telefono: "965252511"
   keywords: ["Hotel Ibis"]
+
+- id: "ali-isleta"
+  municipio: "alicante"
+  nombre: "Isleta"
+  direccion: "Plaza de la Isleta, s/n"
+  zona: "albufera"
+  lat: 38.363223
+  lng: -0.447627
+  pmr: true
+  telefono: "965252511"
 
 - id: "ali-torregolf"
   municipio: "alicante"
   nombre: "Centro Comercial Torregolf"
   direccion: "Avenida Historiador Vicente Ramos, 3"
   zona: "albufera"
-  lat: 38.367405
-  lng: -0.430083
+  lat: 38.365997
+  lng: -0.430305
   pmr: true
   telefono: "965252511"
   keywords: ["TorreMauro"]
@@ -347,20 +377,20 @@
 - id: "ali-fontana"
   municipio: "alicante"
   nombre: "Centro Comercial Fontana"
-  direccion: "Avenida de Holanda, 13"
+  direccion: "Avenida de Holanda, 9"
   zona: "san-juan-playa"
-  lat: 38.369625
-  lng: -0.414805
+  lat: 38.368200
+  lng: -0.414726
   pmr: true
   telefono: "965252511"
 
 - id: "ali-alicante-golf"
   municipio: "alicante"
   nombre: "Alicante Golf"
-  direccion: "Calle Escultor José Gutierrez, 21"
+  direccion: "Calle Escultor José Gutierrez, 25"
   zona: "san-juan-playa"
-  lat: 38.376893
-  lng: -0.421071
+  lat: 38.375247
+  lng: -0.420928
   pmr: true
   telefono: "965252511"
 
@@ -369,8 +399,8 @@
   nombre: "Costa Blanca"
   direccion: "Avenida de Costa Blanca esq. Plaza de la Coruña"
   zona: "san-juan-playa"
-  lat: 38.374665
-  lng: -0.412037
+  lat: 38.374506
+  lng: -0.412069
   pmr: true
   telefono: "965252511"
   keywords: ["Costablanca"]
@@ -380,8 +410,8 @@
   nombre: "Cabo de las Huertas"
   direccion: "Calle del Palangre, 10"
   zona: "cabo-huertas"
-  lat: 38.360738
-  lng: -0.424933
+  lat: 38.359222
+  lng: -0.424727
   pmr: true
   telefono: "965252511"
 
@@ -390,8 +420,8 @@
   nombre: "Pau 5"
   direccion: "Avenida José Garberí Serrano, 16"
   zona: "san-juan-playa"
-  lat: 38.387934
-  lng: -0.418168
+  lat: 38.386699
+  lng: -0.417875
   pmr: true
   telefono: "965252511"
 
@@ -401,10 +431,10 @@
 - id: "cam-tranvia"
   municipio: "el-campello"
   nombre: "Estación TRAM"
-  direccion: "Avenida de la Estación, 2"
+  direccion: "Avenida de la Estación, 68"
   zona: "centro"
-  lat: 38.427729
-  lng: -0.395572
+  lat: 38.427590
+  lng: -0.395598
   pmr: true
   telefono: "965252511"
   keywords: ["Tranvía"]
@@ -414,8 +444,8 @@
   nombre: "Muchavista"
   direccion: "Calle de Juan de la Cierva, 43"
   zona: "playa"
-  lat: 38.387960
-  lng: -0.411289
+  lat: 38.387737
+  lng: -0.411066
   pmr: true
   telefono: "965252511"
 
@@ -427,8 +457,8 @@
   nombre: "Universidad de Alicante (UA)"
   direccion: "Avenida de Alicante esq. Calle Cottolengo"
   zona: "universidad"
-  lat: 38.386957
-  lng: -0.509508
+  lat: 38.386596
+  lng: -0.509571
   pmr: true
   telefono: "965252511"
   keywords: ["Mad Pilots", "Tanatorio"]
@@ -438,8 +468,8 @@
   nombre: "San Vicente"
   direccion: "Avenida de la Libertad, 2"
   zona: "centro"
-  lat: 38.397943
-  lng: -0.522276
+  lat: 38.397447
+  lng: -0.522360
   pmr: true
   telefono: "965252511"
   keywords: ["Correos", "Druni"]
@@ -452,8 +482,8 @@
   nombre: "Hospital Universitario San Juan"
   direccion: "N-332, s/n (Junto a Puerta Principal)"
   zona: "hospital-clinico"
-  lat: 38.389206
-  lng: -0.435577
+  lat: 38.388889
+  lng: -0.435618
   pmr: true
   telefono: "965252511"
   keywords: ["Clínico de San Juan"]
@@ -463,8 +493,8 @@
   nombre: "Jaime I / Plaza de Los Hierros"
   direccion: "Calle de Jaime I, 12"
   zona: "centro"
-  lat: 38.398027
-  lng: -0.434436
+  lat: 38.397934
+  lng: -0.434463
   pmr: true
   telefono: "965252511"
 
@@ -474,10 +504,10 @@
 - id: "muc-ayuntamiento"
   municipio: "muchamiel"
   nombre: "Muchamiel"
-  direccion: "Calle Pío XII, 1C"
+  direccion: "Calle Pío XII, 2"
   zona: "centro"
-  lat: 38.414734
-  lng: -0.444396
-  pmr: false
+  lat: 38.414662
+  lng: -0.444382
+  pmr: true
   telefono: "965252511"
   keywords: ["Ayuntamiento"]
