@@ -208,8 +208,8 @@ header .logo:hover {
    RESPIRACIÓN SUPERIOR PARA EL HEADER
    ============================================================ */
 header.container {
-  margin-top: 1.5rem;   /* Separa la cabecera del borde superior del navegador */
-  margin-bottom: 1.5rem; /* Separa la cabecera de lo que viene abajo (el Hero) */
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Botón Hamburguesa */
@@ -266,7 +266,7 @@ header .nav-menu {
   border-radius: var(--mi-border-radius, 6px);
   border: 1px solid var(--mi-border-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  
+
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -308,7 +308,7 @@ header .nav-menu.open li:not(.lang-selector) {
   transform: translateX(0);
 }
 
-/* Transiciones escalonadas para ítems del menú (excluyendo el selector de idioma) */
+/* Transiciones escalonadas */
 header .nav-menu li:not(.lang-selector):nth-child(1) { transition-delay: 0.05s; }
 header .nav-menu li:not(.lang-selector):nth-child(2) { transition-delay: 0.10s; }
 header .nav-menu li:not(.lang-selector):nth-child(3) { transition-delay: 0.15s; }
@@ -320,7 +320,7 @@ header .nav-menu:not(.open) li:not(.lang-selector) {
   transition-delay: 0s;
 }
 
-/* Estilos para los enlaces normales del menú (excluyendo el selector de idioma) */
+/* Enlaces normales del menú */
 header .nav-menu a:not(.lang-switch) {
   display: block;
   padding: 0.8rem 1rem;
@@ -340,43 +340,26 @@ header .nav-menu a:not(.lang-switch):hover {
 header .nav-menu a:not(.lang-switch).active {
   font-weight: 600;
   color: var(--mi-primary);
-  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.08); /* Fondo suave */
-  border-left: 4px solid var(--mi-primary);                    /* Indicador lateral limpio */
-  padding-left: 1.2rem;  /* Espaciado para el borde */
-  border-radius: 0 4px 4px 0; /* Mantiene redondas solo las esquinas derechas */                                       
+  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.08);
+  border-left: 4px solid var(--mi-primary);
+  padding-left: 1.2rem;
+  border-radius: 0 4px 4px 0;
 }
 
-/* Oculta la línea horizontal en móvil para evitar que pise las divisiones */
 header .nav-menu a:not(.lang-switch).active::after {
   display: none;
 }
 
 /* ============================================================
    Selector de Idioma (Móvil)
-   - Alineado con el resto del menú
-   - Sin marcador de lista (::marker) para que no parezca un botón
    ============================================================ */
 header .nav-menu li.lang-selector {
-  /* Resetear lo que herede */
-  border-bottom: none;
-  border-left: none;
-  list-style: none;              /* Quita el ::marker del li */
-  list-style-type: none;         /* Refuerzo por navegadores antiguos */
-  
-  /* Mismo padding horizontal que los ítems del menú (para alinear) */
+  list-style: none;
   padding: 0;
   margin: 0;
-  
-  /* Layout */
   opacity: 1;
   transform: none;
   transition: opacity 0.3s ease 0.30s;
-}
-
-/* Anula cualquier marcador residual */
-header .nav-menu li.lang-selector::marker {
-  content: none;
-  display: none;
 }
 
 header .nav-menu.open li.lang-selector {
@@ -384,43 +367,26 @@ header .nav-menu.open li.lang-selector {
   transform: none;
 }
 
-/* El enlace ocupa el ancho completo como los ítems, pero sin fondo */
 header .nav-menu li.lang-selector a.lang-switch {
   display: flex;
   align-items: center;
-  justify-content: flex-start;   /* Bandera a la izquierda, alineada con los textos */
-  
-  width: 100%;                    /* Ocupa todo el ancho de la fila */
-  padding: 0.8rem 1rem;           /* Mismo padding que los ítems del menú */
-  margin: 0;
-  
+  width: 100%;
+  padding: 0.8rem 1rem;
   background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  
   text-decoration: none;
-  transition: none;
 }
 
-/* Sin fondo al pasar el ratón (no queremos que parezca un botón) */
 header .nav-menu li.lang-selector a.lang-switch:hover {
   background: transparent;
-  color: inherit;
 }
 
-header .nav-menu li.lang-selector a.lang-switch:active {
-  transform: none;
-}
-
-/* La bandera: tamaño controlado y sin sombra agresiva */
+/* La bandera: tamaño controlado, sin sombra */
 header .nav-menu li.lang-selector a.lang-switch img,
 header .nav-menu li.lang-selector a.lang-switch svg {
   width: 28px;
   height: auto;
   display: block;
   border-radius: 3px;
-  box-shadow: none;
 }
 
 /* NAVEGACIÓN DESKTOP */
@@ -428,21 +394,20 @@ header .nav-menu li.lang-selector a.lang-switch svg {
   header .menu-toggle {
     display: none;
   }
-  
+
   header nav {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0.8rem 0;
   }
-  
+
   header .nav-header {
     width: auto;
     flex-shrink: 0;
   }
-  
+
   header .nav-menu {
-    display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
@@ -459,7 +424,7 @@ header .nav-menu li.lang-selector a.lang-switch svg {
     visibility: visible;
     width: auto;
   }
-  
+
   header .nav-menu li:not(.lang-selector) {
     display: inline-block;
     margin: 0;
@@ -469,7 +434,7 @@ header .nav-menu li.lang-selector a.lang-switch svg {
     transition: none;
     border-bottom: none;
   }
-  
+
   header .nav-menu a:not(.lang-switch) {
     display: inline-block;
     padding: 0.3rem 0;
@@ -479,12 +444,12 @@ header .nav-menu li.lang-selector a.lang-switch svg {
     line-height: 1.5;
     position: relative;
   }
-  
+
   header .nav-menu a:not(.lang-switch):hover {
     background: transparent;
     color: var(--mi-primary);
   }
-  
+
   header .nav-menu a:not(.lang-switch):hover::after {
     content: '';
     position: absolute;
@@ -495,7 +460,7 @@ header .nav-menu li.lang-selector a.lang-switch svg {
     background: var(--mi-primary);
     border-radius: 2px;
   }
-  
+
   header .nav-menu a:not(.lang-switch).active {
     background: transparent;
     border-left: none;
@@ -519,33 +484,20 @@ header .nav-menu li.lang-selector a.lang-switch svg {
     align-items: center;
     margin: 0;
     padding: 0;
-    border-top: none;
-    border-bottom: none;
-    opacity: 1;
-    transform: none;
     list-style: none;
-  }
-
-  /* El ::marker también podría aparecer en desktop, lo anulamos */
-  header .nav-menu li.lang-selector::marker {
-    content: none;
-    display: none;
   }
 
   header .nav-menu li.lang-selector a.lang-switch {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: auto;              /* En desktop solo ocupa lo que necesita */
-    padding: 0.3rem 0;        /* Mismo padding vertical que los enlaces del menú */
+    width: auto;
+    padding: 0.3rem 0;
     background: transparent;
-    border: none;
     transition: transform 0.3s ease;
   }
 
   header .nav-menu li.lang-selector a.lang-switch:hover {
-    background: transparent;
-    border: none;
     transform: scale(1.15);
   }
 }
