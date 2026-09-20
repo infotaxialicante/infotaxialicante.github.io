@@ -288,7 +288,8 @@ header .nav-menu.open {
   visibility: visible;
 }
 
-header .nav-menu li {
+/* Ítems del menú (excluyendo el selector de idioma) */
+header .nav-menu li:not(.lang-selector) {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -298,28 +299,29 @@ header .nav-menu li {
   border-bottom: 1px solid var(--mi-border-color);
 }
 
-header .nav-menu li:last-child {
+header .nav-menu li:not(.lang-selector):last-child {
   border-bottom: none;
 }
 
-header .nav-menu.open li {
+header .nav-menu.open li:not(.lang-selector) {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Transiciones escalonadas para ítems del menú */
-header .nav-menu li:nth-child(1) { transition-delay: 0.05s; }
-header .nav-menu li:nth-child(2) { transition-delay: 0.10s; }
-header .nav-menu li:nth-child(3) { transition-delay: 0.15s; }
-header .nav-menu li:nth-child(4) { transition-delay: 0.20s; }
-header .nav-menu li:nth-child(5) { transition-delay: 0.25s; }
-header .nav-menu li:nth-child(6) { transition-delay: 0.30s; }
+/* Transiciones escalonadas para ítems del menú (excluyendo el selector de idioma) */
+header .nav-menu li:not(.lang-selector):nth-child(1) { transition-delay: 0.05s; }
+header .nav-menu li:not(.lang-selector):nth-child(2) { transition-delay: 0.10s; }
+header .nav-menu li:not(.lang-selector):nth-child(3) { transition-delay: 0.15s; }
+header .nav-menu li:not(.lang-selector):nth-child(4) { transition-delay: 0.20s; }
+header .nav-menu li:not(.lang-selector):nth-child(5) { transition-delay: 0.25s; }
+header .nav-menu li:not(.lang-selector):nth-child(6) { transition-delay: 0.30s; }
 
-header .nav-menu:not(.open) li {
+header .nav-menu:not(.open) li:not(.lang-selector) {
   transition-delay: 0s;
 }
 
-header .nav-menu a {
+/* Estilos para los enlaces normales del menú (excluyendo el selector de idioma) */
+header .nav-menu a:not(.lang-switch) {
   display: block;
   padding: 0.8rem 1rem;
   color: var(--mi-color);
@@ -330,58 +332,95 @@ header .nav-menu a {
   position: relative;
 }
 
-header .nav-menu a:hover {
+header .nav-menu a:not(.lang-switch):hover {
   background: rgba(0, 0, 0, 0.04);
   color: var(--mi-primary);
 }
 
-header .nav-menu a.active {
+header .nav-menu a:not(.lang-switch).active {
   font-weight: 600;
   color: var(--mi-primary);
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(var(--mi-primary-rgb, 255, 193, 7), 0.08); /* Fondo suave */
+  border-left: 4px solid var(--mi-primary);                    /* Indicador lateral limpio */
+  padding-left: 1.2rem;  /* Espaciado para el borde */
+  border-radius: 0 4px 4px 0; /* Mantiene redondas solo las esquinas derechas */                                       
 }
 
-header .nav-menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
-  height: 3px;
-  background: var(--mi-primary);
-  border-radius: 4px 4px 0 0;
-  transition: all 0.3s ease;
+/* Oculta la línea horizontal en móvil para evitar que pise las divisiones */
+header .nav-menu a:not(.lang-switch).active::after {
+  display: none;
 }
 
-/* Selector de Idioma (Móvil) */
-header .nav-menu .lang-selector {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem 0.3rem 1rem;
-  border-top: 1px solid var(--mi-border-color);
-  list-style: none;
+/* ============================================================
+   Selector de Idioma (Móvil)
+   - Alineado con el resto del menú
+   - Sin marcador de lista (::marker) para que no parezca un botón
+   ============================================================ */
+header .nav-menu li.lang-selector {
+  /* Resetear lo que herede */
+  border-bottom: none;
+  border-left: none;
+  list-style: none;              /* Quita el ::marker del li */
+  list-style-type: none;         /* Refuerzo por navegadores antiguos */
+  
+  /* Mismo padding horizontal que los ítems del menú (para alinear) */
+  padding: 0;
+  margin: 0;
+  
+  /* Layout */
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.3s ease 0.30s;
 }
 
-header .nav-menu .lang-switch {
+/* Anula cualquier marcador residual */
+header .nav-menu li.lang-selector::marker {
+  content: none;
+  display: none;
+}
+
+header .nav-menu.open li.lang-selector {
+  opacity: 1;
+  transform: none;
+}
+
+/* El enlace ocupa el ancho completo como los ítems, pero sin fondo */
+header .nav-menu li.lang-selector a.lang-switch {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  padding: 0.3rem 0.8rem;
+  justify-content: flex-start;   /* Bandera a la izquierda, alineada con los textos */
+  
+  width: 100%;                    /* Ocupa todo el ancho de la fila */
+  padding: 0.8rem 1rem;           /* Mismo padding que los ítems del menú */
+  margin: 0;
+  
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  
   text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  background: var(--mi-card-bg);
-  border: 1px solid var(--mi-border-color);
-  line-height: 1;
+  transition: none;
 }
 
-header .nav-menu .lang-switch:hover {
-  border-color: var(--mi-primary);
-  transform: scale(1.05);
+/* Sin fondo al pasar el ratón (no queremos que parezca un botón) */
+header .nav-menu li.lang-selector a.lang-switch:hover {
+  background: transparent;
+  color: inherit;
 }
 
-header .nav-menu .lang-switch:active {
-  transform: scale(0.95);
+header .nav-menu li.lang-selector a.lang-switch:active {
+  transform: none;
+}
+
+/* La bandera: tamaño controlado y sin sombra agresiva */
+header .nav-menu li.lang-selector a.lang-switch img,
+header .nav-menu li.lang-selector a.lang-switch svg {
+  width: 28px;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  box-shadow: none;
 }
 
 /* NAVEGACIÓN DESKTOP */
@@ -421,7 +460,7 @@ header .nav-menu .lang-switch:active {
     width: auto;
   }
   
-  header .nav-menu li {
+  header .nav-menu li:not(.lang-selector) {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -431,7 +470,7 @@ header .nav-menu .lang-switch:active {
     border-bottom: none;
   }
   
-  header .nav-menu a {
+  header .nav-menu a:not(.lang-switch) {
     display: inline-block;
     padding: 0.3rem 0;
     background: transparent;
@@ -441,12 +480,12 @@ header .nav-menu .lang-switch:active {
     position: relative;
   }
   
-  header .nav-menu a:hover {
+  header .nav-menu a:not(.lang-switch):hover {
     background: transparent;
     color: var(--mi-primary);
   }
   
-  header .nav-menu a:hover::after {
+  header .nav-menu a:not(.lang-switch):hover::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -457,34 +496,54 @@ header .nav-menu .lang-switch:active {
     border-radius: 2px;
   }
   
-  header .nav-menu a.active {
+  header .nav-menu a:not(.lang-switch).active {
     background: transparent;
-    color: var(--mi-primary);
-    font-weight: 600;
+    border-left: none;
+    padding-left: 0;
   }
-  
-  header .nav-menu a.active::after {
+
+  header .nav-menu a:not(.lang-switch).active::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -2px;
     left: 0;
     width: 100%;
-    bottom: -2px;
+    height: 2px;
+    background: var(--mi-primary);
   }
 
   /* Selector de Idioma en Desktop */
-  header .nav-menu .lang-selector {
-    margin-top: 0;
+  header .nav-menu li.lang-selector {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
     padding: 0;
     border-top: none;
+    border-bottom: none;
+    opacity: 1;
+    transform: none;
+    list-style: none;
   }
-  
-  header .nav-menu .lang-switch {
-    font-size: 1.4rem;
-    padding: 0.2rem 0.3rem;
+
+  /* El ::marker también podría aparecer en desktop, lo anulamos */
+  header .nav-menu li.lang-selector::marker {
+    content: none;
+    display: none;
+  }
+
+  header .nav-menu li.lang-selector a.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;              /* En desktop solo ocupa lo que necesita */
+    padding: 0.3rem 0;        /* Mismo padding vertical que los enlaces del menú */
     background: transparent;
     border: none;
     transition: transform 0.3s ease;
   }
-  
-  header .nav-menu .lang-switch:hover {
+
+  header .nav-menu li.lang-selector a.lang-switch:hover {
     background: transparent;
     border: none;
     transform: scale(1.15);
@@ -1921,44 +1980,6 @@ ESTILOS BACK BUTTON (AZUL ALICANTE)
     margin-bottom: 1rem;
     font-size: 0.8rem;
   }
-}
-
-/* ============================================================
-   SVG
-   ============================================================ */
-
-.lang-selector {
-  display: flex;
-  align-items: center;
-  margin-left: 0.5em;
-}
-
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  padding: 0.25em;
-  border-radius: 4px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  /* Ancla el tamaño de la bandera al texto del nav */
-  font-size: 1em;
-}
-
-.lang-switch:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
-}
-
-.lang-switch .icon--flag {
-  /* 1.75em ≈ 28px si el nav usa 16px. Escala con el texto. */
-  width: 1.4em;
-  height: 1.4em;
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
-  border-radius: 3px;
-  overflow: hidden;
 }
 
 /* ===============================
