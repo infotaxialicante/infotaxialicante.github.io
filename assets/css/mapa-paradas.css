@@ -457,3 +457,7 @@
   }
 }
 
+header h1 .icon {
+  position: relative;
+  top: -0.08em;
+}

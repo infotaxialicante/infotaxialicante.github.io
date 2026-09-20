@@ -294,3 +294,7 @@
     height: 1.1em;
   }
 }
+
+h1 > .icon {
+  vertical-align: -0.35em;
+}
