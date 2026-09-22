@@ -10,8 +10,7 @@ show_in_nav: false
 <section class="hero-container">
   <img src="/assets/img/ui/portada-alicante.webp" alt="Taxi Alicante" class="hero-image">
   <div class="hero-overlay">
-    <h1>Taxis in Alicante</h1>
-    <p>Official fares, route calculator, and nearby taxi ranks.</p>
+    <h1>A meeting point for taxis in Alicante</h1>
   </div>
 </section>
 
@@ -19,13 +18,13 @@ show_in_nav: false
 <section class="quick-access">
   <div class="grid">
     <article class="card-action">
-      <h3>🧮 Fare Calculator</h3>
+      <h3>{% include icon.html name="numeros" %}Fare calculator</h3>
       <p>Estimate the approximate cost of your trip.</p>
       <a href="{{ '/en/calculator/' | relative_url }}" role="button" class="contrast">Calculate taxi price</a>
     </article>
 
     <article class="card-action">
-      <h3>📍 Taxi Ranks</h3>
+      <h3>{% include icon.html name="ubicacion" %}Taxi ranks</h3>
       <p>Check the location and distribution of taxi ranks.</p>
       <a href="{{ '/en/ranks/' | relative_url }}" role="button">Find nearby rank</a>
     </article>
@@ -38,7 +37,7 @@ show_in_nav: false
     
     <!-- Columna Izquierda: Últimas Novedades -->
     <div class="articles-container">
-      <h2>📰 News and Updates</h2>
+      <h2>{% include icon.html name="articulos" %}Latest articles</h2>
       <div class="articles-grid">
         {% assign lang_posts = site.posts | where: "lang", "en" %}
         {% for post in lang_posts limit:4 %}
@@ -60,7 +59,7 @@ show_in_nav: false
 
     <!-- Columna Derecha: Sidebar de Categorías (Versión Inglés) -->
     <aside class="sidebar">
-      <h3>📂 Categories</h3>
+      <h3>{% include icon.html name="categorias" %}Categories</h3>
       <ul class="categories-list">
         {% assign has_categories = false %}
         {% for category in site.categories %}
@@ -109,7 +108,7 @@ show_in_nav: false
         {% endfor %}
       </div>
 
-      <a href="/en/updated/" class="blog-card-link">View all updated content →</a>
+      <a href="/en/updated/" class="link-corporativo ver-todo-actualizados">View all updated content →</a>
     </div>
 
 

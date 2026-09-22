@@ -1,7 +1,7 @@
 # Información general del sitio (conserva tus valores si ya los tenías)
 title: Infotaxialicante
-description: Guía de movilidad, tarifas, paradas y normativa del taxi en Alicante y provincia.
-description_en: Mobility guide, fares, taxi ranks, and regulations in Alicante and province.
+description: Guía de movilidad, tarifas, paradas y normativa del taxi en Alicante.
+description_en: Mobility guide, fares, taxi ranks, and regulations in Alicante.
 url: "https://infotaxialicante.es"
 baseurl: ""
 

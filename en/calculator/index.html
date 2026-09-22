@@ -5,14 +5,14 @@ lang: en
 ref: calculator
 ---
 
-<h1>🚖 Fare Estimator – Intercity Service</h1>
+<h1>{% include icon.html name="taxi-frente" %}Interurban fare estimator</h1>
 <p>Select your trip details to get an estimated cost for your journey.</p>
 
 <form id="calculatorForm">
 
   <!-- Journey time -->
   <fieldset>
-    <legend>📅 Journey Time</legend>
+    <legend>{% include icon.html name="calendario" %}Journey Time</legend>
     <label>
       <input type="radio" name="timeMode" value="now" checked>
       Right now
@@ -29,7 +29,7 @@ ref: calculator
 
   <!-- Request method -->
   <fieldset>
-    <legend>📞 Booking Method</legend>
+    <legend>{% include icon.html name="telefono" %}Booking Method</legend>
     <label>
       <input type="checkbox" id="isRemoteRequest">
       Booked by phone, WhatsApp, or App (applies a €7.35 pickup surcharge)
@@ -38,7 +38,7 @@ ref: calculator
 
   <!-- Destination / Distance -->
   <fieldset>
-    <legend>📍 Destination</legend>
+    <legend>{% include icon.html name="ubicacion" %}Destination</legend>
     <label for="destinoInput">Enter destination name (minimum 2 characters for suggestions):</label>
     <input type="text" id="destinoInput" list="destinosList" placeholder="e.g. Benidorm, Elche, Valencia..." autocomplete="off">
     <datalist id="destinosList">

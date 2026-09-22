@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Taxi Ranks
+title: Taxi ranks
 lang: en
 ref: paradas
 ---
 
 <header class="mb-4">
-  <h1>Taxi Ranks</h1>
+  <h1>{% include icon.html name="ubicacion2" %}Taxi ranks</h1>
   <p>Check the taxi ranks of the Joint Provision Area (Alicante, El Campello, San Vicente, San Juan, and Muchamiel).</p>
 </header>
 
@@ -14,7 +14,7 @@ ref: paradas
 <div class="panel-controles-mapa">
   <div class="grid">
     <div>
-      <label for="filtro-municipio"><strong>Municipality</strong></label>
+      <label for="filtro-municipio"><strong>{% include icon.html name="casa" %}Municipality</strong></label>
       <select id="filtro-municipio">
         <option value="todos">All municipalities</option>
         <option value="alicante">Alicante</option>
@@ -26,7 +26,7 @@ ref: paradas
     </div>
 
     <div>
-      <label for="filtro-texto"><strong>Search rank</strong></label>
+      <label for="filtro-texto"><strong>{% include icon.html name="lupa" %}Search rank</strong></label>
       <div class="buscador-con-sugerencias">
         <input 
           type="search" 
@@ -37,7 +37,7 @@ ref: paradas
         <div id="sugerencias-container" class="sugerencias-lista"></div>
       </div>
       <div id="mensaje-sin-resultados" class="mensaje-sin-resultados" style="display: none;" role="status">
-        ⚠️ No ranks found. Try different terms or select a municipality.
+        {% include icon.html name="aviso" %}No ranks found. Try different terms or select a municipality.
       </div>
     </div>
 
@@ -51,10 +51,10 @@ ref: paradas
 
   <div class="contenedor-acciones-mapa">
     <button id="btn-mi-ubicacion" class="outline">
-      📍 Use my location
+      {% include icon.html name="ubicacion" %}Use my location
     </button>
     <button id="btn-parada-cercana" class="secondary" hidden>
-      🎯 Go to nearest rank
+      {% include icon.html name="diana" %}Go to nearest rank
     </button>
   </div>
 </div>
