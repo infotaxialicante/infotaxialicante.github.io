@@ -17,7 +17,7 @@ El presente documento regula el uso del sitio web **infotaxialicante.es**, un po
 
 * **Titular:** Bruno Hernández Alcaraz
 * **Localidad:** Alicante, Comunidad Valenciana
-* **Sitio web:** [infotaxialicante.es](https://infotaxialicante.es)
+* **Sitio web:** [infotaxialicante.es]({{ '/' | relative_url }})
 * **Correo electrónico:** [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)
 
 > **Nota:** InfoTaxi Alicante es una iniciativa personal e independiente. El sitio web no constituye una empresa ni presta directamente servicios de taxi a través de esta página.
@@ -48,7 +48,7 @@ Los contenidos aportados por colaboradores externos pertenecen a sus respectivos
 ### Colaboraciones
 * Los artículos enviados por colaboradores no implican una cesión general de derechos a InfoTaxi Alicante. El autor conserva los derechos que le correspondan sobre su obra.
 * La publicación de una colaboración requiere la autorización del autor sobre la versión definitiva del contenido. Cuando InfoTaxi Alicante realice modificaciones de carácter ortográfico, gramatical, estructural, de estilo o formato, la versión definitiva será remitida al autor para su confirmación antes de su publicación.
-* Las condiciones específicas de participación se describen en la página [Participa](https://infotaxialicante.es/participa).
+* Las condiciones específicas de participación se describen en la página [Participa]({{ '/participa/' | relative_url }}).
 
 ---
 
@@ -83,7 +83,7 @@ InfoTaxi Alicante puede permitir la recepción de artículos y otras aportacione
 
 * El envío de una propuesta no garantiza su publicación. Las aportaciones son valoradas previamente y el titular se reserva la decisión sobre su publicación, edición o rechazo.
 * Los contenidos deberán ser originales y respetuosos y no deberán incluir, entre otros, amenazas, insultos, humillaciones, ataques personales o acusaciones sin fundamento.
-* Las condiciones y el procedimiento específico para participar se encuentran en la página [Participa](https://infotaxialicante.es/participa/)
+* Las condiciones y el procedimiento específico para participar se encuentran en la página [Participa]({{ '/participa/' | relative_url }}).
 
 ---
 
@@ -91,7 +91,7 @@ InfoTaxi Alicante puede permitir la recepción de artículos y otras aportacione
 
 El tratamiento de los datos personales que pueda realizarse en relación con el uso del sitio web, el contacto o la participación de usuarios se regula mediante la correspondiente Política de Privacidad.
 
-La Política de Privacidad puede consultarse en: [Privacidad](https://infotaxialicante.es/privacidad/)
+La Política de Privacidad puede consultarse en: [Privacidad]({{ '/privacidad/' | relative_url }})
 
 ---
 

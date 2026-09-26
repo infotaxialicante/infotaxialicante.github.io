@@ -20,7 +20,7 @@ La web tiene carácter **informativo, divulgativo, gratuito e independiente** y 
 **Responsable:** Bruno Hernández Alcaraz  
 **Localidad:** Alicante, Comunidad Valenciana  
 **Correo electrónico:** [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)  
-**Sitio web:** [https://infotaxialicante.es/](https://infotaxialicante.es/)
+**Sitio web:** [https://infotaxialicante.es/]({{ '/' | relative_url }})
 
 El responsable del tratamiento es la persona titular de InfoTaxi Alicante y gestiona este sitio web como iniciativa personal e independiente de carácter informativo y divulgativo.
 
@@ -40,7 +40,7 @@ Cuando una persona escribe voluntariamente a [contacto@infotaxialicante.es](mail
 
 ### Participaciones y propuestas de artículos
 
-Cuando una persona participa mediante el procedimiento establecido en la página [Participa](https://infotaxialicante.es/participa/), pueden tratarse los datos facilitados a través del formulario de LiberaForms y las comunicaciones posteriores mantenidas por correo electrónico.
+Cuando una persona participa mediante el procedimiento establecido en la página [Participa]({{ '/participa/' | relative_url }}), pueden tratarse los datos facilitados a través del formulario de LiberaForms y las comunicaciones posteriores mantenidas por correo electrónico.
 
 Estos datos pueden incluir:
 
@@ -52,7 +52,7 @@ Estos datos pueden incluir:
 - declaraciones sobre los derechos o autorización de uso de una imagen, cuando corresponda;
 - información necesaria para gestionar la propuesta y las comunicaciones relacionadas con ella.
 
-El artículo y, en su caso, la imagen propuesta **no se envían mediante el formulario**, sino posteriormente por correo electrónico, siguiendo el procedimiento indicado en la página [Participa](https://infotaxialicante.es/participa/)
+El artículo y, en su caso, la imagen propuesta **no se envían mediante el formulario**, sino posteriormente por correo electrónico, siguiendo el procedimiento indicado en la página [Participa]({{ '/participa/' | relative_url }})
 
 ---
 
@@ -138,7 +138,17 @@ Estos enlaces no incorporan mapas mediante iframe ni utilizan una API de Google 
 
 ---
 
-## 6. Cookies y tecnologías de seguimiento
+## 6. Recursos y atribuciones
+
+### OpenMoji
+
+Algunos iconos utilizados en este sitio proceden de **OpenMoji**, un proyecto de emojis e iconos en formato SVG de código abierto.
+
+Los recursos de [OpenMoji](https://openmoji.org/)  utilizados en InfoTaxi Alicante se distribuyen bajo la licencia **CC BY-SA 4.0**.
+
+---
+
+## 7. Cookies y tecnologías de seguimiento
 
 InfoTaxi Alicante no utiliza cookies propias destinadas a realizar analítica personal, publicidad comportamental o elaboración de perfiles.
 
@@ -148,7 +158,7 @@ No obstante, determinados servicios externos utilizados para el funcionamiento d
 
 ---
 
-## 7. Conservación de los datos
+## 8. Conservación de los datos
 
 Los datos personales se conservarán durante el tiempo necesario para gestionar la finalidad para la que fueron facilitados.
 
@@ -164,7 +174,7 @@ Cuando los datos ya no sean necesarios para las finalidades correspondientes, se
 
 ---
 
-## 8. Servicios externos y sus propias políticas de privacidad
+## 9. Servicios externos y sus propias políticas de privacidad
 
 Algunos elementos técnicos del sitio web son proporcionados por servicios externos. Estos servicios pueden tratar determinados datos técnicos cuando el navegador del visitante establece una conexión con sus servidores.
 
@@ -181,7 +191,7 @@ Entre los servicios utilizados se encuentran:
 
 ---
 
-## 9. Comunicaciones por correo electrónico
+## 10. Comunicaciones por correo electrónico
 
 Las comunicaciones enviadas voluntariamente a las direcciones de contacto de InfoTaxi Alicante pueden contener datos personales.
 
@@ -193,7 +203,7 @@ En el caso de las participaciones, las comunicaciones mantenidas por correo elec
 
 ---
 
-## 10. No comercialización de datos
+## 11. No comercialización de datos
 
 InfoTaxi Alicante no vende, alquila ni comercializa datos personales.
 
@@ -201,7 +211,7 @@ Los datos facilitados voluntariamente por las personas que contactan o participa
 
 ---
 
-## 11. Derechos de las personas interesadas
+## 12. Derechos de las personas interesadas
 
 Las personas cuyos datos personales sean objeto de tratamiento pueden ejercer, cuando corresponda, los derechos reconocidos por la normativa de protección de datos, entre ellos:
 
@@ -221,13 +231,13 @@ Las solicitudes serán atendidas dentro de los plazos establecidos legalmente.
 
 ---
 
-## 12. Derecho a reclamar ante la autoridad de control
+## 13. Derecho a reclamar ante la autoridad de control
 
 Si una persona considera que el tratamiento de sus datos personales no se ajusta a la normativa aplicable, puede presentar una reclamación ante la [Agencia Española de Protección de Datos (AEPD)](https://www.aepd.es), sin perjuicio de cualquier otro recurso administrativo o judicial que pudiera corresponderle.
 
 ---
 
-## 13. Retirada de contenidos publicados
+## 14. Retirada de contenidos publicados
 
 La retirada de un artículo o de otro contenido publicado en InfoTaxi Alicante constituye una cuestión independiente del ejercicio de los derechos de protección de datos.
 
@@ -239,7 +249,7 @@ La retirada del contenido no implica necesariamente la eliminación inmediata de
 
 ---
 
-## 14. Seguridad
+## 15. Seguridad
 
 InfoTaxi Alicante adopta medidas técnicas y organizativas razonables destinadas a proteger los datos personales frente a accesos no autorizados, pérdida, alteración o tratamiento indebido.
 
@@ -247,7 +257,7 @@ No obstante, ningún sistema de transmisión o almacenamiento electrónico puede
 
 ---
 
-## 15. Cambios en la Política de Privacidad
+## 16. Cambios en la Política de Privacidad
 
 Esta Política de Privacidad podrá actualizarse cuando resulte necesario para reflejar cambios en el funcionamiento de InfoTaxi Alicante, en los servicios utilizados o en la normativa aplicable.
 

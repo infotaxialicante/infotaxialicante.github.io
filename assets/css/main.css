@@ -2029,3 +2029,55 @@ button > .icon {
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 }
+
+/* Contenedor principal del autor */
+.autor-card {
+  margin: 1.5rem 0;
+}
+
+/* Cabecera: Foto a la izquierda + Nombre/Subtítulo a la derecha */
+.autor-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Foto pequeña estilo avatar */
+.autor-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Foto redonda; usa 12px si la prefieres cuadrada con bordes suaves */
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+/* Bloque de nombres */
+.autor-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.autor-nombre {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color, #222); /* Se adapta si tienes modo oscuro */
+  line-height: 1.2;
+}
+
+.autor-subtitulo {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Párrafos situados tras la foto */
+.autor-bio p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.autor-bio p:last-child {
+  margin-bottom: 0;
+}
