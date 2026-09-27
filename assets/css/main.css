@@ -846,7 +846,7 @@ main.container aside.sidebar span.category-count {
 /* Cabecera y Meta */
 
 .post-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   border-bottom: 2px solid var(--mi-muted-border);
   padding-bottom: 1rem;
 }
@@ -910,20 +910,24 @@ main.container aside.sidebar span.category-count {
 
 .post-content h2 {
   font-size: 1.8rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
   font-weight: 700;
 }
 
 .post-content h3 {
   font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
   font-weight: 600;
 }
 
 .post-content p {
   margin-bottom: 1.2rem;
+}
+
+.post-content > :first-child {
+  margin-top: 0;
 }
 
 /* Enlaces dentro del contenido de los artículos */
