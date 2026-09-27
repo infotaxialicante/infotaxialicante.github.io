@@ -24,11 +24,11 @@ Para sugerencias, avisos de erratas, dudas sobre las herramientas de la web o cu
 Si deseas enviar una propuesta de artículo o participar con contenidos propios en la sección de divulgación:
 
 * **Correo electrónico:** [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)
-* **Información y condiciones:** Consulta el procedimiento detallado en la página [Participa](https://infotaxialicante.es/participa/)
+* **Información y condiciones:** Consulta el procedimiento detallado en la página [Participa]({{ '/participa/' | relative_url }})
 
 ---
 
-## Información importante antes de escribir
+## Información importante
 
 > **Nota sobre el servicio de taxi:**  
 > **InfoTaxi Alicante es un portal exclusivamente informativo y divulgativo.** Desde este sitio web no se realizan reservas de taxi, no se atienden peticiones de vehículos ni se prestan servicios de transporte. 
@@ -44,4 +44,4 @@ Si deseas enviar una propuesta de artículo o participar con contenidos propios 
 
 ## Tiempos de respuesta
 
-InfoTaxi Alicante es un proyecto independiente de carácter informativo y divulgativo. Intentamos responder a todas las comunicaciones y, habitualmente, lo hacemos en un plazo de 24 a 48 horas en días laborables.
+A pesar de nuestros limitados recursos, intentamos responder a todas las comunicaciones y, habitualmente, lo hacemos en un plazo de 24 a 48 horas en días laborables.

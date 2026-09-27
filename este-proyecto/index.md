@@ -9,15 +9,15 @@ show_in_nav: false
 
 # Sobre este proyecto
 
-**InfoTaxi Alicante** es un portal informativo, divulgativo e independiente centrado en el sector del taxi en la ciudad de Alicante y su Área de Prestación Conjunta.
+**InfoTaxi Alicante** es un portal informativo centrado en el sector del taxi en la ciudad de Alicante y su Área de Prestación Conjunta.
 
 ---
 
 ## Lo que vas a encontrar aquí
 
-* **Mapa interactivo:** Ubicación y consulta de paradas de taxi en Alicante y su Área de Prestación Conjunta.
-
 * **Calculadora:** Estimación orientativa de precios de servicios interurbanos para planificar trayectos.
+
+* **Mapa interactivo:** Ubicación y consulta de paradas de taxi en Alicante y su Área.
 
 * **Descargas:** Tarifas y otros documentos oficiales.
 
