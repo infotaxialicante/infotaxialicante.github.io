@@ -158,7 +158,7 @@ La retirada no implica que desaparezcan automáticamente todos los registros o c
 
 InfoTaxi Alicante quiere ser un espacio abierto a diferentes voces y puntos de vista, pero la participación no implica carta blanca para publicar cualquier contenido.
 
-El criterio fundamental será que la aportación resulte interesante, respetuosa y aporte valor al lector.
+El criterio fundamental será que la aportación resulte interesante y respetuosa, y aporte valor al lector.
 
 El **editor se reserva el derecho de no publicar, editar o rechazar cualquier contenido** que no cumpla estos criterios.
 

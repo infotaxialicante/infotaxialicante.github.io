@@ -87,11 +87,11 @@ InfoTaxi Alicante puede permitir la recepción de artículos y otras aportacione
 
 ---
 
-## 6. Protección de Datos
+## 6. Protección de datos
 
-El tratamiento de los datos personales que pueda realizarse en relación con el uso del sitio web, el contacto o la participación de usuarios se regula mediante la correspondiente Política de Privacidad.
+El tratamiento de los datos personales que pueda realizarse en relación con el uso del sitio web, el contacto o la participación de usuarios se regula mediante la correspondiente Política de privacidad.
 
-La Política de Privacidad puede consultarse en: [Privacidad]({{ '/privacidad/' | relative_url }})
+La Política de privacidad puede consultarse en: [Privacidad]({{ '/privacidad/' | relative_url }})
 
 ---
 
@@ -103,6 +103,6 @@ Para consultas, sugerencias, comunicaciones sobre el funcionamiento del sitio we
 
 ---
 
-## 8. Legislación Aplicable
+## 8. Legislación aplicable
 
 El uso del sitio web se regirá por la legislación española que resulte de aplicación. Las relaciones que puedan derivarse del uso del sitio web se someterán a los órganos jurisdiccionales que resulten competentes conforme a la normativa aplicable.

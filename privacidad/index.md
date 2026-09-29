@@ -9,7 +9,7 @@ show_in_nav: false
 
 # Política de privacidad
 
-En **InfoTaxi Alicante** nos tomamos en serio la privacidad de las personas que utilizan este sitio web. Esta Política de Privacidad explica qué datos personales pueden tratarse al utilizar **infotaxialicante.es**, con qué finalidad y qué derechos corresponden a las personas interesadas.
+En **InfoTaxi Alicante** nos tomamos en serio la privacidad de las personas que utilizan este sitio web. Esta Política de privacidad explica qué datos personales pueden tratarse al utilizar **infotaxialicante.es**, con qué finalidad y qué derechos corresponden a las personas interesadas.
 
 La web tiene carácter **informativo, divulgativo, gratuito e independiente** y no utiliza los datos personales de sus visitantes para realizar publicidad comportamental, elaborar perfiles comerciales ni realizar analítica personal.
 
@@ -20,9 +20,9 @@ La web tiene carácter **informativo, divulgativo, gratuito e independiente** y 
 **Responsable:** Bruno Hernández Alcaraz  
 **Localidad:** Alicante, Comunidad Valenciana  
 **Correo electrónico:** [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)  
-**Sitio web:** [https://infotaxialicante.es/]({{ '/' | relative_url }})
+**Sitio web:** [https://infotaxialicante.es]({{ '/' | relative_url }})
 
-El responsable del tratamiento es la persona titular de InfoTaxi Alicante y gestiona este sitio web como iniciativa personal e independiente de carácter informativo y divulgativo.
+El responsable del tratamiento es la persona titular de InfoTaxi Alicante.
 
 El tratamiento de los datos personales se realiza de acuerdo con el Reglamento (UE) 2016/679, General de Protección de Datos (RGPD), y con la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).
 
@@ -52,7 +52,7 @@ Estos datos pueden incluir:
 - declaraciones sobre los derechos o autorización de uso de una imagen, cuando corresponda;
 - información necesaria para gestionar la propuesta y las comunicaciones relacionadas con ella.
 
-El artículo y, en su caso, la imagen propuesta **no se envían mediante el formulario**, sino posteriormente por correo electrónico, siguiendo el procedimiento indicado en la página [Participa]({{ '/participa/' | relative_url }})
+El artículo y, en su caso, la imagen propuesta **no se envían mediante el formulario**, sino posteriormente por correo electrónico, siguiendo el procedimiento indicado en la página [Participa]({{ '/participa/' | relative_url }}).
 
 ---
 
@@ -144,7 +144,7 @@ Estos enlaces no incorporan mapas mediante iframe ni utilizan una API de Google 
 
 Algunos iconos utilizados en este sitio proceden de **OpenMoji**, un proyecto de emojis e iconos en formato SVG de código abierto.
 
-Los recursos de [OpenMoji](https://openmoji.org/)  utilizados en InfoTaxi Alicante se distribuyen bajo la licencia **CC BY-SA 4.0**.
+Los recursos de [OpenMoji](https://openmoji.org/) utilizados en InfoTaxi Alicante se distribuyen bajo la licencia **CC BY-SA 4.0**.
 
 ---
 
@@ -239,13 +239,11 @@ Si una persona considera que el tratamiento de sus datos personales no se ajusta
 
 ## 14. Retirada de contenidos publicados
 
-La retirada de un artículo o de otro contenido publicado en InfoTaxi Alicante constituye una cuestión independiente del ejercicio de los derechos de protección de datos.
+La retirada de un artículo o de otro material publicado en InfoTaxi Alicante constituye una cuestión independiente del ejercicio de los derechos de protección de datos.
 
-El autor de una colaboración puede solicitar la retirada de su contenido mediante [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)
+El autor de una colaboración puede solicitar la retirada de su publicación mediante [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es), de acuerdo con el procedimiento establecido en la página [Participa]({{ '/participa/' | relative_url }}).
 
-La solicitud será valorada y, cuando corresponda, se procederá a retirar el contenido.
-
-La retirada del contenido no implica necesariamente la eliminación inmediata de todos los datos relacionados con la colaboración cuando exista una obligación legal de conservación o cuando determinados datos sean necesarios para el ejercicio o defensa de posibles reclamaciones.
+La retirada no implica necesariamente la eliminación inmediata de todos los datos relacionados con la colaboración cuando exista una obligación legal de conservación o cuando determinados datos sean necesarios para el ejercicio o defensa de posibles reclamaciones.
 
 ---
 
@@ -257,13 +255,13 @@ No obstante, ningún sistema de transmisión o almacenamiento electrónico puede
 
 ---
 
-## 16. Cambios en la Política de Privacidad
+## 16. Cambios en la Política de privacidad
 
-Esta Política de Privacidad podrá actualizarse cuando resulte necesario para reflejar cambios en el funcionamiento de InfoTaxi Alicante, en los servicios utilizados o en la normativa aplicable.
+Esta Política de privacidad podrá actualizarse cuando resulte necesario para reflejar cambios en el funcionamiento de InfoTaxi Alicante, en los servicios utilizados o en la normativa aplicable.
 
 Cuando se produzcan cambios relevantes, se actualizará la fecha de revisión indicada al final de esta página.
 
-*Última actualización: Septiembre de 2026*
+*Última actualización: septiembre de 2026*
 
 **InfoTaxi Alicante**  
 [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)
