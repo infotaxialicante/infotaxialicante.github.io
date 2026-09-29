@@ -11,7 +11,7 @@ show_in_nav: false
 
 ## ¿Quieres aportar algo al mundo del taxi en Alicante?
 
-Seas quien seas, si tienes algo que aportar y crees que puede resultar interesante para los lectores de InfoTaxi Alicante, puedes proponernos un artículo, crónica, experiencia o contenido relacionado con el mundo del taxi en Alicante.
+Seas quien seas, si tienes algo que aportar y crees que puede resultar interesante para los lectores de InfoTaxi Alicante, puedes proponer un artículo, crónica, experiencia o contenido relacionado con el mundo del taxi en Alicante.
 
 La participación es **voluntaria y gratuita**. No existe ninguna remuneración, compensación económica ni contraprestación de ningún tipo por el envío o, en su caso, publicación de un artículo.
 
@@ -35,11 +35,11 @@ Si tienes cualquier duda sobre el proceso de participación, puedes consultarla 
 
 ---
 
-### 2. Espera nuestra respuesta
+### 2. Espera respuesta
 
 Recibida tu solicitud, el portal te responderá por correo electrónico.
 
-La respuesta puede no ser inmediata, ya que InfoTaxi Alicante es un proyecto con recursos humanos limitados, pero todas las solicitudes recibirán respuesta.
+La respuesta puede no ser inmediata, ya que InfoTaxi Alicante es un proyecto gestionado de forma independiente y con recursos limitados, pero todas las solicitudes recibirán respuesta.
 
 En esa respuesta recibirás las indicaciones necesarias para continuar con el proceso y un enlace al formulario correspondiente.
 
@@ -68,9 +68,9 @@ El texto puede enviarse en un formato habitual que permita su lectura y edición
 
 Los textos deberán ser originales y propios de quien los presenta, y deberán guardar relación con el mundo del taxi en Alicante.
 
-El hecho de enviar un artículo no implica que vaya a ser publicado.
+**El hecho de enviar un artículo no implica que vaya a ser publicado.**
 
-La decisión de publicar corresponde exclusivamente al editor del portal. Se valorará especialmente que el contenido aporte información, interés, calidad o un punto de vista útil para los lectores.
+La decisión de publicar corresponde exclusivamente al editor del portal. Se valorará especialmente que el contenido sea de interés para los lectores.
 
 No se publicarán contenidos que, a criterio editorial, incluyan insultos, vejaciones, amenazas, descalificaciones personales, acusaciones carentes de fundamento, contenido manifiestamente ofensivo o cualquier otro material incompatible con el respeto que debe regir la participación.
 
@@ -80,17 +80,15 @@ El editor podrá rechazar cualquier propuesta que no considere adecuada para el 
 
 ### 5. Sobre las imágenes
 
-Cada artículo publicado irá acompañado, como máximo, de una imagen.
+Cada artículo publicado irá acompañado, como máximo, de una imagen, que deberá ser de libre utilización o contar con una autorización, licencia o cualquier otro título que permita su publicación.
 
-La imagen aportada deberá ser de libre utilización o deberá existir una autorización, licencia o cualquier otro título que permita su publicación.
+Cuando corresponda, se indicará su autoría.
 
-Cuando corresponda, se indicará la autoría de la imagen.
+Quien la aporte deberá disponer de los derechos o permisos necesarios para proponer su publicación y será responsable de garantizar que puede hacerlo.
 
-La persona que aporte una imagen deberá disponer de los derechos o permisos necesarios para proponer su publicación y será responsable de garantizar que puede hacerlo.
+Si existen dudas razonables sobre su origen, autoría, licencia o derechos de utilización, InfoTaxi Alicante podrá descartarla y sustituirla por otra seleccionada por el editor.
 
-Si existen dudas razonables sobre el origen, autoría, licencia o derechos de utilización de una imagen, InfoTaxi Alicante podrá descartarla y sustituirla por otra seleccionada por el editor.
-
-El envío de una imagen no obliga al portal a utilizarla.
+El envío no obliga al portal a utilizarla.
 
 ---
 
@@ -131,9 +129,9 @@ Si no autorizas la publicación, el contenido no será publicado.
 
 El artículo continuará perteneciendo a su autor.
 
-InfoTaxi Alicante no adquiere la propiedad ni una cesión exclusiva de los derechos de autor sobre el artículo.
+InfoTaxi Alicante no adquiere su propiedad ni una cesión exclusiva de los derechos de autor sobre el contenido.
 
-La autorización concedida se limita a permitir al portal la publicación del contenido que haya sido expresamente autorizado en el proceso descrito anteriormente.
+La autorización concedida se limita a permitir al portal la publicación de la versión que haya sido expresamente autorizada en el proceso descrito anteriormente.
 
 El artículo podrá publicarse bajo cualquiera de las siguientes modalidades:
 
@@ -146,13 +144,13 @@ La elección se realizará durante el proceso de participación.
 
 ### 9. Retirada de un artículo publicado
 
-El autor podrá solicitar la retirada de su artículo del portal escribiendo a:
+El autor podrá solicitar la retirada del texto publicado escribiendo a:
 
 [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)
 
-Una vez recibida y comprobada la solicitud, el artículo será retirado de la web.
+Una vez recibida y comprobada la solicitud, se retirará de la web.
 
-La retirada del artículo no implica que desaparezcan automáticamente todos los registros o comunicaciones relacionados con su participación cuando exista una obligación legal de conservarlos durante determinado tiempo. La información relativa al tratamiento y conservación de los datos personales se encuentra en la Política de Privacidad del portal.
+La retirada no implica que desaparezcan automáticamente todos los registros o comunicaciones relacionados con su participación cuando exista una obligación legal de conservarlos durante determinado tiempo. La información relativa al tratamiento y conservación de los datos personales se encuentra en la Política de privacidad del portal.
 
 ---
 
@@ -162,9 +160,9 @@ InfoTaxi Alicante quiere ser un espacio abierto a diferentes voces y puntos de v
 
 El criterio fundamental será que la aportación resulte interesante, respetuosa y aporte valor al lector.
 
-El editor se reserva el derecho de no publicar, editar o rechazar cualquier contenido que no cumpla estos criterios.
+El **editor se reserva el derecho de no publicar, editar o rechazar cualquier contenido** que no cumpla estos criterios.
 
-Participar en este espacio significa aportar voluntariamente un contenido con la posibilidad de que sea publicado, pero nunca supone un compromiso por parte de Info Taxi Alicante de publicarlo.
+Participar en este espacio significa aportar voluntariamente un contenido con la posibilidad de que sea publicado, pero nunca supone un compromiso por parte de InfoTaxi Alicante de publicarlo.
 
 ---
 
