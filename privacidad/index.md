@@ -30,9 +30,7 @@ El tratamiento de los datos personales se realiza de acuerdo con el Reglamento (
 
 ## 2. Qué datos personales se pueden tratar
 
-InfoTaxi Alicante no solicita datos personales para la simple navegación por sus contenidos.
-
-Los datos personales pueden tratarse cuando una persona decide comunicarse voluntariamente con el sitio o participar en el proyecto.
+InfoTaxi Alicante no solicita datos personales para la simple navegación por sus contenidos. Estos pueden tratarse cuando una persona se comunica voluntariamente con el sitio o participa en el proyecto.
 
 ### Consultas por correo electrónico
 
@@ -98,7 +96,7 @@ Para prestar determinados servicios técnicos pueden intervenir proveedores exte
 
 El sitio web está alojado mediante **GitHub Pages**. Como parte de la prestación técnica y de las medidas de seguridad de su infraestructura, GitHub puede tratar determinados datos técnicos de conexión de los visitantes.
 
-InfoTaxi Alicante no solicita ni utiliza la dirección IP de los visitantes para identificar personas, elaborar perfiles, realizar publicidad comportamental o realizar analítica personal.
+InfoTaxi Alicante no solicita ni utiliza la dirección IP de los visitantes para identificar personas, elaborar perfiles, realizar publicidad comportamental o analítica personal.
 
 ### DonDominio
 
@@ -215,15 +213,15 @@ Los datos facilitados voluntariamente por las personas que contactan o participa
 
 Las personas cuyos datos personales sean objeto de tratamiento pueden ejercer, cuando corresponda, los derechos reconocidos por la normativa de protección de datos, entre ellos:
 
-- derecho de acceso;
-- derecho de rectificación;
-- derecho de supresión;
-- derecho a la limitación del tratamiento;
-- derecho de oposición;
-- derecho a la portabilidad de los datos;
-- derecho a retirar el consentimiento cuando el tratamiento se base en él.
+- acceso;
+- rectificación;
+- supresión;
+- limitación del tratamiento;
+- oposición;
+- portabilidad de los datos;
+- retirada del consentimiento cuando el tratamiento se base en él.
 
-Para ejercer estos derechos puede enviarse una solicitud a [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es), indicando el derecho que se desea ejercer y aportando la información necesaria para poder atender la solicitud.
+Para ejercerlos puede enviarse una solicitud a [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es), indicando cuál se desea ejercer y aportando la información necesaria para poder tramitar la solicitud.
 
 El ejercicio de estos derechos es gratuito, salvo los supuestos previstos por la normativa aplicable.
 
@@ -241,7 +239,7 @@ Si una persona considera que el tratamiento de sus datos personales no se ajusta
 
 La retirada de un artículo o de otro material publicado en InfoTaxi Alicante constituye una cuestión independiente del ejercicio de los derechos de protección de datos.
 
-El autor de una colaboración puede solicitar la retirada de su publicación mediante [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es), de acuerdo con el procedimiento establecido en la página [Participa]({{ '/participa/' | relative_url }}).
+El autor de una colaboración puede solicitarla mediante [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es), de acuerdo con el procedimiento establecido en la página [Participa]({{ '/participa/' | relative_url }}).
 
 La retirada no implica necesariamente la eliminación inmediata de todos los datos relacionados con la colaboración cuando exista una obligación legal de conservación o cuando determinados datos sean necesarios para el ejercicio o defensa de posibles reclamaciones.
 

@@ -9,7 +9,7 @@ show_in_nav: false
 
 # Aviso legal y condiciones de uso
 
-El presente documento regula el uso del sitio web **infotaxialicante.es**, un portal de carácter informativo, divulgativo y de uso gratuito dedicado al sector del taxi en la ciudad de Alicante y su Área de Prestación Conjunta.
+El presente documento regula el uso del sitio web **infotaxialicante.es**.
 
 ---
 
@@ -20,15 +20,13 @@ El presente documento regula el uso del sitio web **infotaxialicante.es**, un po
 * **Sitio web:** [infotaxialicante.es]({{ '/' | relative_url }})
 * **Correo electrónico:** [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)
 
-> **Nota:** InfoTaxi Alicante es una iniciativa personal e independiente. El sitio web no constituye una empresa ni presta directamente servicios de taxi a través de esta página.
-
 ---
 
 ## 2. Carácter del sitio web
 
-InfoTaxi Alicante tiene actualmente carácter **exclusivamente informativo y divulgativo**. Sus contenidos se ofrecen de forma gratuita y no constituyen, por sí mismos, la prestación de un servicio de taxi ni la contratación de ningún servicio a través del sitio web.
+InfoTaxi Alicante tiene carácter **exclusivamente informativo y divulgativo**. Sus contenidos se ofrecen de forma gratuita y no constituyen, por sí mismos, la prestación de un servicio de taxi ni la contratación de ningún servicio a través del sitio web.
 
-* Actualmente, el sitio no incluye publicidad comercial remunerada, enlaces de afiliación ni otras vías de monetización, y no percibe ingresos por los contenidos o servicios ofrecidos a través de la web.
+* El sitio no incluye publicidad comercial remunerada, enlaces de afiliación ni otras vías de monetización, y no percibe ingresos por los contenidos o servicios ofrecidos a través de la web.
 * La información publicada pretende facilitar la consulta y comprensión de cuestiones relacionadas con el taxi en Alicante. 
 * No constituye asesoramiento profesional ni sustituye a las disposiciones legales, fuentes oficiales o información que resulte de aplicación en cada caso.
 
@@ -41,7 +39,7 @@ Los textos, elementos gráficos, logotipos, diseño, estructura y código desarr
 Los contenidos aportados por colaboradores externos pertenecen a sus respectivos autores o titulares de derechos. Su publicación en InfoTaxi Alicante se realiza únicamente con la autorización correspondiente y de acuerdo con las condiciones de participación establecidas para dichos contenidos.
 
 ### Uso de los contenidos propios
-1. Siempre que se respeten los derechos de sus respectivos titulares, se permite la consulta y el uso personal y privado de los contenidos publicados en el sitio web.
+1. Siempre que se respeten los derechos de sus respectivos titulares, se permite la consulta y el uso de los contenidos publicados en el sitio web.
 2. Se permite enlazar desde otros sitios web a los contenidos de InfoTaxi Alicante, siempre que el enlace permita identificar adecuadamente su procedencia.
 3. No se permite reproducir, distribuir, modificar, transformar o explotar comercialmente de forma sustancial los contenidos propios de InfoTaxi Alicante sin la autorización previa de su titular, salvo en aquellos casos en que la legislación aplicable permita expresamente dicho uso.
 
@@ -57,7 +55,7 @@ Los contenidos aportados por colaboradores externos pertenecen a sus respectivos
 InfoTaxi Alicante procura que la información publicada resulte útil y esté basada, cuando corresponde, en fuentes oficiales o datos disponibles. No obstante, determinados contenidos pueden quedar sujetos a cambios, actualizaciones, errores u omisiones.
 
 ### Tarifas y calculadora
-Las tarifas, estimaciones de trayectos y resultados proporcionados por las herramientas de la web tienen **carácter meramente orientativo e informativo**. 
+Las tarifas, estimaciones de trayectos y resultados proporcionados por las herramientas de la web tienen **carácter meramente orientativo**. 
 
 En particular, las estimaciones de la calculadora **no sustituyen a la cantidad indicada por el taxímetro del vehículo** ni a la aplicación de las tarifas que correspondan al servicio realizado. Para conocer las tarifas y condiciones vigentes deberán consultarse, cuando proceda, las fuentes oficiales correspondientes.
 
@@ -73,16 +71,16 @@ El sitio web puede incluir enlaces a páginas, mapas, herramientas o servicios p
 Cuando el usuario selecciona un enlace que conduce a un servicio externo, como un servicio de navegación o mapas, abandona el sitio web de InfoTaxi Alicante y pasa a utilizar el servicio correspondiente bajo las condiciones establecidas por su titular.
 
 ### Disponibilidad técnica
-InfoTaxi Alicante procura mantener el sitio web disponible y operativo, pero no garantiza la ausencia de interrupciones, errores o fallos técnicos. El titular no se hace responsable de interrupciones, indisponibilidades, fallos de conexión o incidencias originadas por circunstancias ajenas a su control, incluidos problemas derivados de proveedores de alojamiento, redes, servicios externos u otras infraestructuras de terceros.
+InfoTaxi Alicante procura mantener el sitio web disponible y en funcionamiento, pero no garantiza la ausencia de interrupciones o errores técnicos. El titular no se hace responsable de las incidencias que, por causas ajenas a su control, puedan afectar a su disponibilidad o funcionamiento, incluidos problemas relacionados con proveedores de alojamiento, redes, servicios externos u otras infraestructuras de terceros.
 
 ---
 
 ## 5. Participación de usuarios
 
-InfoTaxi Alicante puede permitir la recepción de artículos y otras aportaciones de personas interesadas en participar en el proyecto.
+InfoTaxi Alicante permite recibir artículos y otras aportaciones de personas interesadas en participar en el proyecto.
 
-* El envío de una propuesta no garantiza su publicación. Las aportaciones son valoradas previamente y el titular se reserva la decisión sobre su publicación, edición o rechazo.
-* Los contenidos deberán ser originales y respetuosos y no deberán incluir, entre otros, amenazas, insultos, humillaciones, ataques personales o acusaciones sin fundamento.
+* El envío de una propuesta no garantiza su publicación. Las aportaciones se valoran previamente y la decisión sobre su publicación, edición o rechazo corresponde al editor del portal.
+* Los contenidos deberán ser originales y respetuosos. No deberán incluir, entre otros, amenazas, insultos, humillaciones, ataques personales o acusaciones sin fundamento.
 * Las condiciones y el procedimiento específico para participar se encuentran en la página [Participa]({{ '/participa/' | relative_url }}).
 
 ---
@@ -91,7 +89,7 @@ InfoTaxi Alicante puede permitir la recepción de artículos y otras aportacione
 
 El tratamiento de los datos personales que pueda realizarse en relación con el uso del sitio web, el contacto o la participación de usuarios se regula mediante la correspondiente Política de privacidad.
 
-La Política de privacidad puede consultarse en: [Privacidad]({{ '/privacidad/' | relative_url }})
+La Política de privacidad puede consultarse en: [Privacidad]({{ '/privacidad/' | relative_url }}).
 
 ---
 
