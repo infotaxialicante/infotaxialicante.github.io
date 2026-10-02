@@ -8,6 +8,8 @@ tags: [taxímetro, curiosidades]
 image: /assets/img/posts/taximetro-arrastre.webp
 image_caption: "Taxímetro tarificando por tiempo"
 description: "Descubre cómo funciona realmente el taxímetro, qué es la velocidad de arrastre y por qué cobra por tiempo o distancia según el tráfico."
+permalink: /taximetro-cobra-tiempo-distancia/
+search: [velocidad de arrastre, velocidad de cambio, tarificación por tiempo, tarificación por distancia, precio por hora, precio por kilómetro, tráfico, taxímetro parado, funcionamiento del taxímetro]
 lang: es
 ref: velocidad-arrastre
 ---

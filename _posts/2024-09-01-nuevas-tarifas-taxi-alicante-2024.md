@@ -9,6 +9,8 @@ tags: [tarifas, alicante, taxi, "2024"]
 image: /assets/img/posts/tarifas-taxi-2024.jpg
 image_caption: "Nuevas tarifas aprobadas para el taxi en Alicante"
 description: "Conoce las nuevas tarifas del taxi en Alicante para 2024. Actualización de precios, nuevas tarifas y todo lo que necesitas saber."
+permalink: /tarifas-taxi-alicante-2024/
+search: [precios, incremento, tarifas oficiales, tarifa diurna, tarifa nocturna, bajada de bandera, precio por kilómetro, hora de espera, suplementos]
 lang: es
 ref: tarifas-2024
 ---
