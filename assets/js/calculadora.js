@@ -429,6 +429,9 @@ document.addEventListener('DOMContentLoaded', function() {
             mensajeDestino.textContent = '';
             customKmContainer.classList.add('campo-oculto');
             distanciaSeleccionada.value = '';
+            distanceManual.value = '';
+            ocultarResultado();
+            mostrarStatus('');
             ocultarSugerencias();
             return;
         }
@@ -495,6 +498,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!km || km <= 0) {
             mostrarStatus(t.errorDistancia, 'error');
+            enfocarStatus();
             return;
         }
 
@@ -534,6 +538,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         statusBox.innerHTML = statusHTML;
         statusBox.classList.add('status-visible');
+        
+        enfocarStatus(); 
     }
 
     calcularBtn.addEventListener('click', calcularTarifa);
@@ -569,14 +575,17 @@ document.addEventListener('DOMContentLoaded', function() {
         statusBox.classList.add('status-visible');
     }
 
-    destinoInput.addEventListener('input', function() {
-        if (this.value.trim() === '') {
-            ocultarResultado();
-            mostrarStatus('');
-        }
-    });
+    function enfocarStatus() {
+        // 350ms = 300ms de transición de max-height + margen
+        setTimeout(() => {
+            statusBox.setAttribute('tabindex', '-1');
+            statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            statusBox.focus({ preventScroll: true });
+        }, 350);
+    }
 
     distanceManual.addEventListener('input', function() {
+        distanciaSeleccionada.value = '';
         if (this.value.trim() === '') {
             ocultarResultado();
             mostrarStatus('');
