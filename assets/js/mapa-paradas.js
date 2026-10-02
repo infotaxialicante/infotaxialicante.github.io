@@ -379,6 +379,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(indicador);
   }
 
+  function enfocarMapa() {
+    // Pequeña espera para que renderizarMarcadores() haya
+    // colocado los markers y el mapa tenga su tamaño real.
+    setTimeout(() => {
+        mapElement.setAttribute('tabindex', '-1');
+        mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mapElement.focus({ preventScroll: true });
+    }, 300);
+  }
+
   window.seleccionarSugerencia = function(parada) {
     busquedaExacta = parada;
     modoBusqueda = 'exacta';
@@ -387,6 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ocultarSugerencias();
     renderizarMarcadores();
     mostrarIndicadorSeleccion(parada);
+
+    enfocarMapa();
   };
 
   window.mostrarTodasLasCoincidencias = function() {
