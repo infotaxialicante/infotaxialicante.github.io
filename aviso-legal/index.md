@@ -2,7 +2,7 @@
 layout: default
 title: Aviso legal
 lang: es
-ref: legal-notice
+ref: aviso-legal
 in_footer: true
 show_in_nav: false
 ---

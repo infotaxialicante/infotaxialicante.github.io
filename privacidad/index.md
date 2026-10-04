@@ -2,7 +2,7 @@
 layout: default
 title: Privacidad
 lang: es
-ref: privacy-policy
+ref: privacidad
 in_footer: true
 show_in_nav: false
 ---

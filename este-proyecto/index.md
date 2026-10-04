@@ -2,7 +2,7 @@
 layout: default
 title: Este proyecto
 lang: es
-ref: about
+ref: este-proyecto
 in_footer: true
 show_in_nav: false
 ---

@@ -2,7 +2,7 @@
 layout: default
 title: Contacto
 lang: es
-ref: contact
+ref: contacto
 in_footer: true
 show_in_nav: false
 ---

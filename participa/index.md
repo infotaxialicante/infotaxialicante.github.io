@@ -2,7 +2,7 @@
 layout: default
 title: Participa
 lang: es
-ref: participate
+ref: participa
 in_footer: true
 show_in_nav: false
 ---
