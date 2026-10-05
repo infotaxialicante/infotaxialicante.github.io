@@ -1012,8 +1012,8 @@ main.container aside.sidebar span.category-count {
 /* Pie del artículo */
 
 .post-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
   border-top: 2px solid var(--mi-muted-border);
 }
 
@@ -2030,9 +2030,15 @@ button > .icon {
 
 /* Contenedor del enlace "volver" en posts */
 .updated-back-link {
-  display: block;
   margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .updated-back-link {
+    margin-top: 0rem;          /* Elimina el exceso de margen superior en móvil */
+    margin-bottom: 2.5rem;  /* Mantiene la distancia con la línea inferior */
+  }
 }
 
 /* Contenedor principal del autor */

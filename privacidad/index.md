@@ -259,7 +259,7 @@ Esta Política de privacidad podrá actualizarse cuando resulte necesario para r
 
 Cuando se produzcan cambios relevantes, se actualizará la fecha de revisión indicada al final de esta página.
 
-*Última actualización: septiembre de 2026*
+*Última actualización: octubre de 2026*
 
 **InfoTaxi Alicante**  
 [contacto@infotaxialicante.es](mailto:contacto@infotaxialicante.es)

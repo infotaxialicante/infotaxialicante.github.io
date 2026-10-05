@@ -466,13 +466,24 @@
 - id: "svc-centro"
   municipio: "san-vicente"
   nombre: "San Vicente"
-  direccion: "Avenida de la Libertad, 2"
+  direccion: "Avenida Ancha de Castelar, 46"
   zona: "centro"
-  lat: 38.397447
-  lng: -0.522360
+  lat: 38.396894
+  lng: -0.522058
   pmr: true
   telefono: "965252511"
   keywords: ["Correos", "Druni"]
+
+- id: "svc-centro"
+  municipio: "san-vicente"
+  nombre: "Centro de salud 2"
+  direccion: "Calle Doctor Marañon esq. Avenida de Alicante "
+  zona: "centro"
+  lat: 38.392237
+  lng: -0.517341
+  pmr: true
+  telefono: "965252511"
+  keywords: ["Urgencias", "Parada tranvía", "Estación TRAM", "San Vicente Ambulatorio"]
 
 # ------------------------------------------------------------------------------
 # MUNICIPIO: SAN JUAN DE ALICANTE
