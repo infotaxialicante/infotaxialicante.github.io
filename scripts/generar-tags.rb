@@ -87,12 +87,16 @@ tags_found.each do |lang, tags|
 
     FileUtils.mkdir_p(directory)
 
+    title = tag_name.sub(/\A./) { |char| char.upcase }
+
     content = <<~YAML
       ---
       layout: tag
-      title: "#{tag_name.gsub('"', '\"')}"
+      title: "#{title.gsub('"', '\"')}"
       tag_name: "#{tag_name.gsub('"', '\"')}"
       lang: #{lang}
+      ref: #{slug}
+      permalink: /#{base_path}/#{slug}/
       show_in_nav: false
       ---
     YAML

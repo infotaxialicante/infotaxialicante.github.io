@@ -33,8 +33,8 @@
             {% assign tag_base_url = '/etiquetas/' %}
           {% endif %}
 
-          {% assign tag_slug = clean_tag | slugify %}
-          {% assign tag_url = tag_base_url | append: tag_slug | append: '/' %}
+          {% assign tag_page = site.pages | where: "tag_name", clean_tag | where: "lang", page.lang | first %}
+          {% assign tag_url = tag_page.url %}
 
           <a href="{{ tag_url | relative_url }}"
             class="tag-pill {{ tag_size }}">
