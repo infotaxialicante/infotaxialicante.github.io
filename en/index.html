@@ -107,8 +107,9 @@ show_in_nav: false
           <p>Articles that have been updated will appear here soon.</p>
         {% endfor %}
       </div>
-
-      <a href="/en/updated/" class="link-corporativo ver-todo-actualizados">View all updated content →</a>
+      {% if modified_posts.size > 0 %}
+        <a href="/en/updated/" class="link-corporativo ver-todo-actualizados">View all updated content →</a>
+      {% endif %}
     </div>
 
 
