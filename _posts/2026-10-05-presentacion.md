@@ -6,6 +6,7 @@ author: "InfoTaxi Alicante"
 categories: [el-taxi-por-dentro]
 tags: [presentación]
 image: /assets/img/posts/presentacion.webp
+image_alt: "Taxi con un cliente que tiene InfoTaxi Alicante en su teléfono a los pies de la Explanada de España"
 image_caption: "Un punto de encuentro del taxi en Alicante"
 description: "Un proyecto independiente para acercar el mundo del taxi al ciudadano, con información, herramientas y contenidos sobre el taxi en Alicante y su Área de Prestación Conjunta."
 permalink: /presentacion/

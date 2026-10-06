@@ -6,6 +6,7 @@ author: "InfoTaxi Alicante"
 categories: [inside-the-taxi]
 tags: [introduction]
 image: /assets/img/posts/presentacion.webp
+image_alt: "Taxi with a customer holding InfoTaxi Alicante on their phone at the foot of the Explanada de España"
 image_caption: "A meeting point for the taxi community in Alicante"
 description: "An independent project to bring the world of taxis closer to citizens, featuring information, tools, and content about taxis in Alicante and its Joint Service Area."
 permalink: /introduction/
