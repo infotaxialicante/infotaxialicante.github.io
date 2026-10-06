@@ -3,6 +3,7 @@ layout: default
 title: Privacy
 lang: en
 ref: privacidad
+permalink: /en/privacy/
 in_footer: true
 show_in_nav: false
 ---

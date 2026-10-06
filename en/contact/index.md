@@ -3,6 +3,7 @@ layout: default
 title: Contact
 lang: en
 ref: contacto
+permalink: /en/contact/
 in_footer: true
 show_in_nav: false
 ---
@@ -26,7 +27,7 @@ For suggestions, reporting errors or typos, questions about website tools, or an
 If you would like to submit an article proposal or contribute your own content to the outreach section:
 
 * **Email:** [colaboraciones@infotaxialicante.es](mailto:colaboraciones@infotaxialicante.es)
-* **Information and Guidelines:** Review the detailed process on the [Get Involved]({{ 'en/get-involved/' | relative_url }}) page.
+* **Information and Guidelines:** Review the detailed process on the [Get involved]({{ 'en/get-involved/' | relative_url }}) page.
 
 ---
 

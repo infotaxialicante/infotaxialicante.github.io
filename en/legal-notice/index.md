@@ -3,6 +3,7 @@ layout: default
 title: Legal notice
 lang: en
 ref: aviso-legal
+permalink: /en/legal-notice/
 in_footer: true
 show_in_nav: false
 ---

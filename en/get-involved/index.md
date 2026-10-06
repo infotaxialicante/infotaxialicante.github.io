@@ -3,6 +3,7 @@ layout: default
 title: Get involved
 lang: en
 ref: participa
+permalink: /en/get-involved/
 in_footer: true
 show_in_nav: false
 ---

@@ -3,6 +3,7 @@ layout: default
 title: Contacto
 lang: es
 ref: contacto
+permalink: /contacto/
 in_footer: true
 show_in_nav: false
 ---

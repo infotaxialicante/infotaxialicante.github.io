@@ -3,6 +3,7 @@ layout: default
 title: Participa
 lang: es
 ref: participa
+permalink: /participa/
 in_footer: true
 show_in_nav: false
 ---

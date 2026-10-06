@@ -3,6 +3,7 @@ layout: default
 title: Este proyecto
 lang: es
 ref: este-proyecto
+permalink: /este-proyecto/
 in_footer: true
 show_in_nav: false
 ---
