@@ -21,7 +21,12 @@
 {% if target_lang == 'en' %}{% assign target_url = '/en/' %}{% endif %}
 
 {% if page.ref %}
-  {% assign translations = site.html_pages | where: "ref", page.ref %}
+  {% if page.layout == 'post' %}
+    {% assign translations = site.posts | where: "ref", page.ref %}
+  {% else %}
+    {% assign translations = site.html_pages | where: "ref", page.ref %}
+  {% endif %}
+
   {% for item in translations %}
     {% if item.lang == target_lang %}
       {% assign target_url = item.url %}
