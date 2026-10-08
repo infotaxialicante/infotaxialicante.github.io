@@ -5,7 +5,7 @@ date: 2026-10-08 12:48:51 +02:00
 author: "InfoTaxi Alicante"
 categories: [guia-del-pasajero]
 tags: [estimador, precio taxi]
-image: /assets/img/posts/calculadora.webp/
+image: /assets/img/posts/calculadora.webp
 image_alt: "Teléfono con vista del estimador de servicios con un taxi circulando por la carretera y la Explanada y el castillo de Santa Bárbara al fondo"
 image_caption: "¡Descubre cuanto vale un servicio de taxi!"
 description: "Descubre cómo funciona el estimador interurbano de InfoTaxi Alicante y calcula de forma orientativa el precio de un servicio de taxi fuera del Área de Prestación Conjunta."
