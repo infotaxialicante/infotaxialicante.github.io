@@ -211,7 +211,7 @@
 
 #calculatorForm input:focus {
   outline: none;
-  border-color: var(--mi-primary, #10b981);
+  border-color: var(--mi-primary);
   box-shadow: 0 0 0 3px rgba(var(--mi-primary-rgb), 0.15);
 }
 

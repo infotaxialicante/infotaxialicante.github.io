@@ -65,7 +65,7 @@
 .panel-controles-mapa input[type="search"]:focus {
   border-color: var(--mi-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(var(--mi-primary-rgb, 16, 185, 129), 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--mi-primary-rgb), 0.15);
 }
 
 /* Switch PMR */
