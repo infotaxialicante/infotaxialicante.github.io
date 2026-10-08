@@ -212,7 +212,7 @@
 #calculatorForm input:focus {
   outline: none;
   border-color: var(--mi-primary, #10b981);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--mi-primary-rgb), 0.15);
 }
 
 /* Espaciado para los labels y opciones de radio/checkbox */
