@@ -54,17 +54,21 @@ layout: default
 
             {% assign cat_slug = category | slugify %}
 
-            {% assign cat_label = category | replace: '-', ' ' | capitalize %}
-
             {% if current_lang == 'en' %}
-
-              <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
-
+              {% assign cat_permalink = '/en/categories/' | append: cat_slug | append: '/' %}
             {% else %}
-
-              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
-
+              {% assign cat_permalink = '/categorias/' | append: cat_slug | append: '/' %}
             {% endif %}
+
+            {% assign cat_page = site.pages | where_exp: "p", "p.permalink == cat_permalink" | first %}
+
+            {% if cat_page and cat_page.category_name %}
+              {% assign cat_label = cat_page.category_name %}
+            {% else %}
+              {% assign cat_label = category | replace: '-', ' ' | capitalize %}
+            {% endif %}
+
+            <a href="{{ cat_permalink | relative_url }}">{{ cat_label }}</a>
 
             {% unless forloop.last %}, {% endunless %}
 

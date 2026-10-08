@@ -1,0 +1,10 @@
+{% assign target_cat_slug = page.permalink | split: '/' | last %}
+{% assign category_posts = "" | split: "" %}
+
+{% for post in site.posts %}
+  {% if post.lang == page.lang %}
+    {% if post.categories contains target_cat_slug %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endif %}
+{% endfor %}

@@ -61,25 +61,38 @@ show_in_nav: false
     <aside class="sidebar">
       <h3>{% include icon.html name="categorias" %} Categorías</h3>
       <ul class="categories-list">
+
         {% assign has_categories = false %}
+
         {% for category in site.categories %}
-          {% assign cat_name = category[0] %}
+          {% assign cat_slug = category[0] %}
           {% assign es_posts_in_cat = category[1] | where: "lang", "es" %}
-          
+
           {% if es_posts_in_cat.size > 0 %}
             {% assign has_categories = true %}
-            {% assign cat_slug = cat_name | slugify %}
+
+            {% assign cat_permalink = '/categorias/' | append: cat_slug | append: '/' %}
+            {% assign cat_page = site.pages | where_exp: "p", "p.permalink == cat_permalink" | first %}
+
+            {% if cat_page and cat_page.category_name %}
+              {% assign cat_label = cat_page.category_name %}
+            {% else %}
+              {% assign cat_label = cat_slug | replace: '-', ' ' | capitalize %}
+            {% endif %}
+
             <li>
-              <a href="{{ '/categorias/' | append: cat_slug | append: '/' | relative_url }}">
-                {{ cat_name | replace: '-', ' ' | capitalize }} <span class="category-count">({{ es_posts_in_cat.size }})</span>
+              <a href="{{ cat_permalink | relative_url }}">
+                {{ cat_label }} <span class="category-count">({{ es_posts_in_cat.size }})</span>
               </a>
             </li>
+
           {% endif %}
         {% endfor %}
-        
+
         {% unless has_categories %}
           <li><small>No hay categorías registradas.</small></li>
         {% endunless %}
+
       </ul>
     </aside>
 
