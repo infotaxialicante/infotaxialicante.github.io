@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p style="margin: 2px 0 6px 0; font-size: 0.8em;">${badgePmr}</p>
         ${notaHtml}
         <div style="margin-top: 8px; display: flex; gap: 6px;">
-          <a href="tel:${parada.telefono}" style="padding: 5px 8px; background: #2e7d32; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">${t.btnPedir}</a>
+          <a href="tel:+34${parada.telefono}" style="padding: 5px 8px; background: #2e7d32; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">${t.btnPedir}</a>
           <a href="https://www.google.com/maps/dir/?api=1&destination=${parada.lat},${parada.lng}" target="_blank" rel="noopener" style="padding: 5px 8px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; text-align: center; flex: 1;">${t.btnIr}</a>
         </div>
       </div>
