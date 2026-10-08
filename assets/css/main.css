@@ -741,6 +741,12 @@ main.container aside.sidebar span.category-count {
   display: block;
 }
 
+@media (min-width: 851px) {
+  .post-thumbnail {
+    height: 250px;
+  }
+}
+
 .blog-card-content,
 .post-info {
   padding: 1.5rem 1.5rem 1.2rem;
