@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "InfoTaxi Alicante: Un punto de encuentro del taxi en Alicante"
-date: 2026-10-05 00:20:00 +0200
+date: 2026-10-05 00:20:00 +02:00
 author: "InfoTaxi Alicante"
 categories: [el-taxi-por-dentro]
 tags: [presentación]
