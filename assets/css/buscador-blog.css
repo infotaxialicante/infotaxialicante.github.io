@@ -100,4 +100,8 @@
     font-size: 0.95rem;
     min-height: 44px;
   }
+
+  .buscador-con-sugerencias {
+    width: 100%;
+  }
 }
