@@ -10,7 +10,7 @@ image_alt: "Taxi with a customer holding InfoTaxi Alicante on their phone at the
 image_caption: "A meeting point for the taxi community in Alicante"
 description: "An independent project to bring the world of taxis closer to citizens, featuring information, tools, and content about taxis in Alicante and its Joint Service Area."
 permalink: /introduction/
-search: [manifesto, welcome, about]
+search: [manifesto, welcome, about, introduction]
 lang: en
 ref: presentacion
 ---

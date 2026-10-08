@@ -10,7 +10,7 @@ image_alt: "Taxi con un cliente que tiene InfoTaxi Alicante en su teléfono a lo
 image_caption: "Un punto de encuentro del taxi en Alicante"
 description: "Un proyecto independiente para acercar el mundo del taxi al ciudadano, con información, herramientas y contenidos sobre el taxi en Alicante y su Área de Prestación Conjunta."
 permalink: /presentacion/
-search: [manifiesto, sobre nosotros, acerca de]
+search: [manifiesto, sobre nosotros, acerca de, presentación]
 lang: es
 ref: presentacion
 ---

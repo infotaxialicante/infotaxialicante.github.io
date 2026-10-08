@@ -1,0 +1,15 @@
+<div>
+  <label for="busqueda-blog"><strong>{% include icon.html name="lupa" %}Buscar en el blog</strong></label>
+  <div class="buscador-con-sugerencias">
+    <input 
+      type="search" 
+      id="busqueda-blog" 
+      placeholder="Ej: tarifas, taxímetro, aeropuerto..."
+      autocomplete="off"
+    />
+    <div id="resultados-busqueda-blog" class="sugerencias-lista"></div>
+  </div>
+  <div id="mensaje-sin-resultados-blog" class="mensaje-sin-resultados" style="display: none;" role="status">
+    {% include icon.html name="aviso" %} No se encontraron resultados. Prueba con otros términos.
+  </div>
+</div>

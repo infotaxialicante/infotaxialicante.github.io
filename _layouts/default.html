@@ -102,5 +102,11 @@
 
   <!-- JavaScript principal -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  {% if page.pagination_section == "blog" %}
+    <link rel="stylesheet" href="{{ '/assets/css/buscador-blog.css' | relative_url }}">
+    <script src="{{ '/assets/js/fuse.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/buscador-blog.js' | relative_url }}"></script>
+  {% endif %}
 </body>
 </html>

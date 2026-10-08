@@ -66,6 +66,10 @@ layout: default
 
 <p class="blog-description">{{ archive_description }}</p>
 
+{% if page.pagination_section == "blog" %}
+  {% include buscador-blog.html %}
+{% endif %}
+
 <div class="blog-grid">
   {% include archive-posts.html posts=page_posts %}
 </div>
