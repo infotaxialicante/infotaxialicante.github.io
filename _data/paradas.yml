@@ -192,8 +192,8 @@
   nombre: "Centro Comercial Puerta de Alicante"
   direccion: "Calle de Rio Muni, 10"
   zona: "babel"
-  lat: 38.341832
-  lng: -0.516465
+  lat: 38.342353
+  lng: -0.517074
   pmr: true
   telefono: "965252511"
 
@@ -368,8 +368,8 @@
   nombre: "Centro Comercial Torregolf"
   direccion: "Avenida Historiador Vicente Ramos, 3"
   zona: "albufera"
-  lat: 38.365997
-  lng: -0.430305
+  lat: 38.365745
+  lng: -0.430739
   pmr: true
   telefono: "965252511"
   keywords: ["TorreMauro"]

@@ -10,6 +10,7 @@ Todos los scripts deben ejecutarse desde la **raíz del proyecto**.
 ./scripts/generar-paginacion.rb
 ./scripts/generar-tags.rb
 ./scripts/listar_proyecto.sh
+./scripts/recopilar-posts.rb
 ```
 
 Si algún script no tiene permisos de ejecución, pueden concederse con:
@@ -193,6 +194,64 @@ Desde la raíz del proyecto:
 
 ---
 
+## `recopilar-posts.rb`
+
+Genera un informe de texto con la información del *front matter* de los artículos publicados de InfoTaxi Alicante, separado por idioma.
+
+### Funcionamiento
+
+El script:
+
+- busca los artículos de `_posts/`;
+- lee únicamente el *front matter* de cada artículo;
+- identifica el idioma mediante el campo `lang`;
+- separa los artículos en español (`es`) e inglés (`en`);
+- ordena los artículos de cada idioma por fecha, del más reciente al más antiguo;
+- recopila los campos `title`, `date`, `last_modified_at`, `author`, `categories`, `tags`, `image`, `image_alt`, `image_caption`, `description`, `permalink`, `search`, `lang` y `ref`;
+- muestra los campos ausentes o vacíos para facilitar la revisión editorial;
+- incluye un resumen con el número de artículos por idioma y los posibles errores de lectura;
+- muestra en un apartado independiente los artículos cuyo idioma falta o no corresponde a `es` o `en`.
+
+Los campos que no estén definidos o tengan valores vacíos se muestran como `—`. Las listas vacías, como `tags: []`, se consideran válidas y no provocan errores.
+
+### Archivo generado
+
+El informe se guarda en:
+
+```text
+_drafts/recopilacion-posts.txt
+```
+
+Si el archivo no existe, lo crea. Si ya existe, lo sobrescribe con la información actualizada.
+
+### Seguridad del proceso
+
+Este script **solo lee los artículos de `_posts/` y escribe el informe `_drafts/recopilacion-posts.txt`**.
+
+Nunca:
+
+- modifica, elimina o renombra artículos;
+- modifica borradores de `_drafts/`;
+- recorre otras carpetas del proyecto;
+- modifica archivos de configuración, páginas generadas ni otros archivos;
+- modifica el propio script.
+
+No crea la carpeta `_drafts/`, ya que se presupone que existe.
+
+Si un artículo no puede interpretarse, el script registra el error en el informe y continúa con los demás cuando es posible.
+
+El informe queda excluido de Git si `_drafts/` ya está incluido en `.gitignore` y el archivo no estaba previamente bajo control de versiones.
+
+### Ejecución
+
+Desde la raíz del proyecto:
+
+```bash
+./scripts/recopilar-posts.rb
+```
+
+---
+
 ## Ubicación de los scripts
 
 Los scripts se mantienen agrupados en la carpeta `scripts/`:
@@ -202,7 +261,8 @@ scripts/
 ├── README.md
 ├── generar-paginacion.rb
 ├── generar-tags.rb
-└── listar_proyecto.sh
+├── listar_proyecto.sh
+└── recopilar-posts.rb
 ```
 
 Todos ellos deben ejecutarse desde la raíz del proyecto, por ejemplo:
@@ -211,4 +271,5 @@ Todos ellos deben ejecutarse desde la raíz del proyecto, por ejemplo:
 ./scripts/generar-paginacion.rb
 ./scripts/generar-tags.rb
 ./scripts/listar_proyecto.sh
+./scripts/recopilar-posts.rb
 ```
