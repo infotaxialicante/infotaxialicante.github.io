@@ -37,12 +37,18 @@ def read_front_matter(path)
     return [nil, "No empieza con ---"] unless file.gets&.strip == "---"
 
     yaml_lines = []
+    raw_dates = {}
     closed = false
 
     file.each_line do |line|
       if line.strip == "---"
         closed = true
         break
+      end
+
+      # Conserva el texto original de las fechas antes de interpretar el YAML.
+      if (match = line.match(/^(date|last_modified_at):\s*(.*?)\s*$/))
+        raw_dates[match[1]] = match[2]
       end
 
       yaml_lines << line
@@ -58,6 +64,11 @@ def read_front_matter(path)
     )
 
     return [nil, "El front matter no contiene campos YAML"] unless data.is_a?(Hash)
+
+    # Guarda las fechas originales para mostrarlas sin convertirlas a UTC.
+    raw_dates.each do |field, value|
+      data["__raw_#{field}"] = value
+    end
 
     [data, nil]
   end
@@ -203,7 +214,8 @@ def main
       report << "Archivo: #{post[:path]}"
 
       FIELDS.each do |field|
-        report << "#{field}: #{format_value(post[:data][field])}"
+        value = post[:data]["__raw_#{field}"] || post[:data][field]
+        report << "#{field}: #{format_value(value)}"
       end
     end
 
