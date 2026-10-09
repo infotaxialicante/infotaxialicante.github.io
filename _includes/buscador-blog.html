@@ -1,15 +1,19 @@
 <div>
-  <label for="busqueda-blog"><strong>{% include icon.html name="lupa" %}Buscar en el blog</strong></label>
+  <label for="busqueda-blog">
+    <strong>{% include icon.html name="lupa" %}{% if page.lang == "en" %}Search the blog{% else %}Buscar en el blog{% endif %}</strong>
+  </label>
+
   <div class="buscador-con-sugerencias">
-    <input 
-      type="search" 
-      id="busqueda-blog" 
-      placeholder="Ej: tarifas, taxímetro, aeropuerto..."
+    <input
+      type="search"
+      id="busqueda-blog"
+      placeholder="{% if page.lang == 'en' %}E.g.: fares, taximeter, airport...{% else %}Ej: tarifas, taxímetro, aeropuerto...{% endif %}"
       autocomplete="off"
     />
     <div id="resultados-busqueda-blog" class="sugerencias-lista"></div>
   </div>
+
   <div id="mensaje-sin-resultados-blog" class="mensaje-sin-resultados" style="display: none;" role="status">
-    {% include icon.html name="aviso" %} No se encontraron resultados. Prueba con otros términos.
+    {% include icon.html name="aviso" %}{% if page.lang == "en" %}No results found. Try different search terms.{% else %}No se encontraron resultados. Prueba con otros términos.{% endif %}
   </div>
 </div>
