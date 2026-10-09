@@ -4,7 +4,7 @@ title: "InfoTaxi Alicante: Interurban fare estimator"
 date: 2026-10-08 12:48:51 +02:00
 author: "InfoTaxi Alicante"
 categories: [passenger-guide]
-tags: [fare-estimator, taxi fare]
+tags: [tools]
 image: /assets/img/posts/calculadora.webp
 image_alt: "Phone showing the fare estimator with a taxi driving along the road and Alicante's Explanada and Santa Bárbara Castle in the background"
 image_caption: "Find out how much a taxi journey costs!"
