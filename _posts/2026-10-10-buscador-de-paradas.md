@@ -17,7 +17,7 @@ ref: buscador-paradas
 
 Cada año, por Alicante pasan muchos visitantes, tanto nacionales como internacionales. A algunos de ellos, en algún momento, les hará falta un taxi y querrán saber, sin perder tiempo, dónde se encuentra la parada más cercana.
 
-La segunda herramienta que he incorporado a InfoTaxi Alicante permite localizar las paradas del Área de Prestación Conjunta de Alicante y llegar a ellas.
+La segunda herramienta que he incorporado a InfoTaxi Alicante permite localizar las paradas del Área de Prestación Conjunta de Alicante y obtener la ruta hasta cada una.
 
 Al disponer de un sistema propio para marcar las paradas, he revisado personalmente sus coordenadas para ajustarlas a pie de calle y evitar posibles errores al llegar a ellas.
 

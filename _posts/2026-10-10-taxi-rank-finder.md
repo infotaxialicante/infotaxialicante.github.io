@@ -17,7 +17,7 @@ ref: buscador-paradas
 
 Every year, Alicante welcomes many visitors from both Spain and abroad. At some point, some of them may need a taxi and want to find the nearest taxi rank without wasting time.
 
-The second tool I have added to InfoTaxi Alicante allows users to find taxi ranks within the Alicante Joint Service Area and get directions to them.
+The second tool I have added to InfoTaxi Alicante allows users to find taxi ranks within the Alicante Joint Service Area and get directions to each one.
 
 As I use my own system to mark taxi rank locations, I have personally checked their coordinates to ensure they are positioned at street level and help prevent potential errors when reaching them.
 
