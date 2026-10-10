@@ -8,11 +8,13 @@ layout: null
   {%- if page.sitemap == false or page.url contains '404' or page.url contains '.xml' or page.url contains 'feed' %}{% continue %}{% endif -%}
   <url>
     <loc>{{ page.url | replace: 'index.html', '' | absolute_url }}</loc>
-    {%- if page.date %}
+    {%- if page.date -%}
     <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
-    {%- endif %}
-    <changefreq>{% if page.collection == 'posts' %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if page.url == '/' or page.url == '/en/' %}1.0{% elsif page.collection == 'posts' %}0.8{% else %}0.6{% endif %}</priority>
+    {%- elsif page.last_modified_at -%}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    <changefreq>{%- if page.layout == 'post' or page.date -%}weekly{%- else -%}monthly{%- endif -%}</changefreq>
+    <priority>{%- if page.url == '/' or page.url == '/en/' or page.url == '/en' -%}1.0{%- elsif page.layout == 'post' or page.date -%}0.8{%- else -%}0.6{%- endif -%}</priority>
     {%- if page.ref and page.lang -%}
       {%- assign alternates = pages | where: "ref", page.ref -%}
       {%- for alt in alternates -%}
