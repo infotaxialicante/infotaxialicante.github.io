@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "InfoTaxi Alicante: Interurban fare estimator"
+title: "InfoTaxi Alicante: interurban fare estimator"
 date: 2026-10-08 12:48:51 +02:00
 author: "InfoTaxi Alicante"
 categories: [passenger-guide]
