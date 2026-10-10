@@ -28,10 +28,17 @@
 
         {% if post_category %}
           {% assign cat_slug = post_category | slugify %}
-          {% assign cat_label = post_category | replace: '-', ' ' | capitalize %}
-          
+          {% assign cat_permalink = '/en/categories/' | append: cat_slug | append: '/' %}
+          {% assign cat_page = site.pages | where_exp: "p", "p.permalink == cat_permalink" | first %}
+
+          {% if cat_page and cat_page.category_name %}
+            {% assign cat_label = cat_page.category_name %}
+          {% else %}
+            {% assign cat_label = post_category | replace: '-', ' ' | capitalize %}
+          {% endif %}
+
           <span class="breadcrumbs-separator" aria-hidden="true">›</span>
-          <a href="{{ '/en/categories/' | append: cat_slug | append: '/' | relative_url }}">{{ cat_label }}</a>
+          <a href="{{ cat_permalink | relative_url }}">{{ cat_label }}</a>
         {% endif %}
 
         <span class="breadcrumbs-separator" aria-hidden="true">›</span>
