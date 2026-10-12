@@ -82,21 +82,21 @@ end
 # ============================================================
 # Calcular páginas necesarias
 #
-# 0  artículos → 0 páginas
-# 1–5           → 1 página
-# 6             → 2 páginas
-# 7–11          → 2 páginas
-# 12            → 3 páginas
-# 18            → 4 páginas
+# 0 artículos  → 0 páginas
+# 1–6          → 1 página
+# 7–12         → 2 páginas
+# 13–18        → 3 páginas
+# 19–24        → 4 páginas
 # etc.
 #
-# En los múltiplos de 6 se prepara también la página siguiente.
+# Solo se necesita una página adicional cuando se supera
+# un múltiplo de 6: 7, 13, 19, 25...
 # ============================================================
 
 def pages_needed(count)
   return 0 if count == 0
 
-  (count / POSTS_PER_PAGE) + 1
+  (count + POSTS_PER_PAGE - 1) / POSTS_PER_PAGE
 end
 
 # ============================================================
