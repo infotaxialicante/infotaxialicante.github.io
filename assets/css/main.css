@@ -969,7 +969,7 @@ main.container aside.sidebar span.category-count {
 
 /* --- TABLAS MODERNAS Y LIMPIAS --- */
 .post-content table {
-  width: 100%;                    /* Ocupa el 100% del contenedor siempre */
+  width: 100%;                   
   border-collapse: separate;
   border-spacing: 0;
   margin: 1.5rem 0;
@@ -1007,11 +1007,26 @@ main.container aside.sidebar span.category-count {
   text-align: right;
 }
 
-/* Ajuste para móvil sin encoger la tabla */
+/*Ajuste para móvil sin encoger la tabla*/
 @media (max-width: 640px) {
   .post-content {
-    overflow-x: auto;            /* El contenedor gestiona el scroll si la tabla excede el ancho */
+    overflow-x: auto;       
   }
+}
+
+/* Tablas responsive */
+.post-content .table-responsive {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.post-content .table-responsive table {
+  width: max-content;
+  min-width: 100%;
+  margin: 1.5rem 0;
 }
 
 /* Pie del artículo */
@@ -2087,4 +2102,80 @@ button > .icon {
 
 .autor-bio p:last-child {
   margin-bottom: 0;
+}
+
+/* Estilos para paginación */
+
+/* Paginación del blog */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2.5rem 0;
+}
+
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.pagination a,
+.pagination-current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1604e;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.pagination a {
+  color: #d1604e;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination a:hover {
+  color: #fff;
+  background-color: #d1604e;
+}
+
+.pagination a:focus-visible {
+  outline: 2px solid #d1604e;
+  outline-offset: 3px;
+}
+
+.pagination-current {
+  color: #fff;
+  background-color: #d1604e;
+  border-color: #d1604e;
+}
+
+/* Ajustes para móvil */
+@media (max-width: 480px) {
+  .pagination {
+    gap: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  .pagination-pages {
+    gap: 0.3rem;
+  }
+
+  .pagination a,
+  .pagination-current {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0.4rem 0.6rem;
+  }
 }

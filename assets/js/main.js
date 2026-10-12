@@ -85,3 +85,47 @@ if (backToTop) {
   toggleBackToTop();
 }
 
+// ============================================================
+// TABLAS RESPONSIVE - Desplazamiento horizontal y formato
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.post-content table').forEach(function(table) {
+
+    // 1. Mantener unidos los importes, porcentajes y sus símbolos
+    function fixEuroSpacing(table) {
+      const walker = document.createTreeWalker(
+        table,
+        NodeFilter.SHOW_TEXT
+      );
+
+      const textNodes = [];
+      let node;
+
+      while ((node = walker.nextNode())) {
+        textNodes.push(node);
+      }
+
+      textNodes.forEach(function(textNode) {
+        textNode.textContent = textNode.textContent.replace(
+          /(\d[\d.,]*)(?:\s|\u00a0)+([€%])/g,
+          '$1\u00a0$2'
+        );
+      });
+    }
+
+    fixEuroSpacing(table);
+
+    // 2. Envolver cada tabla para permitir desplazamiento horizontal
+    // sin desplazar el resto de la página
+    if (table.parentElement.classList.contains('table-responsive')) {
+      return;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-responsive';
+
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+});

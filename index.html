@@ -103,7 +103,7 @@ show_in_nav: false
         {% assign spanish_posts = site.posts | where: "lang", "es" %}
         {% assign modified_posts = spanish_posts | where_exp: "post", "post.last_modified_at" | sort: "last_modified_at" | reverse %}
 
-        {% for post in modified_posts limit:4 %}
+        {% for post in modified_posts limit:2 %}
           <article class="post-card">
             {% if post.image %}
               <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-thumbnail">
