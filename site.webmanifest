@@ -6,8 +6,8 @@
   "short_name": "InfoTaxi",
   "start_url": "{{ '/' | relative_url }}",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#10b981",
+  "background_color": "#f4f2ed",
+  "theme_color": "#f4f2ed",
   "icons": [
     {
       "src": "{{ '/assets/img/favicons/android-chrome-192x192.png' | relative_url }}",
