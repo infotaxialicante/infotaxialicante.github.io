@@ -477,10 +477,10 @@
 - id: "svc-centro"
   municipio: "san-vicente"
   nombre: "Centro de salud 2"
-  direccion: "Calle Doctor Marañon esq. Avenida de Alicante "
+  direccion: "Calle Doctor Marañón"
   zona: "centro"
-  lat: 38.392237
-  lng: -0.517341
+  lat: 38.391806
+  lng: -0.517933
   pmr: true
   telefono: "965252511"
   keywords: ["Urgencias", "Parada tranvía", "Estación TRAM", "San Vicente Ambulatorio"]
